@@ -1,88 +1,123 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="3 rule">
+  <meta name="robots" content="noindex,nofollow">
+  
+  <!-- CSRF Token -->
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <title>{{ config('app.name', 'Kids Weekend') }}</title>
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+  <!-- Styles -->
+  <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+</head>
+<body>
+  <div id="app">
+    <router-view></router-view>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    window.Laravel = { csrfToken: '{{ csrf_token() }}' }
+  </script>
+  <script src="{{ asset('js/app.js') }}" defer></script>
+</body>
+</html>
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="{{ app()->getLocale() }}">-->
+<!--<head>-->
+<!--    <meta charset="utf-8">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+<!--    <meta name="csrf-token" content="{{ csrf_token() }}">-->
 
-    <title>3rules</title>
+<!--    <title>3rules</title>-->
 
 
     <!-- Bootstrap ------------------------------------>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
     <!-- Latest compiled and minified JavaScript -->
     
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
+<!--    <link href="{{ asset('css/app.css') }}" rel="stylesheet">-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div id="app">-->
+<!--        <nav class="navbar navbar-default navbar-static-top">-->
+<!--            <div class="container">-->
+<!--                <div class="navbar-header">-->
 
                     <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+<!--                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">-->
+<!--                        <span class="sr-only">Toggle Navigation</span>-->
+<!--                        <span class="icon-bar"></span>-->
+<!--                        <span class="icon-bar"></span>-->
+<!--                        <span class="icon-bar"></span>-->
+<!--                    </button>-->
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        3rules
-                    </a>
-                </div>
+<!--                    <a class="navbar-brand" href="{{ url('/') }}">-->
+<!--                        3rules-->
+<!--                    </a>-->
+<!--                </div>-->
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+<!--                <div class="collapse navbar-collapse" id="app-navbar-collapse">-->
                     <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
+<!--                    <ul class="nav navbar-nav">-->
+<!--                        &nbsp;-->
+<!--                    </ul>-->
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
+<!--                    <ul class="nav navbar-nav navbar-right">-->
                         <!-- Authentication Links -->
-                        @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+<!--                        @guest-->
+<!--                            <li><a href="{{ route('login') }}">Login</a></li>-->
+<!--                            <li><a href="{{ route('register') }}">Register</a></li>-->
+<!--                        @else-->
+<!--                            <li class="dropdown">-->
+<!--                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>-->
+<!--                                    {{ Auth::user()->name }} <span class="caret"></span>-->
+<!--                                </a>-->
 
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
+<!--                                <ul class="dropdown-menu">-->
+<!--                                    <li>-->
+<!--                                        <a href="{{ route('logout') }}"-->
+<!--                                            onclick="event.preventDefault();-->
+<!--                                                     document.getElementById('logout-form').submit();">-->
+<!--                                            Logout-->
+<!--                                        </a>-->
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
+<!--                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">-->
+<!--                                            {{ csrf_field() }}-->
+<!--                                        </form>-->
+<!--                                    </li>-->
+<!--                                </ul>-->
+<!--                            </li>-->
+<!--                        @endguest-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </nav>-->
 
-        @yield('content')
-    </div>
+<!--        @yield('content')-->
+<!--    </div>-->
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-</body>
-</html>
+<!--    <script src="{{ asset('js/app.js') }}"></script>-->
+<!--</body>-->
+<!--</html>-->
