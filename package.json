@@ -24,7 +24,10 @@
     "bulma": "^0.7.2",
     "css-loader": "^2.1.0",
     "lodash-es": "^4.17.11",
+    "vue-progressive-image": "^3.2.0",
     "vue-router": "^3.0.2",
+    "vue-template-compiler": "^2.5.22",
+    "vueify": "^9.4.1",
     "vuex": "^3.0.1",
     "vuex-router-sync": "^5.0.0"
   }
