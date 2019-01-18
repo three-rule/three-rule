@@ -17,7 +17,6 @@ class CreateDiscussionsTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('club_id');
-            $table->integer('count');
             $table->string('body');
             $table->string('image');
             $table->timestamps();

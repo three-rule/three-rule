@@ -17,7 +17,6 @@ class CreateJournalsTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('club_id');
-            $table->string('goal_today');
             $table->date('activity_date');
             $table->string('title');
             $table->string('appeal');
