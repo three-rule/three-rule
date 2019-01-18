@@ -1,5 +1,5 @@
 <template>
-    <div class="register-login-container">
+    <div class="register-login-container is-hidden-mobile">
         <div class="register-login">
             <p class="register-login-text">まずは無料登録！</p>
             <div class="register-login-banner">
@@ -32,10 +32,12 @@ export default {
 .register-login-text {
     text-align: center;
     margin-bottom: 8px;
+    letter-spacing: 8px;
+    font-weight: bold;
 }
 .register-login-banner {
     display: flex;
-    width: 350px;
+    width: 400px;
 }
 .register,
 .login

@@ -72,7 +72,7 @@ export default {
   content: '';
   display: block;
   height: 4px;
-  width: 76px;
+  width: 120%;
   border-bottom: 2px solid black;
 }
 
