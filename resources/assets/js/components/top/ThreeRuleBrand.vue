@@ -1,7 +1,7 @@
 <template>
     <div class="brand-container">
         <div class="brand">
-            <router-link to="/about">3 rule</router-link>
+            <router-link to="/">3 rule</router-link>
         </div>
     </div>
 </template>

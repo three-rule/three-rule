@@ -41832,7 +41832,7 @@ if(false) {
 
 exports = module.exports = __webpack_require__(0)(false);
 // Module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n.footer[data-v-0654b345] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    font-weight: bold;\n}\n.footer > ul[data-v-0654b345] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n}\n.footer ul li[data-v-0654b345] {\n    margin: 0;\n    padding: 0;\n    list-style-type: none;\n    margin-right: 16px;\n}\na[data-v-0654b345] {\n    color: #4A4A4A;\n}\n@media screen and (max-width: 768px) {\n.footer[data-v-0654b345] {\n        display: block;\n}\n.copyright[data-v-0654b345] {\n        margin: 8px auto;\n}\n}\n@media screen and (min-width: 1024px) {\na[data-v-0654b345]::after {\n      content: '';\n      display: block;\n      width: 0;\n      margin: 8px auto 0;\n      border-bottom: 1px solid black;\n      -webkit-transition: width 0.2s ease-in-out;\n      transition: width 0.2s ease-in-out;\n}\na[data-v-0654b345]:hover::after {\n      width: 100%;\n}\n}\n", ""]);
 
 
 
@@ -41840,25 +41840,6 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 /* 55 */
 /***/ (function(module, exports) {
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -41891,80 +41872,45 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("footer", { staticClass: "footer is-dark has-text-centered" }, [
-      _c("div", { staticClass: "columns is-desktop" }, [
-        _c("div", { staticClass: "column content" }, [
-          _c("h2", { staticClass: "subtitle is-size-6" }, [
-            _vm._v("\n                3rulesについて\n            ")
-          ]),
-          _vm._v(" "),
-          _c("div", {}, [
-            _c("a", { staticClass: "is-block", attrs: { href: "#" } }, [
-              _vm._v("会社概要(運営会社)")
-            ]),
-            _vm._v(" "),
-            _c("a", { staticClass: "is-block", attrs: { href: "#" } }, [
-              _vm._v("プライバシーポリシー")
-            ]),
-            _vm._v(" "),
-            _c("a", { staticClass: "is-block", attrs: { href: "#" } }, [
-              _vm._v("3rule 利用規約")
-            ]),
-            _vm._v(" "),
-            _c("a", { staticClass: "is-block", attrs: { href: "#" } }, [
-              _vm._v("個人データの安全管理に係る基本方針")
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "column content has-text-centered" }, [
-          _c("h2", { staticClass: "subtitle is-size-6" }, [
-            _vm._v("\n                3rulesを見る\n            ")
-          ]),
-          _vm._v(" "),
-          _c("div", {}, [
-            _c("a", { staticClass: "is-block", attrs: { href: "#" } }, [
-              _vm._v("test1")
-            ]),
-            _vm._v(" "),
-            _c("a", { staticClass: "is-block", attrs: { href: "#" } }, [
-              _vm._v("test2")
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "column content has-text-centered" }, [
-          _c("h2", { staticClass: "subtitle is-size-6" }, [
-            _vm._v("\n                Contact\n            ")
-          ]),
-          _vm._v(" "),
-          _c("a", { staticClass: "icon has-text-info", attrs: { href: "#" } }, [
-            _c("i", { staticClass: "fab fa-twitter" })
-          ]),
-          _vm._v(" "),
-          _c("a", { staticClass: "icon has-text-info", attrs: { href: "#" } }, [
-            _c("i", { staticClass: "fab fa-facebook" })
-          ]),
-          _vm._v(" "),
-          _c(
-            "a",
-            { staticClass: "icon has-text-danger", attrs: { href: "#" } },
-            [_c("i", { staticClass: "fab fa-instagram" })]
-          )
-        ])
-      ]),
+  return _c("footer", { staticClass: "footer" }, [
+    _c("ul", [
+      _c(
+        "li",
+        [_c("router-link", { attrs: { to: "/about" } }, [_vm._v("ABOUT")])],
+        1
+      ),
       _vm._v(" "),
-      _c("p", [_vm._v("© 2019 3rules inc.")])
+      _c(
+        "li",
+        [_c("router-link", { attrs: { to: "/news" } }, [_vm._v("NEWS")])],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "li",
+        [_c("router-link", { attrs: { to: "/service" } }, [_vm._v("SERVICE")])],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "li",
+        [_c("router-link", { attrs: { to: "/recruit" } }, [_vm._v("RECRUIT")])],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "li",
+        [_c("router-link", { attrs: { to: "/contact" } }, [_vm._v("CONTACT")])],
+        1
+      )
+    ]),
+    _vm._v(" "),
+    _c("p", { staticClass: "copyright" }, [
+      _vm._v("© 2019 3rules, Inc. Made with dream.")
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -44813,12 +44759,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_TheHeader___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_TheHeader__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_top_ThreeRuleBrand__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_top_ThreeRuleBrand___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_top_ThreeRuleBrand__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_top_DownloadLogo__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_top_DownloadLogo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_top_DownloadLogo__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_top_RegisterLoginLogo__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_top_RegisterLoginLogo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_top_RegisterLoginLogo__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_TheFooter__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_TheFooter___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_TheFooter__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_top_RegisterLoginLogo__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_top_RegisterLoginLogo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_top_RegisterLoginLogo__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_TheFooter__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_TheFooter___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_TheFooter__);
 //
 //
 //
@@ -44835,16 +44779,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-
+// import DownloadLogo from '../components/top/DownloadLogo';
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     components: {
         TheHeader: __WEBPACK_IMPORTED_MODULE_0__components_TheHeader___default.a,
         ThreeRuleBrand: __WEBPACK_IMPORTED_MODULE_1__components_top_ThreeRuleBrand___default.a,
-        DownloadLogo: __WEBPACK_IMPORTED_MODULE_2__components_top_DownloadLogo___default.a,
-        RegisterLoginLogo: __WEBPACK_IMPORTED_MODULE_3__components_top_RegisterLoginLogo___default.a,
-        TheFooter: __WEBPACK_IMPORTED_MODULE_4__components_TheFooter___default.a
+        // DownloadLogo,
+        RegisterLoginLogo: __WEBPACK_IMPORTED_MODULE_2__components_top_RegisterLoginLogo___default.a,
+        TheFooter: __WEBPACK_IMPORTED_MODULE_3__components_TheFooter___default.a
     },
     data: function data() {
         return {};
@@ -44915,7 +44859,7 @@ var render = function() {
     _c(
       "div",
       { staticClass: "brand" },
-      [_c("router-link", { attrs: { to: "/about" } }, [_vm._v("3 rule")])],
+      [_c("router-link", { attrs: { to: "/" } }, [_vm._v("3 rule")])],
       1
     )
   ])
@@ -44931,195 +44875,11 @@ if (false) {
 }
 
 /***/ }),
-/* 69 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(70)
-}
-var normalizeComponent = __webpack_require__(2)
-/* script */
-var __vue_script__ = __webpack_require__(72)
-/* template */
-var __vue_template__ = __webpack_require__(73)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-e20e66f8"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/top/DownloadLogo.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-e20e66f8", Component.options)
-  } else {
-    hotAPI.reload("data-v-e20e66f8", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 70 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(71);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(1)("231449ac", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/dist/cjs.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-e20e66f8\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./DownloadLogo.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/dist/cjs.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-e20e66f8\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./DownloadLogo.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 71 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(0)(false);
-// Module
-exports.push([module.i, "\n.download-container[data-v-e20e66f8] {\n    position: relative;\n}\n.download[data-v-e20e66f8] {\n    position: fixed;\n    bottom: 30px;\n    right: 30px;\n    z-index: 1000;\n}\n.download-text[data-v-e20e66f8] {\n    text-align: center;\n    margin-bottom: 8px;\n}\n.download-banner[data-v-e20e66f8] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.ios[data-v-e20e66f8],\n.android[data-v-e20e66f8]\n{\n    width: 200px;\n    margin: 0px 4px;\n}\n", ""]);
-
-
-
-/***/ }),
-/* 72 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({});
-
-/***/ }),
-/* 73 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "download-container" }, [
-      _c("div", { staticClass: "download" }, [
-        _c("p", { staticClass: "download-text" }, [
-          _vm._v("まずはアプリを無料ダウンロード！")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "download-banner" }, [
-          _c("div", { staticClass: "ios" }, [
-            _c(
-              "a",
-              {
-                attrs: {
-                  href:
-                    "https://itunes.apple.com/jp/app/id1247917096?l=ja&mt=8",
-                  target: "_blank"
-                }
-              },
-              [
-                _c("img", {
-                  attrs: {
-                    src: "/images/banner_ios.png",
-                    alt: "Download on the App Store"
-                  }
-                })
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "android" }, [
-            _c(
-              "a",
-              {
-                attrs: {
-                  href:
-                    "https://play.google.com/store/apps/details?id=jp.co.bank.cash&hl=ja",
-                  target: "_blank"
-                }
-              },
-              [
-                _c("img", {
-                  attrs: {
-                    src: "/images/banner_android.png",
-                    alt: "GET IT ON Google Play"
-                  }
-                })
-              ]
-            )
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-e20e66f8", module.exports)
-  }
-}
-
-/***/ }),
+/* 69 */,
+/* 70 */,
+/* 71 */,
+/* 72 */,
+/* 73 */,
 /* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -45202,7 +44962,7 @@ if(false) {
 
 exports = module.exports = __webpack_require__(0)(false);
 // Module
-exports.push([module.i, "\n.register-login-container[data-v-7327f1f0] {\n    position: relative;\n}\n.register-login[data-v-7327f1f0] {\n    position: fixed;\n    bottom: 30px;\n    right: 30px;\n    z-index: 1000;\n}\n.register-login-text[data-v-7327f1f0] {\n    text-align: center;\n    margin-bottom: 8px;\n}\n.register-login-banner[data-v-7327f1f0] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    width: 350px;\n}\n.register[data-v-7327f1f0],\n.login[data-v-7327f1f0]\n{\n    width: 100%;\n    margin: 0px 4px;\n    text-align: center;\n}\n.btn-register[data-v-7327f1f0] {\n    color: white;\n    background-color: #42ED5A;\n    border: none;\n    width: 100%;\n}\n.btn-login[data-v-7327f1f0] {\n    color: white;\n    background-color: #5BCDFF;\n    border: none;\n    width: 100%;\n}\n", ""]);
+exports.push([module.i, "\n.register-login-container[data-v-7327f1f0] {\n    position: relative;\n}\n.register-login[data-v-7327f1f0] {\n    position: fixed;\n    bottom: 30px;\n    right: 30px;\n    z-index: 1000;\n}\n.register-login-text[data-v-7327f1f0] {\n    text-align: center;\n    margin-bottom: 8px;\n    letter-spacing: 8px;\n    font-weight: bold;\n}\n.register-login-banner[data-v-7327f1f0] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    width: 400px;\n}\n.register[data-v-7327f1f0],\n.login[data-v-7327f1f0]\n{\n    width: 100%;\n    margin: 0px 4px;\n    text-align: center;\n}\n.btn-register[data-v-7327f1f0] {\n    color: white;\n    background-color: #42ED5A;\n    border: none;\n    width: 100%;\n}\n.btn-login[data-v-7327f1f0] {\n    color: white;\n    background-color: #5BCDFF;\n    border: none;\n    width: 100%;\n}\n", ""]);
 
 
 
@@ -45239,44 +44999,48 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "register-login-container" }, [
-    _c("div", { staticClass: "register-login" }, [
-      _c("p", { staticClass: "register-login-text" }, [
-        _vm._v("まずは無料登録！")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "register-login-banner" }, [
-        _c(
-          "div",
-          { staticClass: "register" },
-          [
-            _c(
-              "router-link",
-              {
-                staticClass: "button btn-register",
-                attrs: { to: "/register" }
-              },
-              [_vm._v("新規登録")]
-            )
-          ],
-          1
-        ),
+  return _c(
+    "div",
+    { staticClass: "register-login-container is-hidden-mobile" },
+    [
+      _c("div", { staticClass: "register-login" }, [
+        _c("p", { staticClass: "register-login-text" }, [
+          _vm._v("まずは無料登録！")
+        ]),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "login" },
-          [
-            _c(
-              "router-link",
-              { staticClass: "button btn-login", attrs: { to: "/login" } },
-              [_vm._v("ログイン")]
-            )
-          ],
-          1
-        )
+        _c("div", { staticClass: "register-login-banner" }, [
+          _c(
+            "div",
+            { staticClass: "register" },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "button btn-register",
+                  attrs: { to: "/register" }
+                },
+                [_vm._v("新規登録")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "login" },
+            [
+              _c(
+                "router-link",
+                { staticClass: "button btn-login", attrs: { to: "/login" } },
+                [_vm._v("ログイン")]
+              )
+            ],
+            1
+          )
+        ])
       ])
-    ])
-  ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -45303,7 +45067,9 @@ var render = function() {
       _vm._v(" "),
       _c("register-login-logo"),
       _vm._v(" "),
-      _c("section", { staticClass: "top" })
+      _c("section", { staticClass: "top" }),
+      _vm._v(" "),
+      _c("the-footer")
     ],
     1
   )
@@ -45962,7 +45728,7 @@ if(false) {
 
 exports = module.exports = __webpack_require__(0)(false);
 // Module
-exports.push([module.i, "\n.heading[data-v-e596b134]\n{\n  position: relative;\n  display: inline-block;\n  margin: 30px auto 30px;\n  padding-bottom: 15px;\n  letter-spacing: 2px;\n  font-size: 48px;\n  font-weight: bold;\n  color: black;\n}\n.heading[data-v-e596b134]::after {\n  content: '';\n  display: block;\n  height: 4px;\n  width: 76px;\n  border-bottom: 2px solid black;\n}\n.about-container[data-v-e596b134] {\n}\n.about-heading-wrapper[data-v-e596b134]{\n}\n.about-text[data-v-e596b134] {\n    margin-bottom: 60px;\n    font-size: 22px;\n    font-weight: bold;\n    line-height: 2;\n    letter-spacing: 0.05em;\n}\n.about-list[data-v-e596b134]:first-child {\n    border-top: solid 1px #ddd;\n}\n.about-list[data-v-e596b134] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    width: 100%;\n    font-size: 18px;\n    font-weight: bold;\n    line-height: 2;\n    letter-spacing: 0.03em;\n    border-bottom: solid 1px #ddd;\n    padding: 16px 0;\n}\n.left-item[data-v-e596b134] {\n    width: 30%;\n}\n.right-item[data-v-e596b134] {\n    width: 70%;\n}\n.about-list-btn a[data-v-e596b134] {\n    display: inline-block;\n    padding: 5px 15px;\n    background-color: #5BCDFF;\n    font-size: 16px;\n    line-height: 1.7;\n    letter-spacing: 0.05em;\n    margin-bottom: 8px;\n    border-radius: 2px;\n    color: white;\n}\n@media screen and (max-width: 767px) {\n.top[data-v-e596b134] {\n        margin: 80px 15px 140px 15px;\n}\n.heading[data-v-e596b134] {\n        font-size: 30px;\n}\n.about-text[data-v-e596b134] {\n        margin-bottom: 30px;\n        font-size: 16px;\n        font-weight: bold;\n}\n.about-list[data-v-e596b134] {\n        font-size: 14px;\n        line-height: 1.5;\n}\n}\n@media screen and (min-width: 1024px) {\n.top[data-v-e596b134] {\n        width: 800px;\n        margin: 48px auto 180px auto;\n}\n}\n", ""]);
+exports.push([module.i, "\n.heading[data-v-e596b134]\n{\n  position: relative;\n  display: inline-block;\n  margin: 30px auto 30px;\n  padding-bottom: 15px;\n  letter-spacing: 2px;\n  font-size: 48px;\n  font-weight: bold;\n  color: black;\n}\n.heading[data-v-e596b134]::after {\n  content: '';\n  display: block;\n  height: 4px;\n  width: 120%;\n  border-bottom: 2px solid black;\n}\n.about-container[data-v-e596b134] {\n}\n.about-heading-wrapper[data-v-e596b134]{\n}\n.about-text[data-v-e596b134] {\n    margin-bottom: 60px;\n    font-size: 22px;\n    font-weight: bold;\n    line-height: 2;\n    letter-spacing: 0.05em;\n}\n.about-list[data-v-e596b134]:first-child {\n    border-top: solid 1px #ddd;\n}\n.about-list[data-v-e596b134] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    width: 100%;\n    font-size: 18px;\n    font-weight: bold;\n    line-height: 2;\n    letter-spacing: 0.03em;\n    border-bottom: solid 1px #ddd;\n    padding: 16px 0;\n}\n.left-item[data-v-e596b134] {\n    width: 30%;\n}\n.right-item[data-v-e596b134] {\n    width: 70%;\n}\n.about-list-btn a[data-v-e596b134] {\n    display: inline-block;\n    padding: 5px 15px;\n    background-color: #5BCDFF;\n    font-size: 16px;\n    line-height: 1.7;\n    letter-spacing: 0.05em;\n    margin-bottom: 8px;\n    border-radius: 2px;\n    color: white;\n}\n@media screen and (max-width: 767px) {\n.top[data-v-e596b134] {\n        margin: 80px 15px 140px 15px;\n}\n.heading[data-v-e596b134] {\n        font-size: 30px;\n}\n.about-text[data-v-e596b134] {\n        margin-bottom: 30px;\n        font-size: 16px;\n        font-weight: bold;\n}\n.about-list[data-v-e596b134] {\n        font-size: 14px;\n        line-height: 1.5;\n}\n}\n@media screen and (min-width: 1024px) {\n.top[data-v-e596b134] {\n        width: 800px;\n        margin: 48px auto 180px auto;\n}\n}\n", ""]);
 
 
 
@@ -46087,7 +45853,6 @@ exports.push([module.i, "\n.heading[data-v-e8f8c2d6]\n{\n  position: relative;\n
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
 //
 //
 //
@@ -46385,7 +46150,7 @@ if(false) {
 
 exports = module.exports = __webpack_require__(0)(false);
 // Module
-exports.push([module.i, "\n.heading[data-v-32d07fec]\n{\n  position: relative;\n  display: inline-block;\n  margin: 30px auto 30px;\n  padding-bottom: 15px;\n  letter-spacing: 2px;\n  font-size: 48px;\n  font-weight: bold;\n  color: black;\n}\n.heading[data-v-32d07fec]::after {\n  content: '';\n  display: block;\n  height: 4px;\n  width: 76px;\n  border-bottom: 2px solid black;\n}\n.news-heading[data-v-32d07fec] {\n    margin-bottom: 8px;\n}\n.news-list-wrapper[data-v-32d07fec] {\n    display: block;\n    width: 100%;\n    margin-bottom: 36px;\n    margin-right: 16px;\n}\n.news-list[data-v-32d07fec]:first-child {\n    border-top: solid 1px #ddd;\n}\n.news-list[data-v-32d07fec] {\n    width: 100%;\n    border-bottom: solid 1px #ddd;\n    padding: 16px 0px 14px;\n    text-align: left;\n}\n.news-list-title[data-v-32d07fec] {\n    padding: 4px 0px;\n    font-weight: bold;\n    display: inline-block;\n    vertical-align: middle;\n    margin-right: 16px;\n}\n.news-list-label[data-v-32d07fec] {\n    display: inline-block;\n    vertical-align: middle;\n    padding: 4px 12px;\n    background-color: #5BCDFF;\n    font-size: 12px;\n    border-radius: 2px;\n    color: white;\n}\n.news-list-text a[data-v-32d07fec] {\n    color: black;\n    font-weight: bold;\n}\n.news-list-btn a[data-v-32d07fec] {\n    display: inline-block;\n    padding: 5px 15px;\n    background-color: #5BCDFF;\n    font-size: 16px;\n    line-height: 1.7;\n    letter-spacing: 0.05em;\n    margin-bottom: 8px;\n    border-radius: 2px;\n    color: white;\n}\n@media screen and (max-width: 767px) {\n.top[data-v-32d07fec] {\n        margin: 80px 15px 140px 15px;\n}\n.heading[data-v-32d07fec] {\n        font-size: 30px;\n}\n.news-list-wrapper[data-v-32d07fec] {\n        max-width: 340px;\n}\n.news-list[data-v-32d07fec] {\n        height: 140px;\n}\n}\n@media screen and (min-width: 1024px) {\n.top[data-v-32d07fec] {\n        width: 800px;\n        margin: 48px auto 180px auto;\n}\n}\n", ""]);
+exports.push([module.i, "\n.heading[data-v-32d07fec]\n{\n  position: relative;\n  display: inline-block;\n  margin: 30px auto 30px;\n  padding-bottom: 15px;\n  letter-spacing: 2px;\n  font-size: 48px;\n  font-weight: bold;\n  color: black;\n}\n.heading[data-v-32d07fec]::after {\n  content: '';\n  display: block;\n  height: 4px;\n  width: 120%;\n  border-bottom: 2px solid black;\n}\n.news-heading[data-v-32d07fec] {\n    margin-bottom: 8px;\n}\n.news-list-wrapper[data-v-32d07fec] {\n    display: block;\n    width: 100%;\n    margin-bottom: 36px;\n    margin-right: 16px;\n}\n.news-list[data-v-32d07fec]:first-child {\n    border-top: solid 1px #ddd;\n}\n.news-list[data-v-32d07fec] {\n    width: 100%;\n    border-bottom: solid 1px #ddd;\n    padding: 16px 0px 14px;\n    text-align: left;\n}\n.news-list-title[data-v-32d07fec] {\n    padding: 4px 0px;\n    font-weight: bold;\n    display: inline-block;\n    vertical-align: middle;\n    margin-right: 16px;\n}\n.news-list-label[data-v-32d07fec] {\n    display: inline-block;\n    vertical-align: middle;\n    padding: 4px 12px;\n    background-color: #5BCDFF;\n    font-size: 12px;\n    border-radius: 2px;\n    color: white;\n}\n.news-list-text a[data-v-32d07fec] {\n    color: black;\n    font-weight: bold;\n}\n.news-list-btn a[data-v-32d07fec] {\n    display: inline-block;\n    padding: 5px 15px;\n    background-color: #5BCDFF;\n    font-size: 16px;\n    line-height: 1.7;\n    letter-spacing: 0.05em;\n    margin-bottom: 8px;\n    border-radius: 2px;\n    color: white;\n}\n@media screen and (max-width: 767px) {\n.top[data-v-32d07fec] {\n        margin: 80px 15px 140px 15px;\n}\n.heading[data-v-32d07fec] {\n        font-size: 30px;\n}\n.news-list-wrapper[data-v-32d07fec] {\n        max-width: 340px;\n}\n.news-list[data-v-32d07fec] {\n        height: 140px;\n}\n}\n@media screen and (min-width: 1024px) {\n.top[data-v-32d07fec] {\n        width: 800px;\n        margin: 48px auto 180px auto;\n}\n}\n", ""]);
 
 
 
@@ -46643,7 +46408,7 @@ if(false) {
 
 exports = module.exports = __webpack_require__(0)(false);
 // Module
-exports.push([module.i, "\n.heading[data-v-4133de57]\n{\n  position: relative;\n  display: inline-block;\n  margin: 30px auto 30px;\n  padding-bottom: 15px;\n  letter-spacing: 2px;\n  font-size: 48px;\n  font-weight: bold;\n  color: black;\n}\n.heading[data-v-4133de57]::after {\n  content: '';\n  display: block;\n  height: 4px;\n  width: 76px;\n  border-bottom: 2px solid black;\n}\n.recruit-container[data-v-4133de57] {\n}\n.recruit-heading-wrapper[data-v-4133de57]{\n}\n.recruit-heading[data-v-4133de57] {\n    margin-bottom: 20px;\n    font-size: 50px;\n    font-weight: bold;\n    line-height: 1.5;\n}\n.important-think[data-v-4133de57] {\n    margin-bottom: 60px;\n    font-size: 22px;\n    font-weight: bold;\n    line-height: 2;\n    letter-spacing: 0.05em;\n}\n.recruit-vision-wrapper[data-v-4133de57] {\n    margin-bottom: 80px;\n}\n.vision-list[data-v-4133de57]:first-child {\n    border-top: solid 1px #ddd;\n}\n.vision-list[data-v-4133de57] {\n    border-bottom: solid 1px #ddd;\n    padding: 30px 0;\n}\n.vision-label[data-v-4133de57] {\n    margin-bottom: 15px;\n    font-size: 15px;\n    font-weight: 500;\n    letter-spacing: 0.05em;\n}\n.vision-title[data-v-4133de57] {\n    margin-bottom: 15px;\n    font-size: 34px;\n    font-weight: bold;\n    letter-spacing: 0.03em;\n}\n.vision-title span[data-v-4133de57] {\n    border-bottom: solid 7px #fff500;\n}\n.vision-text[data-v-4133de57] {\n    font-size: 18px;\n    font-weight: bold;\n    line-height: 2;\n    letter-spacing: 0.03em;\n}\n.recruit-job-title[data-v-4133de57] {\n    margin: 0 0 40px 0;\n    font-size: 34px;\n    letter-spacing: 0.03em;\n    font-weight: bold;\n}\n.recruit-job[data-v-4133de57] {\n    margin: 0px 8px;\n}\n.recruit-list[data-v-4133de57] {\n    margin: 8px;\n    border: solid 2px #000;\n}\n.recruit-list a[data-v-4133de57] {\n    color: black;\n}\n@media screen and (max-width: 767px) {\n.top[data-v-4133de57] {\n        margin: 80px 15px 140px 15px;\n}\n.heading[data-v-4133de57] {\n        font-size: 30px;\n}\n.news-list-wrapper[data-v-4133de57] {\n        max-width: 340px;\n}\n.recruit-heading[data-v-4133de57] {\n        margin: 30px 0 15px 0;\n        font-size: 24px;\n}\n.important-think[data-v-4133de57] {\n        margin-bottom: 30px;\n        font-size: 14px;\n}\n.vision-title[data-v-4133de57] {\n        font-size: 22px;\n}\n.vision-text[data-v-4133de57] {\n        font-size: 12px;\n}\n.recruit-job-title[data-v-4133de57] {\n        font-size: 24px;\n}\n.recruit-list[data-v-4133de57] {\n        margin: 8px auto;\n}\n}\n@media screen and (min-width: 1024px) {\n.top[data-v-4133de57] {\n        width: 800px;\n        margin: 48px auto 180px auto;\n}\n}\n", ""]);
+exports.push([module.i, "\n.heading[data-v-4133de57]\n{\n  position: relative;\n  display: inline-block;\n  margin: 30px auto 30px;\n  padding-bottom: 15px;\n  letter-spacing: 2px;\n  font-size: 48px;\n  font-weight: bold;\n  color: black;\n}\n.heading[data-v-4133de57]::after {\n  content: '';\n  display: block;\n  height: 4px;\n  width: 120%;\n  border-bottom: 2px solid black;\n}\n.recruit-container[data-v-4133de57] {\n}\n.recruit-heading-wrapper[data-v-4133de57]{\n}\n.recruit-heading[data-v-4133de57] {\n    margin-bottom: 20px;\n    font-size: 50px;\n    font-weight: bold;\n    line-height: 1.5;\n}\n.important-think[data-v-4133de57] {\n    margin-bottom: 60px;\n    font-size: 22px;\n    font-weight: bold;\n    line-height: 2;\n    letter-spacing: 0.05em;\n}\n.recruit-vision-wrapper[data-v-4133de57] {\n    margin-bottom: 80px;\n}\n.vision-list[data-v-4133de57]:first-child {\n    border-top: solid 1px #ddd;\n}\n.vision-list[data-v-4133de57] {\n    border-bottom: solid 1px #ddd;\n    padding: 30px 0;\n}\n.vision-label[data-v-4133de57] {\n    margin-bottom: 15px;\n    font-size: 15px;\n    font-weight: 500;\n    letter-spacing: 0.05em;\n}\n.vision-title[data-v-4133de57] {\n    margin-bottom: 15px;\n    font-size: 34px;\n    font-weight: bold;\n    letter-spacing: 0.03em;\n}\n.vision-title span[data-v-4133de57] {\n    border-bottom: solid 7px #fff500;\n}\n.vision-text[data-v-4133de57] {\n    font-size: 18px;\n    font-weight: bold;\n    line-height: 2;\n    letter-spacing: 0.03em;\n}\n.recruit-job-title[data-v-4133de57] {\n    margin: 0 0 40px 0;\n    font-size: 34px;\n    letter-spacing: 0.03em;\n    font-weight: bold;\n}\n.recruit-job[data-v-4133de57] {\n    margin: 0px 8px;\n}\n.recruit-list[data-v-4133de57] {\n    margin: 8px;\n    border: solid 2px #000;\n}\n.recruit-list a[data-v-4133de57] {\n    color: black;\n}\n@media screen and (max-width: 767px) {\n.top[data-v-4133de57] {\n        margin: 80px 15px 140px 15px;\n}\n.heading[data-v-4133de57] {\n        font-size: 30px;\n}\n.news-list-wrapper[data-v-4133de57] {\n        max-width: 340px;\n}\n.recruit-heading[data-v-4133de57] {\n        margin: 30px 0 15px 0;\n        font-size: 24px;\n}\n.important-think[data-v-4133de57] {\n        margin-bottom: 30px;\n        font-size: 14px;\n}\n.vision-title[data-v-4133de57] {\n        font-size: 22px;\n}\n.vision-text[data-v-4133de57] {\n        font-size: 12px;\n}\n.recruit-job-title[data-v-4133de57] {\n        font-size: 24px;\n}\n.recruit-list[data-v-4133de57] {\n        margin: 8px auto;\n}\n}\n@media screen and (min-width: 1024px) {\n.top[data-v-4133de57] {\n        width: 800px;\n        margin: 48px auto 180px auto;\n}\n}\n", ""]);
 
 
 
@@ -47023,7 +46788,7 @@ if(false) {
 
 exports = module.exports = __webpack_require__(0)(false);
 // Module
-exports.push([module.i, "\n.heading[data-v-c076eb64]\n{\n  position: relative;\n  display: inline-block;\n  margin: 30px auto 30px;\n  padding-bottom: 15px;\n  letter-spacing: 2px;\n  font-size: 48px;\n  font-weight: bold;\n  color: black;\n}\n.heading[data-v-c076eb64]::after {\n  content: '';\n  display: block;\n  height: 4px;\n  width: 76px;\n  border-bottom: 2px solid black;\n}\n.service-list-wrapper[data-v-c076eb64] {\n    display: inline-block;\n    vertical-align: middle;\n    width: 380px;\n    margin-bottom: 36px;\n    margin-right: 16px;\n}\n.service-list[data-v-c076eb64] {\n    width: 100%;\n    height: 260px;\n    border: solid 1px #ddd;\n    margin-bottom: 30px;\n    color: transparent;\n    text-align: center;\n}\n.service-list-btn a[data-v-c076eb64] {\n    display: inline-block;\n    padding: 5px 15px;\n    background-color: #5BCDFF;\n    font-size: 16px;\n    line-height: 1.7;\n    letter-spacing: 0.05em;\n    margin-bottom: 8px;\n    border-radius: 2px;\n    color: white;\n}\n.service-list-catchcopy[data-v-c076eb64] {\n    font-size: 14px;\n    font-weight: bold;\n}\n@media screen and (max-width: 767px) {\n.top[data-v-c076eb64] {\n        margin: 80px 15px 140px 15px;\n}\n.heading[data-v-c076eb64] {\n        font-size: 30px;\n}\n.service-list-wrapper[data-v-c076eb64] {\n        max-width: 340px;\n}\n.service-list[data-v-c076eb64] {\n        height: 140px;\n}\n}\n@media screen and (min-width: 1024px) {\n.top[data-v-c076eb64] {\n        width: 800px;\n        margin: 48px auto 180px auto;\n}\n}\n", ""]);
+exports.push([module.i, "\n.heading[data-v-c076eb64]\n{\n  position: relative;\n  display: inline-block;\n  margin: 30px auto 30px;\n  padding-bottom: 15px;\n  letter-spacing: 2px;\n  font-size: 48px;\n  font-weight: bold;\n  color: black;\n}\n.heading[data-v-c076eb64]::after {\n  content: '';\n  display: block;\n  height: 4px;\n  width: 120%;\n  border-bottom: 2px solid black;\n}\n.service-list-wrapper[data-v-c076eb64] {\n    display: inline-block;\n    vertical-align: middle;\n    width: 380px;\n    margin-bottom: 36px;\n    margin-right: 16px;\n}\n.service-list[data-v-c076eb64] {\n    width: 100%;\n    height: 260px;\n    border: solid 1px #ddd;\n    margin-bottom: 30px;\n    color: transparent;\n    text-align: center;\n}\n.service-list-btn a[data-v-c076eb64] {\n    display: inline-block;\n    padding: 5px 15px;\n    background-color: #5BCDFF;\n    font-size: 16px;\n    line-height: 1.7;\n    letter-spacing: 0.05em;\n    margin-bottom: 8px;\n    border-radius: 2px;\n    color: white;\n}\n.service-list-catchcopy[data-v-c076eb64] {\n    font-size: 14px;\n    font-weight: bold;\n}\n@media screen and (max-width: 767px) {\n.top[data-v-c076eb64] {\n        margin: 80px 15px 140px 15px;\n}\n.heading[data-v-c076eb64] {\n        font-size: 30px;\n}\n.service-list-wrapper[data-v-c076eb64] {\n        max-width: 340px;\n}\n.service-list[data-v-c076eb64] {\n        height: 140px;\n}\n}\n@media screen and (min-width: 1024px) {\n.top[data-v-c076eb64] {\n        width: 800px;\n        margin: 48px auto 180px auto;\n}\n}\n", ""]);
 
 
 
@@ -47273,7 +47038,7 @@ if(false) {
 
 exports = module.exports = __webpack_require__(0)(false);
 // Module
-exports.push([module.i, "\n.heading[data-v-15253a39]\n{\n  position: relative;\n  display: inline-block;\n  margin: 30px auto 30px;\n  padding-bottom: 15px;\n  letter-spacing: 2px;\n  font-size: 48px;\n  font-weight: bold;\n  color: black;\n}\n.heading[data-v-15253a39]::after {\n  content: '';\n  display: block;\n  height: 4px;\n  width: 76px;\n  border-bottom: 2px solid black;\n}\n.contact-wrapper[data-v-15253a39] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    width: 100%;\n    height: 50px;\n    background-color: #f2f2f2;\n    margin-bottom: 10px;\n    font-size: 0;\n}\n.form-text-input[data-v-15253a39] {\n    display: inline-block;\n    vertical-align: middle;\n    width: 580px;\n    height: 50px;\n    line-height: 1.6;\n    letter-spacing: 0.03em;\n    font-size: 15px;\n}\n.form-text-label[data-v-15253a39] {\n    display: inline-block;\n    vertical-align: top;\n    width: 180px;\n    padding-left: 20px;\n    font-size: 12px;\n    font-weight: bold;\n    line-height: 50px;\n    letter-spacing: 0.2em;\n    margin-bottom: 0px;\n}\ninput[data-v-15253a39], button[data-v-15253a39], textarea[data-v-15253a39], select[data-v-15253a39] {\n    margin: 0;\n    padding: 0;\n    background: none;\n    border: none;\n    border-radius: 0;\n    outline: none;\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    appearance: none;\n}\n.form-select[data-v-15253a39] {\n    position: absolute;\n    top: 0;\n    left: 200px;\n    z-index: 20;\n    width: 580px;\n    height: 50px;\n    line-height: 1.6;\n    letter-spacing: 0.03em;\n    font-size: 15px;\n    cursor: pointer;\n}\n.form_text_textarea[data-v-15253a39] {\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    display: inline-block;\n    vertical-align: middle;\n    width: 580px;\n    height: 200px;\n    padding: 13px 0;\n    line-height: 1.6;\n    letter-spacing: 0.08em;\n    font-size: 15px;\n    resize: none;\n}\n.contact-form-btn a[data-v-15253a39] {\n    display: inline-block;\n    padding: 5px 15px;\n    background-color: black;\n    font-size: 16px;\n    line-height: 1.7;\n    letter-spacing: 0.05em;\n    margin-bottom: 8px;\n    border-radius: 2px;\n    color: white;\n}\n@media screen and (max-width: 767px) {\n.top[data-v-15253a39] {\n        margin: 80px 15px 140px 15px;\n}\n.heading[data-v-15253a39] {\n        font-size: 30px;\n}\n.about-text[data-v-15253a39] {\n        margin-bottom: 30px;\n        font-size: 16px;\n        font-weight: bold;\n}\n.about-list[data-v-15253a39] {\n        font-size: 14px;\n        line-height: 1.5;\n}\n.form-text-label[data-v-15253a39] {\n        width: 26%;\n        padding-left: 3%;\n        letter-spacing: 0.05em;\n}\n.form-text-input[data-v-15253a39] {\n        width: 65%;\n}\n}\n@media screen and (min-width: 1024px) {\n.top[data-v-15253a39] {\n        width: 800px;\n        margin: 48px auto 180px auto;\n}\n}\n", ""]);
+exports.push([module.i, "\n.heading[data-v-15253a39]\n{\n  position: relative;\n  display: inline-block;\n  margin: 30px auto 30px;\n  padding-bottom: 15px;\n  letter-spacing: 2px;\n  font-size: 48px;\n  font-weight: bold;\n  color: black;\n}\n.heading[data-v-15253a39]::after {\n  content: '';\n  display: block;\n  height: 4px;\n  width: 120%;\n  border-bottom: 2px solid black;\n}\n.contact-wrapper[data-v-15253a39] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    width: 100%;\n    height: 50px;\n    background-color: #f2f2f2;\n    margin-bottom: 10px;\n    font-size: 0;\n}\n.form-text-input[data-v-15253a39] {\n    display: inline-block;\n    vertical-align: middle;\n    width: 580px;\n    height: 50px;\n    line-height: 1.6;\n    letter-spacing: 0.03em;\n    font-size: 15px;\n}\n.form-text-label[data-v-15253a39] {\n    display: inline-block;\n    vertical-align: top;\n    width: 180px;\n    padding-left: 20px;\n    font-size: 12px;\n    font-weight: bold;\n    line-height: 50px;\n    letter-spacing: 0.2em;\n    margin-bottom: 0px;\n}\ninput[data-v-15253a39], button[data-v-15253a39], textarea[data-v-15253a39], select[data-v-15253a39] {\n    margin: 0;\n    padding: 0;\n    background: none;\n    border: none;\n    border-radius: 0;\n    outline: none;\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    appearance: none;\n}\n.form-select[data-v-15253a39] {\n    position: absolute;\n    top: 0;\n    left: 200px;\n    z-index: 20;\n    width: 580px;\n    height: 50px;\n    line-height: 1.6;\n    letter-spacing: 0.03em;\n    font-size: 15px;\n    cursor: pointer;\n}\n.form_text_textarea[data-v-15253a39] {\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    display: inline-block;\n    vertical-align: middle;\n    width: 580px;\n    height: 200px;\n    padding: 13px 0;\n    line-height: 1.6;\n    letter-spacing: 0.08em;\n    font-size: 15px;\n    resize: none;\n}\n.contact-form-btn a[data-v-15253a39] {\n    display: inline-block;\n    padding: 5px 15px;\n    background-color: black;\n    font-size: 16px;\n    line-height: 1.7;\n    letter-spacing: 0.05em;\n    margin-bottom: 8px;\n    border-radius: 2px;\n    color: white;\n}\n@media screen and (max-width: 767px) {\n.top[data-v-15253a39] {\n        margin: 80px 15px 140px 15px;\n}\n.heading[data-v-15253a39] {\n        font-size: 30px;\n}\n.about-text[data-v-15253a39] {\n        margin-bottom: 30px;\n        font-size: 16px;\n        font-weight: bold;\n}\n.about-list[data-v-15253a39] {\n        font-size: 14px;\n        line-height: 1.5;\n}\n.form-text-label[data-v-15253a39] {\n        width: 26%;\n        padding-left: 3%;\n        letter-spacing: 0.05em;\n}\n.form-text-input[data-v-15253a39] {\n        width: 65%;\n}\n}\n@media screen and (min-width: 1024px) {\n.top[data-v-15253a39] {\n        width: 800px;\n        margin: 48px auto 180px auto;\n}\n}\n", ""]);
 
 
 

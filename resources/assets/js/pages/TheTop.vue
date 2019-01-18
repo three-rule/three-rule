@@ -6,7 +6,7 @@
     <register-login-logo></register-login-logo>
     <section class="top">
     </section>
-    <!--<the-footer></the-footer>-->
+    <the-footer></the-footer>
 </main>
 </template>
 
@@ -14,14 +14,14 @@
 <script>
 import TheHeader from '../components/TheHeader';
 import ThreeRuleBrand from '../components/top/ThreeRuleBrand';
-import DownloadLogo from '../components/top/DownloadLogo';
+// import DownloadLogo from '../components/top/DownloadLogo';
 import RegisterLoginLogo from '../components/top/RegisterLoginLogo';
 import TheFooter from '../components/TheFooter';
 export default {
     components: {
         TheHeader,
         ThreeRuleBrand,
-        DownloadLogo,
+        // DownloadLogo,
         RegisterLoginLogo,
         TheFooter
     },
