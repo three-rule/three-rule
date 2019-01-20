@@ -5,6 +5,7 @@
     <!--<download-logo></download-logo>-->
     <register-login-logo></register-login-logo>
     <section class="top">
+        <router-link to="/club">Clubページへ</router-link>
     </section>
     <the-footer></the-footer>
 </main>
@@ -12,11 +13,11 @@
 
 
 <script>
-import TheHeader from '../components/TheHeader';
-import ThreeRuleBrand from '../components/top/ThreeRuleBrand';
-// import DownloadLogo from '../components/top/DownloadLogo';
-import RegisterLoginLogo from '../components/top/RegisterLoginLogo';
-import TheFooter from '../components/TheFooter';
+import TheHeader from '../../components/TheHeader';
+import ThreeRuleBrand from '../../components/top/ThreeRuleBrand';
+// import DownloadLogo from '../../components/top/DownloadLogo';
+import RegisterLoginLogo from '../../components/top/RegisterLoginLogo';
+import TheFooter from '../../components/TheFooter';
 export default {
     components: {
         TheHeader,
@@ -33,9 +34,4 @@ export default {
 </script>
 
 <style scoped>
-.download_banner{
-    width: 160px;
-    height: auto;
-    border-radius: 5px;
-}
 </style>
