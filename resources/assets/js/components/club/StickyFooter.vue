@@ -32,6 +32,7 @@ export default {
     bottom: 0;
     box-shadow: 0 3px 9px 3px rgba(0, 0, 0, 0.05);
     background-color: white;
+    z-index: 999;
 }
 .left-item {
     display: flex;

@@ -42034,18 +42034,20 @@ if (false) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_club_Strategy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__pages_club_Strategy__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_club_Discussion__ = __webpack_require__(134);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_club_Discussion___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__pages_club_Discussion__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_club_Menu__ = __webpack_require__(139);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_club_Menu___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__pages_club_Menu__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_club_Journal__ = __webpack_require__(144);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_club_Journal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__pages_club_Journal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_club_OneJournal__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_club_OneJournal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__pages_club_OneJournal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_club_Calendar__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_club_Calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__pages_club_Calendar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_club_Information__ = __webpack_require__(154);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_club_Information___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__pages_club_Information__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_club_ClubMember__ = __webpack_require__(168);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_club_ClubMember___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__pages_club_ClubMember__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_club_OneDiscussion__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_club_OneDiscussion___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__pages_club_OneDiscussion__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_club_Menu__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_club_Menu___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__pages_club_Menu__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_club_Journal__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_club_Journal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__pages_club_Journal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_club_OneJournal__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_club_OneJournal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17__pages_club_OneJournal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_club_Calendar__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_club_Calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18__pages_club_Calendar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_club_Information__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_club_Information___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19__pages_club_Information__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_club_ClubMember__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_club_ClubMember___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__pages_club_ClubMember__);
 
 
 
@@ -42064,6 +42066,7 @@ if (false) {
 /*
  * Service
  */
+
 
 
 
@@ -42121,21 +42124,30 @@ var routes = [{
     component: __WEBPACK_IMPORTED_MODULE_12__pages_club_Strategy___default.a
 
 }, {
+    path: '/discussion/:discuss_id',
+    name: 'OneDiscussion',
+    component: __WEBPACK_IMPORTED_MODULE_14__pages_club_OneDiscussion___default.a,
+    props: function props(route) {
+        return {
+            discuss_id: Number(route.params.id)
+        };
+    }
+}, {
     path: '/discussion',
     component: __WEBPACK_IMPORTED_MODULE_13__pages_club_Discussion___default.a
 
 }, {
     path: '/menu',
-    component: __WEBPACK_IMPORTED_MODULE_14__pages_club_Menu___default.a
+    component: __WEBPACK_IMPORTED_MODULE_15__pages_club_Menu___default.a
 
 }, {
     path: '/journal',
-    component: __WEBPACK_IMPORTED_MODULE_15__pages_club_Journal___default.a
+    component: __WEBPACK_IMPORTED_MODULE_16__pages_club_Journal___default.a
 
 }, {
     path: '/journal/:id',
     name: 'OneJournal',
-    component: __WEBPACK_IMPORTED_MODULE_16__pages_club_OneJournal___default.a,
+    component: __WEBPACK_IMPORTED_MODULE_17__pages_club_OneJournal___default.a,
     props: function props(route) {
         return {
             id: Number(route.params.id)
@@ -42143,15 +42155,15 @@ var routes = [{
     }
 }, {
     path: '/calendar',
-    component: __WEBPACK_IMPORTED_MODULE_17__pages_club_Calendar___default.a
+    component: __WEBPACK_IMPORTED_MODULE_18__pages_club_Calendar___default.a
 
 }, {
     path: '/info',
-    component: __WEBPACK_IMPORTED_MODULE_18__pages_club_Information___default.a
+    component: __WEBPACK_IMPORTED_MODULE_19__pages_club_Information___default.a
 
 }, {
     path: '/member',
-    component: __WEBPACK_IMPORTED_MODULE_19__pages_club_ClubMember___default.a
+    component: __WEBPACK_IMPORTED_MODULE_20__pages_club_ClubMember___default.a
 
 }];
 
@@ -47618,7 +47630,7 @@ if(false) {
 
 exports = module.exports = __webpack_require__(0)(false);
 // Module
-exports.push([module.i, "\n.sticky-footer[data-v-2a8d9b94] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    width: 100%;\n    height: 50px;\n    line-height: 16px;\n    position: fixed;\n    bottom: 0;\n    -webkit-box-shadow: 0 3px 9px 3px rgba(0, 0, 0, 0.05);\n            box-shadow: 0 3px 9px 3px rgba(0, 0, 0, 0.05);\n    background-color: white;\n}\n.left-item[data-v-2a8d9b94] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    height: 100%;\n    width: 50%;\n}\n.left-item[data-v-2a8d9b94], .right-item div[data-v-2a8d9b94] {\n    font-weight: bold;\n    font-size: 20px;\n    color: black;\n}\n.right-item[data-v-2a8d9b94] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    width: 100%;\n    width: 50%;\n}\n@media screen and (max-width: 767px) {\n.sticky-footer[data-v-2a8d9b94] {\n        height: 50px;\n        line-height: 10px;\n}\n}\n", ""]);
+exports.push([module.i, "\n.sticky-footer[data-v-2a8d9b94] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    width: 100%;\n    height: 50px;\n    line-height: 16px;\n    position: fixed;\n    bottom: 0;\n    -webkit-box-shadow: 0 3px 9px 3px rgba(0, 0, 0, 0.05);\n            box-shadow: 0 3px 9px 3px rgba(0, 0, 0, 0.05);\n    background-color: white;\n    z-index: 999;\n}\n.left-item[data-v-2a8d9b94] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    height: 100%;\n    width: 50%;\n}\n.left-item[data-v-2a8d9b94], .right-item div[data-v-2a8d9b94] {\n    font-weight: bold;\n    font-size: 20px;\n    color: black;\n}\n.right-item[data-v-2a8d9b94] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    width: 100%;\n    width: 50%;\n}\n@media screen and (max-width: 767px) {\n.sticky-footer[data-v-2a8d9b94] {\n        height: 50px;\n        line-height: 10px;\n}\n}\n", ""]);
 
 
 
@@ -48669,7 +48681,7 @@ if(false) {
 
 exports = module.exports = __webpack_require__(0)(false);
 // Module
-exports.push([module.i, "\n.sticky-header[data-v-1fd75d34] {\n    width: 100%;\n    height: 50px;\n    line-height: 16px;\n    position: fixed;\n    top: 0;\n    border-bottom: 1px solid rgba(0, 0, 0, 0.05);\n    background-color: #FCFCFC;\n    z-index: 999;\n}\n.sticky-header p[data-v-1fd75d34] {\n    position: absolute;\n    text-align: center;\n    top: 50%;\n    left: 50%;\n    -webkit-transform: translate(-50%,-50%);\n    transform: translate(-50%,-50%);\n    margin:0;\n    padding:0;\n    font-weight: bold;\n    font-size: 16px;\n}\n@media screen and (max-width: 767px) {\n.sticky-header[data-v-1fd75d34] {\n        height: 50px;\n        line-height: 10px;\n}\n}\n", ""]);
+exports.push([module.i, "\n.discussion-timeline[data-v-1fd75d34] {\n    margin: 64px 8px;\n}\n.discussion-container[data-v-1fd75d34] {\n    padding: 8px;\n    width: 100%;\n}\n.discussion-wrapper[data-v-1fd75d34] {\n    padding: 8px;\n    height: 100%;\n    width: 100%;\n    z-index: -2;\n}\n.discussion[data-v-1fd75d34] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    width: 100%;\n    margin-top: 16px;\n    color: #4a4a4a;\n}\n.discussion-left-part[data-v-1fd75d34] {\n    margin-right: 16px;\n}\n.discussion-left-part .contributor-image[data-v-1fd75d34] {\n    width: 48px;\n    height: 48px;\n}\n.discussion-right-part[data-v-1fd75d34] {\n    width: 75%;\n    height: 100%;\n}\n.discussion-right-part .contributor-name[data-v-1fd75d34] {\n    width: 100%;\n    height: 25px;\n    margin-bottom: 8px;\n}\n.discussion-right-part .post-contents[data-v-1fd75d34] {\n    overflow-wrap: break-word;\n    margin-bottom: 8px;\n}\n.discussion-right-part .comment-contributor-image[data-v-1fd75d34] {\n    width: 24px;\n    height: 24px;\n    margin-right: 8px;\n}\n.comment-contributor[data-v-1fd75d34] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.comment-count[data-v-1fd75d34] {\n    color: #08B6FF;\n}\n.sticky-header[data-v-1fd75d34] {\n    width: 100%;\n    height: 50px;\n    line-height: 16px;\n    position: fixed;\n    top: 0;\n    border-bottom: 1px solid rgba(0, 0, 0, 0.05);\n    background-color: #FCFCFC;\n    z-index: 999;\n}\n.sticky-header p[data-v-1fd75d34] {\n    position: absolute;\n    text-align: center;\n    top: 50%;\n    left: 50%;\n    -webkit-transform: translate(-50%,-50%);\n    transform: translate(-50%,-50%);\n    margin:0;\n    padding:0;\n    font-weight: bold;\n    font-size: 16px;\n}\n@media screen and (max-width: 767px) {\n.sticky-header[data-v-1fd75d34] {\n        height: 50px;\n        line-height: 10px;\n}\n}\n", ""]);
 
 
 
@@ -48681,6 +48693,108 @@ exports.push([module.i, "\n.sticky-header[data-v-1fd75d34] {\n    width: 100%;\n
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_club_StickyDiscussionFooter__ = __webpack_require__(173);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_club_StickyDiscussionFooter___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_club_StickyDiscussionFooter__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -48710,7 +48824,209 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._m(0), _vm._v(" "), _c("sticky-discussion-footer")], 1)
+  return _c(
+    "div",
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "discussion-timeline" }, [
+        _c("div", { staticClass: "discussion-container" }, [
+          _c(
+            "div",
+            { staticClass: "discussion-wrapper" },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "discussion",
+                  attrs: {
+                    to: { name: "OneDiscussion", params: { discuss_id: 1 } }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "discussion-left-part" }, [
+                    _c("div", { staticClass: "contributor-image" }, [
+                      _c(
+                        "figure",
+                        { staticClass: "image" },
+                        [
+                          _c("progressive-img", {
+                            attrs: {
+                              src: "http://placehold.jp/48x48.png",
+                              placeholder: "http://placehold.jp/48x48.png",
+                              blur: 30
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "discussion-right-part" }, [
+                    _c("div", { staticClass: "contributor-name" }, [
+                      _vm._v(
+                        "\n                            黒澤信五\n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "post-contents" }, [
+                      _c("p", { staticClass: "content" }, [
+                        _vm._v(
+                          "\n                                おれは黒澤信五だ。みんな、あいしてるぜ\n                            "
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "post-image" }, [
+                      _c(
+                        "figure",
+                        { staticClass: "image" },
+                        [
+                          _c("progressive-img", {
+                            attrs: {
+                              src: "http://placehold.jp/250x150.png",
+                              placeholder: "http://placehold.jp/250x150.png",
+                              blur: 30
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "comment-contributor" }, [
+                      _c("div", { staticClass: "comment-contributor-image" }, [
+                        _c(
+                          "figure",
+                          { staticClass: "image" },
+                          [
+                            _c("progressive-img", {
+                              attrs: {
+                                src: "http://placehold.jp/24x24.png",
+                                placeholder: "http://placehold.jp/24x24.png",
+                                blur: 30
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "comment-count" }, [
+                        _c("span", [_vm._v("1")]),
+                        _vm._v(" "),
+                        _c("span", [_vm._v("件の返信")])
+                      ])
+                    ])
+                  ])
+                ]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "discussion-wrapper" },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "discussion",
+                  attrs: {
+                    to: { name: "OneDiscussion", params: { discuss_id: 2 } }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "discussion-left-part" }, [
+                    _c("div", { staticClass: "contributor-image" }, [
+                      _c(
+                        "figure",
+                        { staticClass: "image" },
+                        [
+                          _c("progressive-img", {
+                            attrs: {
+                              src: "http://placehold.jp/48x48.png",
+                              placeholder: "http://placehold.jp/48x48.png",
+                              blur: 30
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "discussion-right-part" }, [
+                    _c("div", { staticClass: "contributor-name" }, [
+                      _vm._v(
+                        "\n                            上のゆゆま\n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "post-contents" }, [
+                      _c("p", { staticClass: "content" }, [
+                        _vm._v(
+                          "\n                                おれは上のゆゆま。ギャルだーいすき\n                            "
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "post-image" }, [
+                      _c(
+                        "figure",
+                        { staticClass: "image" },
+                        [
+                          _c("progressive-img", {
+                            attrs: {
+                              src: "http://placehold.jp/250x150.png",
+                              placeholder: "http://placehold.jp/250x150.png",
+                              blur: 30
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "comment-contributor" }, [
+                      _c("div", { staticClass: "comment-contributor-image" }, [
+                        _c(
+                          "figure",
+                          { staticClass: "image" },
+                          [
+                            _c("progressive-img", {
+                              attrs: {
+                                src: "http://placehold.jp/24x24.png",
+                                placeholder: "http://placehold.jp/24x24.png",
+                                blur: 30
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "comment-count" }, [
+                        _c("span", [_vm._v("1")]),
+                        _vm._v(" "),
+                        _c("span", [_vm._v("件の返信")])
+                      ])
+                    ])
+                  ])
+                ]
+              )
+            ],
+            1
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("sticky-discussion-footer")
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
@@ -50576,7 +50892,7 @@ if(false) {
 
 exports = module.exports = __webpack_require__(0)(false);
 // Module
-exports.push([module.i, "\n.sticky-footer[data-v-5e762684] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    width: 100%;\n    height: 50px;\n    line-height: 16px;\n    position: fixed;\n    bottom: 0;\n    -webkit-box-shadow: 0 3px 9px 3px rgba(0, 0, 0, 0.05);\n            box-shadow: 0 3px 9px 3px rgba(0, 0, 0, 0.05);\n    background-color: white;\n}\n.post-discussion[data-v-5e762684] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    height: 100%;\n    width: 50%;\n}\n.left-item[data-v-5e762684] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    height: 100%;\n    width: 50%;\n}\n.left-item[data-v-5e762684], .right-item div[data-v-5e762684] {\n    font-weight: bold;\n    font-size: 20px;\n    color: black;\n}\n.right-item[data-v-5e762684] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    width: 100%;\n    width: 50%;\n}\n.btn-post[data-v-5e762684] {\n    color: #08B6FF;\n    padding: 8px;\n    border: 1px solid #08B6FF;\n    border-radius: 8px;\n}\n@media screen and (max-width: 767px) {\n.sticky-footer[data-v-5e762684] {\n        height: 50px;\n        line-height: 10px;\n}\n}\n", ""]);
+exports.push([module.i, "\n.sticky-footer[data-v-5e762684] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    width: 100%;\n    height: 50px;\n    line-height: 16px;\n    position: fixed;\n    bottom: 0;\n    -webkit-box-shadow: 0 3px 9px 3px rgba(0, 0, 0, 0.05);\n            box-shadow: 0 3px 9px 3px rgba(0, 0, 0, 0.05);\n    background-color: white;\n    z-index: 999;\n}\n.post-discussion[data-v-5e762684] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    height: 100%;\n    width: 50%;\n}\n.left-item[data-v-5e762684] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    height: 100%;\n    width: 50%;\n}\n.left-item[data-v-5e762684], .right-item div[data-v-5e762684] {\n    font-weight: bold;\n    font-size: 20px;\n    color: black;\n}\n.right-item[data-v-5e762684] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    width: 100%;\n    width: 50%;\n}\n.btn-post[data-v-5e762684] {\n    color: #08B6FF;\n    padding: 8px;\n    border: 1px solid #08B6FF;\n    border-radius: 8px;\n}\n@media screen and (max-width: 767px) {\n.sticky-footer[data-v-5e762684] {\n        height: 50px;\n        line-height: 10px;\n}\n}\n", ""]);
 
 
 
@@ -50658,6 +50974,452 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-5e762684", module.exports)
+  }
+}
+
+/***/ }),
+/* 178 */,
+/* 179 */,
+/* 180 */,
+/* 181 */,
+/* 182 */,
+/* 183 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(184)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(186)
+/* template */
+var __vue_template__ = __webpack_require__(187)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-768f1bd2"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/pages/club/OneDiscussion.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-768f1bd2", Component.options)
+  } else {
+    hotAPI.reload("data-v-768f1bd2", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 184 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(185);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(1)("54328d97", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/dist/cjs.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-768f1bd2\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./OneDiscussion.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/dist/cjs.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-768f1bd2\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./OneDiscussion.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 185 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// Module
+exports.push([module.i, "\n.discussion-timeline[data-v-768f1bd2] {\n    margin: 48px 8px;\n}\n.discussion-container[data-v-768f1bd2] {\n    padding: 8px;\n    width: 100%;\n    border-bottom: 1px solid rgba(0, 0, 0, 0.05);\n}\n.discussion-wrapper[data-v-768f1bd2] {\n    padding: 8px;\n    height: 100%;\n    width: 100%;\n}\n.discussion[data-v-768f1bd2] {\n    width: 100%;\n    margin-top: 16px;\n}\n.discussion-top-part[data-v-768f1bd2] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    margin-right: 8px;\n    margin-bottom: 4px;\n}\n.contributor-image[data-v-768f1bd2] {\n    width: 48px;\n    height: 48px;\n    margin-right: 16px;\n    z-index: -2;\n}\n.contributor-name[data-v-768f1bd2] {\n    width: 100%;\n}\n.discussion-right-part[data-v-768f1bd2] {\n    width: 100%;\n    height: 100%;\n}\n.discussion-right-part .post-contents[data-v-768f1bd2] {\n    overflow-wrap: break-word;\n    margin-bottom: 8px;\n}\n.sticky-header[data-v-768f1bd2] {\n    width: 100%;\n    height: 50px;\n    line-height: 16px;\n    position: fixed;\n    top: 0;\n    border-bottom: 1px solid rgba(0, 0, 0, 0.05);\n    background-color: #FCFCFC;\n    z-index: 999;\n}\n.sticky-header p[data-v-768f1bd2] {\n    position: absolute;\n    text-align: center;\n    top: 50%;\n    left: 50%;\n    -webkit-transform: translate(-50%,-50%);\n    transform: translate(-50%,-50%);\n    margin:0;\n    padding:0;\n    font-weight: bold;\n    font-size: 16px;\n}\n.comment-options[data-v-768f1bd2] {\n    padding: 8px;\n    width: 100%;\n    border-bottom: 1px solid rgba(0, 0, 0, 0.05);\n}\n.start-discussion[data-v-768f1bd2] {\n    padding: 8px;\n    height: 100%;\n    width: 100%;\n}\n.discussion-spaces[data-v-768f1bd2] {\n    padding: 8px;\n    width: 100%;\n}\n.discussion-spaces-wrapper[data-v-768f1bd2] {\n    padding: 8px;\n    height: 100%;\n    width: 100%;\n}\n.one-discussion[data-v-768f1bd2] {\n}\n.one-discussion-wrapper[data-v-768f1bd2] {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    width: 100%;\n    margin-top: 16px;\n}\n.one-discussion-left-part[data-v-768f1bd2] {\n}\n.one-discussion-right-part[data-v-768f1bd2] {\n    width: 75%;\n    height: 100%;\n}\n.one-discussion-right-part .contributor-name[data-v-768f1bd2] {\n    width: 100%;\n    height: 25px;\n    margin-bottom: 4px;\n}\n.one-discussion-right-part .post-contents[data-v-768f1bd2] {\n    overflow-wrap: break-word;\n    margin-bottom: 8px;\n}\n@media screen and (max-width: 767px) {\n.sticky-header[data-v-768f1bd2] {\n        height: 50px;\n        line-height: 10px;\n}\n}\n", ""]);
+
+
+
+/***/ }),
+/* 186 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_club_StickyFooter__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_club_StickyFooter___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_club_StickyFooter__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: 'OneDiscussion',
+    components: {
+        StickyFooter: __WEBPACK_IMPORTED_MODULE_0__components_club_StickyFooter___default.a
+    },
+    data: function data() {
+        return {};
+    }
+});
+
+/***/ }),
+/* 187 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("div", { staticClass: "sticky-header" }, [
+        _c("p", [
+          _vm._v("One Discussion: " + _vm._s(_vm.$route.params.discuss_id))
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "discussion-timeline" }, [
+        _c("div", { staticClass: "discussion-container" }, [
+          _c("div", { staticClass: "discussion-wrapper" }, [
+            _c("div", { staticClass: "discussion" }, [
+              _c("div", { staticClass: "discussion-top-part" }, [
+                _c("div", { staticClass: "contributor-image" }, [
+                  _c(
+                    "figure",
+                    { staticClass: "image" },
+                    [
+                      _c("progressive-img", {
+                        attrs: {
+                          src: "http://placehold.jp/48x48.png",
+                          placeholder: "http://placehold.jp/48x48.png",
+                          blur: 30
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "contributor-name" }, [
+                  _vm._v(
+                    "\n                            黒澤信五\n                        "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "discussion-right-part" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("div", { staticClass: "post-image" }, [
+                  _c(
+                    "figure",
+                    { staticClass: "image" },
+                    [
+                      _c("progressive-img", {
+                        attrs: {
+                          src: "http://placehold.jp/250x150.png",
+                          placeholder: "http://placehold.jp/250x150.png",
+                          blur: 30
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _c("div", { staticClass: "discussion-spaces" }, [
+          _c("div", { staticClass: "discussion-spaces-wrapper" }, [
+            _c("div", { staticClass: "one-discussion" }, [
+              _c("div", { staticClass: "one-discussion-wrapper" }, [
+                _c("div", { staticClass: "one-discussion-left-part" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "contributor-image contributor-image__commenter"
+                    },
+                    [
+                      _c(
+                        "figure",
+                        { staticClass: "image" },
+                        [
+                          _c("progressive-img", {
+                            attrs: {
+                              src: "http://placehold.jp/48x48.png",
+                              placeholder: "http://placehold.jp/48x48.png",
+                              blur: 30
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _vm._m(2)
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "one-discussion" }, [
+              _c("div", { staticClass: "one-discussion-wrapper" }, [
+                _c("div", { staticClass: "one-discussion-left-part" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "contributor-image contributor-image__commenter"
+                    },
+                    [
+                      _c(
+                        "figure",
+                        { staticClass: "image" },
+                        [
+                          _c("progressive-img", {
+                            attrs: {
+                              src: "http://placehold.jp/48x48.png",
+                              placeholder: "http://placehold.jp/48x48.png",
+                              blur: 30
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _vm._m(3)
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("sticky-footer")
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "post-contents" }, [
+      _c("p", { staticClass: "content" }, [
+        _vm._v(
+          "\n                                おれは黒澤信五だ。みんな、あいしてるぜ\n                            "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "comment-options" }, [
+      _c("div", { staticClass: "comment-options-wrapper" }, [
+        _c("div", { staticClass: "start-discussion" }, [
+          _c("i", { staticClass: "fas fa-comment" }),
+          _vm._v(
+            "\n                    ディスカッションを開始する\n                "
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "one-discussion-right-part" }, [
+      _c(
+        "div",
+        { staticClass: "contributor-name contributor-name__commenter" },
+        [
+          _vm._v(
+            "\n                                黒澤信五\n                            "
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "post-contents" }, [
+        _vm._v(
+          "\n                                adjoaijdoiajoadjoaijdoiajoadjoaijdoiajoadjoaijdoiajoadjoaijdoiajoadjoaijdoiajoadjoaijdoiajo\n                            "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "one-discussion-right-part" }, [
+      _c(
+        "div",
+        { staticClass: "contributor-name contributor-name__commenter" },
+        [
+          _vm._v(
+            "\n                                上のゆゆま\n                            "
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "post-contents" }, [
+        _vm._v(
+          "\n                                ギャルだーいすき\n                            "
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-768f1bd2", module.exports)
   }
 }
 

@@ -21,6 +21,7 @@ import Club from '../pages/club/Club';
 import MyPage from '../pages/club/MyPage';
 import Strategy from '../pages/club/Strategy';
 import Discussion from '../pages/club/Discussion';
+import OneDiscussion from '../pages/club/OneDiscussion';
 import Menu from '../pages/club/Menu';
 import Journal from '../pages/club/Journal';
 import OneJournal from '../pages/club/OneJournal';
@@ -84,6 +85,14 @@ const routes = [
         path:'/strategy',
         component: Strategy,
 
+    },
+    {
+        path:'/discussion/:discuss_id',
+        name: 'OneDiscussion',
+        component: OneDiscussion,
+        props: route => ({
+            discuss_id: Number(route.params.id)
+        })
     },
     {
         path:'/discussion',
