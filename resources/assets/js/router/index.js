@@ -1,7 +1,11 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import Top from '../pages/TheTop';
+
+/*
+ * Top, Corporate
+ */
+import Top from '../pages/top/TheTop';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import About from '../pages/top/About';
@@ -9,6 +13,21 @@ import News from '../pages/top/News';
 import Recruit from '../pages/top/Recruit';
 import Service from '../pages/top/Service';
 import Contact from '../pages/top/Contact';
+
+/*
+ * Service
+ */
+import Club from '../pages/club/Club';
+import MyPage from '../pages/club/MyPage';
+import Strategy from '../pages/club/Strategy';
+import Discussion from '../pages/club/Discussion';
+import OneDiscussion from '../pages/club/OneDiscussion';
+import Menu from '../pages/club/Menu';
+import Journal from '../pages/club/Journal';
+import OneJournal from '../pages/club/OneJournal';
+import Calendar from '../pages/club/Calendar';
+import Information from '../pages/club/Information';
+import ClubMember from '../pages/club/ClubMember';
  
 Vue.use(VueRouter);
  
@@ -50,6 +69,67 @@ const routes = [
     {
         path:'/contact',
         component: Contact,
+
+    },
+    {
+        path:'/club',
+        component: Club,
+
+    },
+    {
+        path:'/mypage',
+        component: MyPage,
+
+    },
+    {
+        path:'/strategy',
+        component: Strategy,
+
+    },
+    {
+        path:'/discussion/:discuss_id',
+        name: 'OneDiscussion',
+        component: OneDiscussion,
+        props: route => ({
+            discuss_id: Number(route.params.id)
+        })
+    },
+    {
+        path:'/discussion',
+        component: Discussion,
+
+    },
+    {
+        path:'/menu',
+        component: Menu,
+
+    },
+    {
+        path:'/journal',
+        component: Journal,
+
+    },
+    {
+        path:'/journal/:id',
+        name: 'OneJournal',
+        component: OneJournal,
+        props: route => ({
+            id: Number(route.params.id)
+        })
+    },
+    {
+        path:'/calendar',
+        component: Calendar,
+
+    },
+    {
+        path:'/info',
+        component: Information,
+
+    },
+    {
+        path:'/member',
+        component: ClubMember,
 
     }
 ];
