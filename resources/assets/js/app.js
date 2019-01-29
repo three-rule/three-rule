@@ -10,9 +10,12 @@ require('./bootstrap');
 import Vue from 'vue';
 import App from './App';
 import VueProgressiveImage from 'vue-progressive-image';
-// import { sync } from 'vuex-router-sync';
-// import store from './store/';
+import { sync } from 'vuex-router-sync';
+import store from './store/';
 import router from './router';
+
+Vue.use(axios)
+sync(store, router);
 
 Vue.use(VueProgressiveImage, {
   blur: 30
@@ -26,6 +29,6 @@ Vue.use(VueProgressiveImage, {
 
 const app = new Vue({
   router,
-//   store,
+  store,
   render: h => h(App)
 }).$mount('#app');

@@ -72,14 +72,20 @@ const routes = [
 
     },
     {
-        path:'/club',
+        path:'/club/:id',
+        name: 'Club',
         component: Club,
-
+        props: route => ({
+            id: Number(route.params.id)
+        })
     },
     {
-        path:'/mypage',
+        path:'/mypage/:id',
+        name: 'Mypage',
         component: MyPage,
-
+        props: route => ({
+            id: Number(route.params.id)
+        })
     },
     {
         path:'/strategy',

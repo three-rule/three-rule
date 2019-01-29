@@ -91,6 +91,8 @@
 
 <script>
 import StickyFooter from '../../components/club/StickyFooter';
+import { mapActions, mapGetters } from 'vuex';
+import axios  from 'axios'
 
 export default {
     components: {
@@ -98,7 +100,24 @@ export default {
     },
     data () {
         return {
+            id: 3
         }
+    },
+    created() {
+      this.start()
+    },
+    computed: {
+        ...mapGetters({
+            mypageData: 'mypage/mypageData',
+            doneMypageDataCount: 'mypage/doneMypageDataCount',
+            // fetchIndividualMypageData: 'mypage/fetchIndividualMypageData',
+            filterMypage: 'mypage/filterMypage'
+        }),
+    },
+    methods: {
+        ...mapActions({
+            start: 'mypage/getMypage'
+        }),
     }
 };
 </script>
