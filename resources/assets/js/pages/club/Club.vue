@@ -6,13 +6,16 @@
                 placeholder="http://placehold.jp/1280x320.png"
                 :blur="30"
             />
+            <!--<img :src="storage/app/public/upload/{{ individualClubData.image }}">-->
         </figure>
         <div class="club-heading">
-            <h1 class="club-name">県立黒澤高校野球部</h1>
+            <!--<h1 class="club-name">県立黒澤高校野球部</h1>-->
+            <h1 class="club-name">{{ individualClubData.club_name }}</h1>
             <router-link to="/member">
                 <h2 class="club-member">
                     部員数
-                    <span>10</span>
+                    <!--<span>10</span>-->
+                    <span>{{ individualClubData.club_member.length }}</span>
                     人
                 </h2>
             </router-link>
@@ -31,7 +34,11 @@
                 <div class="club-strategy">
                     <div class="club-strategy">
                         <div class="main-strategy">
-                            誰かの真似をするな。あたりまえを疑え。0か100か振り切らないと、新しいものはつくれない。どうせやるなら、狂ったように振り切っていけ。
+                            <!--誰かの真似をするな。あたりまえを疑え。0か100か振り切らないと、新しいものはつくれない。どうせやるなら、狂ったように振り切っていけ。-->
+                            {{ individualClubData.policy }}
+                            
+                            <!--データがあれば表示、なければデフォルト値設定-->
+                            
                         </div>
                     </div>
                 </div>
@@ -48,7 +55,7 @@
                         </div>
                     </div>
                     <div class="rule-text">
-                        敬語禁止。でも、リスペクトは大事
+                        {{ individualClubData.rule_one }}
                     </div>
                 </div>
                 <div class="club-3rule">
@@ -61,7 +68,7 @@
                         </div>
                     </div>
                     <div class="rule-text">
-                        批判禁止。できない理由を探さず、できる方法を考える！
+                        {{ individualClubData.rule_two }}
                     </div>
                 </div>
                 <div class="club-3rule">
@@ -74,7 +81,7 @@
                         </div>
                     </div>
                     <div class="rule-text">
-                        とにかく考えて行動する！
+                        {{ individualClubData.rule_three }}
                     </div>
                 </div>
             </div>
@@ -114,6 +121,8 @@
 
 <script>
 import StickyFooter from '../../components/club/StickyFooter';
+import { mapActions, mapGetters } from 'vuex';
+import axios  from 'axios'
 
 export default {
     components: {
@@ -121,7 +130,23 @@ export default {
     },
     data () {
         return {
+             id: 1
         }
+    },
+    created() {
+      this.start()
+    },
+    computed: {
+        ...mapGetters({
+            clubkkk: 'club/clubData',
+            individualClubData: 'club/fetchIndividualClubData',
+            // doneClubMemberCount: 'club/doneClubMemberCount'
+        }),
+    },
+    methods: {
+        ...mapActions({
+            start: 'club/getClub'
+        }),
     }
 };
 </script>

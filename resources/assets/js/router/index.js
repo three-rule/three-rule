@@ -19,6 +19,7 @@ import Contact from '../pages/top/Contact';
  */
 import Club from '../pages/club/Club';
 import MyPage from '../pages/club/MyPage';
+import EditMyPage from '../pages/club/EditMyPage';
 import Strategy from '../pages/club/Strategy';
 import Discussion from '../pages/club/Discussion';
 import OneDiscussion from '../pages/club/OneDiscussion';
@@ -72,14 +73,28 @@ const routes = [
 
     },
     {
-        path:'/club',
+        path:'/club/:id',
+        name: 'Club',
         component: Club,
-
+        props: route => ({
+            id: Number(route.params.id)
+        })
     },
     {
-        path:'/mypage',
+        path:'/mypage/:id',
+        name: 'Mypage',
         component: MyPage,
-
+        props: route => ({
+            id: Number(route.params.id)
+        })
+    },
+    {
+        path:'/editmypage/:id',
+        name: 'EditMypage',
+        component: EditMyPage,
+        props: route => ({
+            id: Number(route.params.id)
+        })
     },
     {
         path:'/strategy',

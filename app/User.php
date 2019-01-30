@@ -27,6 +27,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
     
+    public function user_type() {
+      return $this->belongsTo('App\UserType');
+    }
+    
+    
     public function club(){
       return $this->hasMany('App\Club');
     }
