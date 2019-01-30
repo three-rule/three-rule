@@ -1,6 +1,6 @@
 
 const state = {
-  mypage: {},
+  mypage: [],
   authenticated: false,
 }
 
@@ -12,29 +12,18 @@ const actions = {
 };
 
 const mutations = {
-  setMypage(state, mypage) {
-    state.mypage = mypage
+  setMypage(state, payload) {
+    Object.assign(state, { mypage: payload })
   }
 };
 
 const getters = {
-  mypageData: (state, getters) => state.mypage,
+   mypage: (state, getters, rootState) => state.mypage,
   
-  // fetchIndividualMypageData: (state, getters, rootState) => {
-  //       const mypageId = Number(rootState.route.params.id);
-  //       return getters.mypageData.find(mypage => mypage.id === mypageId);
-  // },
-  
-  doneMypageDataCount: (state, getters) => {
-      return getters.mypageData.length
-  },
-    
-  filterMypage: (state, getters) => (id) => {
-    // console.log(getters.mypageData.filter(mypage => mypage.id === id))
-    console.log(getters.mypageData)
-      return getters.mypageData.filter(mypage => mypage.id === id);
-      
-  }
+   fetchIndividualMypageData: (state, getters, rootState) => {
+         const mypageId = Number(rootState.route.params.id);
+         return getters.mypage.find(mypage => mypage.id === mypageId);
+   }
 };
 
 

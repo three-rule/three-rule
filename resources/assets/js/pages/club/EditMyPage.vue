@@ -15,11 +15,10 @@
             </div>
             <div class="main-profile">
                 <div class="heading">
-                    {{ IndividualMypageData.name }}
+                    <input type="text" :value="IndividualMypageData.name" required>
                 </div>
                 <div class="favorite-motto">
-                    {{ IndividualMypageData.mypage[0].oneword }}
-                    
+                   <input type="text" :value="IndividualMypageData.mypage[0].oneword">
                     
                     
                 </div>
@@ -33,8 +32,8 @@
                         長期目標
                     </div>
                     <div class="right-item">
-                        {{ IndividualMypageData.mypage[0].commit_long }}:
-                        {{ IndividualMypageData.mypage[0].goal_long }}
+                        <input type="text" :value="IndividualMypageData.mypage[0].commit_long">:
+                        <input type="text" :value="IndividualMypageData.mypage[0].goal_long">
                     </div>
                 </div>
                 <div class="medium-term-goal">
@@ -42,8 +41,8 @@
                         中期目標
                     </div>
                     <div class="right-item">
-                        {{ IndividualMypageData.mypage[0].commit_mid }}:
-                        {{ IndividualMypageData.mypage[0].goal_mid }}
+                        <input type="text" :value="IndividualMypageData.mypage[0].commit_mid">:
+                        <input type="text" :value="IndividualMypageData.mypage[0].goal_mid">
                     </div>
                 </div>
                 <div class="short-term-goal">
@@ -51,49 +50,19 @@
                         短期目標
                     </div>
                     <div class="right-item">
-                        {{ IndividualMypageData.mypage[0].commit_short }}:
-                        {{ IndividualMypageData.mypage[0].goal_short }}
+                        <input type="text" :value="IndividualMypageData.mypage[0].commit_short">:
+                        <input type="text" :value="IndividualMypageData.mypage[0].goal_short">
                     </div>
                 </div>
-                <router-link :to="{ name: 'EditMypage', params: { id: $route.params.id } }" class="is-block btn-edit-goal">
-                    <span>プロフィールを修正する</span>
-                </router-link>
-            </div>
-            
-            <div class="journal-container">
-                <div class="heading">
-                    日誌
-                </div>
-                <!--<div class="journals">-->
-                <div class="journals" 
-                     v-for="journal in IndividualMypageData.journal" :key="journal.id">
-                    <router-link :to="{ name: 'OneJournal', params: { id: journal.id } }" class="journal">
-                        <p>
-                            <!--<span>2019.01.20</span><br />-->
-                            <span>{{ journal.activity_date }}</span><br />
-                            <span>title</span>
-                        </p>
-                    </router-link>
-                    
-                    <!--<router-link :to="{ name: 'OneJournal', params: { id: 2 } }" class="journal">-->
-                    <!--    <p>-->
-                    <!--        <span>2019.01.20</span><br />-->
-                    <!--        <span>title</span>-->
-                    <!--    </p>-->
-                    <!--</router-link>-->
-                    <!--<router-link :to="{ name: 'OneJournal', params: { id: 3 } }" class="journal">-->
-                    <!--    <p>-->
-                    <!--        <span>2019.01.20</span><br />-->
-                    <!--        <span>title</span>-->
-                    <!--    </p>-->
-                    <!--</router-link>-->
-                    <!--<router-link :to="{ name: 'OneJournal', params: { id: 4 } }" class="journal">-->
-                    <!--    <p>-->
-                    <!--        <span>2019.01.20</span><br />-->
-                    <!--        <span>title</span>-->
-                    <!--    </p>-->
-                    <!--</router-link>-->
-                </div>
+                
+                
+                
+                <button class="btn btn-success pull-right" @click="update">
+                    更新する
+                </button>
+                
+                
+                
             </div>
         </div>
         <sticky-footer></sticky-footer>
@@ -113,19 +82,19 @@ export default {
         return {
         }
     },
-    created() {
-      this.start()
-    },
     computed: {
         ...mapGetters({
-            mypage: 'mypage/mypage',
+            // mypage: 'mypage/mypage',
             IndividualMypageData: 'mypage/fetchIndividualMypageData'
         }),
     },
     methods: {
-        ...mapActions({
-            start: 'mypage/getMypage'
-        }),
+        update() {
+            axios.post('/mypage/update/'+ this.$route.params.profile, this.profile)
+                .then(response => {
+                    swal("Updated!", "Your peace has been opsated!", "success")
+                })
+        }
     }
 };
 </script>

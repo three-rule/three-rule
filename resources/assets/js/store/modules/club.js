@@ -1,6 +1,6 @@
 
 const state = {
-  clubData: {},
+  clubData: [],
   authenticated: false,
 }
 
@@ -12,15 +12,22 @@ const actions = {
 };
 
 const mutations = {
-  setClub(state, club) {
-    state.clubData = club
+  setClub(state, payload) {
+    Object.assign(state, { clubData: payload })
   }
 };
 
 const getters = {
   clubData:　(state, getters, rootState) => state.clubData,
   
-//   fetchIndividualClubData: (state, getters, rootState) => {
+  fetchIndividualClubData: (state, getters, rootState) => {
+      const clubId = Number(rootState.route.params.id);
+      console.log(getters.clubData);
+      return getters.clubData.find(item => item.id === clubId);
+  },
+
+
+//     fetchIndividualClubData: (state, getters, rootState) => (id) => {
 //       const clubId = Number(rootState.route.params.id);
 //       return getters.clubData.find(item => item.id === clubId);
 //   },

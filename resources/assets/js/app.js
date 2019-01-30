@@ -9,12 +9,14 @@ require('./bootstrap');
 
 import Vue from 'vue';
 import App from './App';
+import axios  from 'axios'
+import VueAxios  from 'vue-axios'
 import VueProgressiveImage from 'vue-progressive-image';
 import { sync } from 'vuex-router-sync';
-import store from './store/';
-import router from './router';
+import store from './store/index';
+import router from './router/index';
 
-Vue.use(axios)
+Vue.use(VueAxios, axios); 
 sync(store, router);
 
 Vue.use(VueProgressiveImage, {
