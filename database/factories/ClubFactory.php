@@ -5,7 +5,7 @@ use Illuminate\Http\UploadedFile;
 
 $factory->define(App\Club::class, function (Faker $faker) {
     
-    $fileRealPath = UploadedFile::fake()->create('tempfilename.pdf', 10)->store('public/upload');
+    $fileRealPath = UploadedFile::fake()->create('tempfilename.pdf', 10);
     
     return [
         'user_id'           => $faker->numberBetween(1, 10),
@@ -13,6 +13,10 @@ $factory->define(App\Club::class, function (Faker $faker) {
         'school_calling_id' => $faker->numberBetween(1, 3),
         'club_name'         => $faker->realText(10),
         'club_calling_id'   => $faker->numberBetween(1, 3),
-        'image'             => $fileRealPath
+        'image'             => $fileRealPath,
+        'policy'            => $faker->realText(10),
+        'rule_one'          => $faker->realText(10),
+        'rule_two'          => $faker->realText(10),
+        'rule_three'        => $faker->realText(10)
     ];
 });

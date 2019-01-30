@@ -21,6 +21,10 @@ class CreateClubsTable extends Migration
             $table->string('club_name');
             $table->integer('club_calling_id');
             $table->string('image');
+            $table->string('policy');
+            $table->string('rule_one');
+            $table->string('rule_two');
+            $table->string('rule_three');
             $table->timestamps();
         });
     }

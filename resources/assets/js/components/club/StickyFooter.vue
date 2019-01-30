@@ -1,11 +1,12 @@
 <template>
     <div class="sticky-footer">
-        <router-link to="/club" class="left-item">
+        <router-link :to="{ name: 'Club', params: { id: 1 } }" class="left-item">
             <div>
                 <i class="fas fa-home"></i>
             </div>
         </router-link>
-        <router-link to="/mypage" class="right-item">
+        <!--<router-link to="/mypage" class="right-item">-->
+        <router-link :to="{ name: 'Mypage', params: { id: 3 } }" class="right-item">
             <div>
                 <i class="fas fa-user"></i>
             </div>
