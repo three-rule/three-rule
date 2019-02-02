@@ -11,6 +11,6 @@ class StrategiesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Strategy::class, 10)->create();
+        factory(App\Strategy::class, 50)->create();
     }
 }

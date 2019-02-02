@@ -21,10 +21,10 @@ class CreateClubsTable extends Migration
             $table->string('club_name');
             $table->integer('club_calling_id');
             $table->string('image');
-            $table->string('policy');
-            $table->string('rule_one');
-            $table->string('rule_two');
-            $table->string('rule_three');
+            $table->string('policy')->default('方針を記入');
+            $table->string('rule_one')->default('3rule①を記入');
+            $table->string('rule_two')->default('3rule②を記入');
+            $table->string('rule_three')->default('3rule③を記入');
             $table->timestamps();
         });
     }

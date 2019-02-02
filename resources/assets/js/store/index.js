@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import mypage from "./modules/mypage";
 import club from "./modules/club";
+import mypage from "./modules/mypage";
  
 Vue.use(Vuex);
  

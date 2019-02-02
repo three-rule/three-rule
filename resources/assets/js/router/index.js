@@ -96,11 +96,11 @@ const routes = [
             id: Number(route.params.id)
         })
     },
-    {
-        path:'/strategy',
-        component: Strategy,
+    // {
+    //     path:'/strategy',
+    //     component: Strategy,
 
-    },
+    // },
     {
         path:'/discussion/:discuss_id',
         name: 'OneDiscussion',
@@ -138,14 +138,21 @@ const routes = [
 
     },
     {
-        path:'/info',
+        path:'/info/:id',
+        name: 'Information',
         component: Information,
+        props: route => ({
+            id: Number(route.params.id)
+        })
 
     },
     {
-        path:'/member',
+        path:'/member/:id',
+        name: 'ClubMember',
         component: ClubMember,
-
+        props: route => ({
+            id: Number(route.params.id)
+        })
     }
 ];
  

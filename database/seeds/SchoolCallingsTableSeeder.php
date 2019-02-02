@@ -18,7 +18,7 @@ class SchoolCallingsTableSeeder extends Seeder
             ["school_calling_name"=>'高校'],
             ["school_calling_name"=>'高専'],
             ["school_calling_name"=>'専門学校'],
-            ["school_calling_name"=>'短大'],
+            ["school_calling_name"=>'短期大学'],
             ["school_calling_name"=>'大学'],
         ];
       

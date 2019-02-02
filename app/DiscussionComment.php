@@ -16,7 +16,7 @@ class DiscussionComment extends Model
       return $this->belongsTo('App\Discussion');
     }
     
-    public function discussion_comment_count(){
+    public function discussion_comment_counts(){
       return $this->hasMany('App\DiscussionCommentCount');
     }
 }

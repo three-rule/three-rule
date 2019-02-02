@@ -11,6 +11,6 @@ class DiscussionCommentsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\DiscussionComment::class, 10)->create();
+        factory(App\DiscussionComment::class, 50)->create();
     }
 }

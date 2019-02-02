@@ -22,19 +22,8 @@ const getters = {
   
   fetchIndividualClubData: (state, getters, rootState) => {
       const clubId = Number(rootState.route.params.id);
-      console.log(getters.clubData);
       return getters.clubData.find(item => item.id === clubId);
-  },
-
-
-//     fetchIndividualClubData: (state, getters, rootState) => (id) => {
-//       const clubId = Number(rootState.route.params.id);
-//       return getters.clubData.find(item => item.id === clubId);
-//   },
-  
-//   doneClubMemberCount: (state, getters, rootState) => {
-//       return getters.clubData.length
-//   },
+  }
 };
 
 export default {

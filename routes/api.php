@@ -20,9 +20,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['middleware' => 'api'], function () {
     Route::get('club',  'ClubController@index');
+    Route::post('club/update/{id}',  'ClubController@update');
+    Route::post('club/role/{id}',  'ClubController@role');
 });
 
 
 Route::group(['middleware' => 'api'], function () {
     Route::get('mypage',  'MypageController@index');
+    Route::post('mypage/update/{id}',  'MypageController@update');
+    Route::post('mypage/upload/{id}',  'MypageController@upload');
 });

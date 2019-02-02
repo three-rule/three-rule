@@ -17,7 +17,7 @@ class CreateMypagesTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->string('icon');
-            $table->string('oneword');
+            $table->string('oneword')->default('自分の好き/夢を入力');
             $table->string('goal_long');
             $table->date('commit_long');
             $table->string('goal_mid');

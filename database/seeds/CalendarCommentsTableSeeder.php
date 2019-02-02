@@ -11,6 +11,6 @@ class CalendarCommentsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\CalendarComment::class, 10)->create();
+        factory(App\CalendarComment::class, 50)->create();
     }
 }
