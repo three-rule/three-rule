@@ -20,11 +20,11 @@ class CreateClubsTable extends Migration
             $table->integer('school_calling_id');
             $table->string('club_name');
             $table->integer('club_calling_id');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('policy')->default('方針を記入');
-            $table->string('rule_one')->default('3rule①を記入');
-            $table->string('rule_two')->default('3rule②を記入');
-            $table->string('rule_three')->default('3rule③を記入');
+            $table->string('rule_one')->default('(例)敬語禁止');
+            $table->string('rule_two')->default('(例)批判禁止');
+            $table->string('rule_three')->default('(例)より多く失敗する');
             $table->timestamps();
         });
     }

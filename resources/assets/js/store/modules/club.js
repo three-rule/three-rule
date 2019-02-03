@@ -23,7 +23,12 @@ const getters = {
   fetchIndividualClubData: (state, getters, rootState) => {
       const clubId = Number(rootState.route.params.id);
       return getters.clubData.find(item => item.id === clubId);
-  }
+  },
+  
+  // fetchClubJournalData: (state, getters, rootState) => {
+  //     const clubId = Number(rootState.route.params.id);
+  //     return getters.clubData.find(item => item.journal.id === clubId);
+  // }
 };
 
 export default {

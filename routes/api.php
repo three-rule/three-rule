@@ -24,9 +24,12 @@ Route::group(['middleware' => 'api'], function () {
     Route::post('club/role/{id}',  'ClubController@role');
 });
 
-
 Route::group(['middleware' => 'api'], function () {
     Route::get('mypage',  'MypageController@index');
     Route::post('mypage/update/{id}',  'MypageController@update');
     Route::post('mypage/upload/{id}',  'MypageController@upload');
+});
+
+Route::group(['middleware' => 'api'], function () {
+    Route::post('journal/create',  'JournalController@create');
 });

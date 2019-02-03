@@ -10,20 +10,23 @@
                 :blur="30"
             />
         </figure>
-        <div class="journal-container">
+        <div class="journal-container"
+              v-for="journal in oneJournalData.journal" :key="journal.id"
+              v-if="journal.id == $route.params.id">
             <div class="title-container">
-                <h1 class="heading">我ここにあり。天上天下唯我独尊</h1>
+                <h1 class="heading">{{ journal.title }}</h1>
             </div>
-            <div class="go-comment">
-                <div class="go">
-                    <i class="far fa-heart"></i>
-                    <span>4</span>
-                </div>
-                <div class="comment">
-                    <i class="far fa-comment-dots"></i>
-                    <span>4</span>
-                </div>
-            </div>
+            
+            <!--<div class="go-comment">-->
+            <!--    <div class="go">-->
+            <!--        <i class="far fa-heart"></i>-->
+            <!--        <span>4</span>-->
+            <!--    </div>-->
+            <!--    <div class="comment">-->
+            <!--        <i class="far fa-comment-dots"></i>-->
+            <!--        <span>4</span>-->
+            <!--    </div>-->
+            <!--</div>-->
             <div class="writter">
                 <figure class="image">
                     <progressive-img
@@ -34,102 +37,95 @@
                 </figure>
                 <div class="name-date">
                     <div class="writter-name">
-                        黒澤信伍
+                        {{ journal.user_id }}
                     </div>
                     <div class="post-date">
-                        2019.01.20
+                        {{ journal.activity_date }}
                     </div>
                 </div>
             </div>
             <div class="content-point">
                 <div class="strengths">
-                    <span class="box-title">アピールポイント</span>
-                    <ul>
-                        <li>
-                            aaa
-                        </li>
-                        <li>
-                            bbb
-                        </li>
-                    </ul>
+                    <span class="box-title">自慢ポイント</span>
+                    <span>{{ journal.appeal }}</span>
+                </div>
+                <div class="next-actions">
+                    <span class="box-title">改善ポイント</span>
+                    <span>{{ journal.improvement }}</span>
                 </div>
                 <div class="next-actions">
                     <span class="box-title">ネクストアクション</span>
-                    <ul>
-                        <li>
-                            資金調達
-                        </li>
-                        <li>
-                            bbb
-                        </li>
-                    </ul>
+                    <span>{{ journal.nextaction }}</span>
                 </div>
             </div>
-            <div class="content">
-                <p>キャリアサマリ</p>
-                <p>・2013年 筑波大学卒業</p>
-                <p>・2013-2018年 ソフトバンク（株）で法人ソリューション営業に従事</p>
-                <p>・2018年6月退職後, 2ヶ月のアジア旅を経て, 現在GsAcademyにてプログラミング習得中.</p>
-                <br />
-                <p>▼ 2013年4月 ～ 2018年6月</p>
-                <p>ソフトバンク株式会社</p>
-                <p>法人事業統括　法人営業</p>
-                <br />
+            <div class="next-actions">
+                <span class="box-title">フリー</span>
+                <span>{{ journal.free }}</span>
                 
-                <p>■事業内容</p>
-                <p>ソフトバンクグループ内の法人事業</p>
-                <br />
+                <!--<p>キャリアサマリ</p>-->
+                <!--<p>・2013年 筑波大学卒業</p>-->
+                <!--<p>・2013-2018年 ソフトバンク（株）で法人ソリューション営業に従事</p>-->
+                <!--<p>・2018年6月退職後, 2ヶ月のアジア旅を経て, 現在GsAcademyにてプログラミング習得中.</p>-->
+                <!--<br />-->
+                <!--<p>▼ 2013年4月 ～ 2018年6月</p>-->
+                <!--<p>ソフトバンク株式会社</p>-->
+                <!--<p>法人事業統括　法人営業</p>-->
+                <!--<br />-->
                 
-                <p>■担当業務</p>
-                <p>法人直販ソリューション営業 （中小～大企業まで・新規開拓/既存拡大）</p>
-                <br />
+                <!--<p>■事業内容</p>-->
+                <!--<p>ソフトバンクグループ内の法人事業</p>-->
+                <!--<br />-->
                 
-                <p>■実績</p>
-                <p>・売上1000億超企業を中心とした法人顧客の課題解決に熱中</p>
-                <p>・IBM Watson表彰で,リリース時より2年連続アメリカ研修へ</p>
+                <!--<p>■担当業務</p>-->
+                <!--<p>法人直販ソリューション営業 （中小～大企業まで・新規開拓/既存拡大）</p>-->
+                <!--<br />-->
+                
+                <!--<p>■実績</p>-->
+                <!--<p>・売上1000億超企業を中心とした法人顧客の課題解決に熱中</p>-->
+                <!--<p>・IBM Watson表彰で,リリース時より2年連続アメリカ研修へ</p>-->
             </div>
-            <div class="comments">
-                <div class="comment-container">
-                    <figure class="image">
-                        <progressive-img
-                            src="https://placehold.jp/48x48.png"
-                            placeholder="https://placehold.jp/48x48.png"
-                            :blur="30"
-                        />
-                    </figure>
-                    <div class="comment-warraper">
-                        <div class="commenter">
-                            黒澤信伍
-                        </div>
-                        <div class="comment-content">
-                            こめんと
-                        </div>
-                        <div class="comment-date">
-                            1ヶ月前
-                        </div>
-                    </div>
-                </div>
-                <div class="comment-container">
-                    <figure class="image">
-                        <progressive-img
-                            src="https://placehold.jp/48x48.png"
-                            placeholder="https://placehold.jp/48x48.png"
-                            :blur="30"
-                        />
-                    </figure>
-                    <div class="comment-wrapper">
-                        <div class="commenter">
-                            上のゆま
-                        </div>
-                        <div class="comment-content">
-                            こめんとこめんとこめんとこめんとこめんとこめんとこめんとこめんとこめんとこめんとこめんとこめんとこめんと
-                        </div>
-                        <div class="comment-date">
-                            1ヶ月前
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!--<div class="comments">-->
+            <!--    <div class="comment-container">-->
+            <!--        <figure class="image">-->
+            <!--            <progressive-img-->
+            <!--                src="https://placehold.jp/48x48.png"-->
+            <!--                placeholder="https://placehold.jp/48x48.png"-->
+            <!--                :blur="30"-->
+            <!--            />-->
+            <!--        </figure>-->
+            <!--        <div class="comment-warraper">-->
+            <!--            <div class="commenter">-->
+            <!--                黒澤信伍-->
+            <!--            </div>-->
+            <!--            <div class="comment-content">-->
+            <!--                こめんと-->
+            <!--            </div>-->
+            <!--            <div class="comment-date">-->
+            <!--                1ヶ月前-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--    </div>-->
+            <!--    <div class="comment-container">-->
+            <!--        <figure class="image">-->
+            <!--            <progressive-img-->
+            <!--                src="https://placehold.jp/48x48.png"-->
+            <!--                placeholder="https://placehold.jp/48x48.png"-->
+            <!--                :blur="30"-->
+            <!--            />-->
+            <!--        </figure>-->
+            <!--        <div class="comment-wrapper">-->
+            <!--            <div class="commenter">-->
+            <!--                上のゆま-->
+            <!--            </div>-->
+            <!--            <div class="comment-content">-->
+            <!--                こめんとこめんとこめんとこめんとこめんとこめんとこめんとこめんとこめんとこめんとこめんとこめんとこめんと-->
+            <!--            </div>-->
+            <!--            <div class="comment-date">-->
+            <!--                1ヶ月前-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--    </div>-->
+            <!--</div>-->
         </div>
         <sticky-footer></sticky-footer>
     </main>
@@ -137,6 +133,7 @@
 
 <script>
 import StickyFooter from '../../components/club/StickyFooter';
+import { mapGetters } from 'vuex';
 
 export default {
     name: 'OneJournal',
@@ -146,7 +143,12 @@ export default {
     data () {
         return {
         }
-    }
+    },
+    computed: {
+        ...mapGetters({
+            oneJournalData: 'club/fetchIndividualClubData',
+        })
+    },
 };
 </script>
 

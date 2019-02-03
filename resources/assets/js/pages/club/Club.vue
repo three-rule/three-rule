@@ -40,23 +40,37 @@
             <!--        1-->
             <!--    </div>-->
             <!--</span>-->
-        </div>
-        <div class="club-rules">
-            <div class="club-rules-container">
-                <h3 class="club-rules-heading">チーム方針</h3>
-                <button type="button" @click="toggleEdit" v-if="isEdit">Edit</button>
-                <button type="button" @click="onSubmit" v-else>Save</button>
+            
+            <div class="club-strategy">
+                <div class="main-strategy" v-if="isEdit">
+                    {{ individualClubData.policy }}
+                </div>
                 
-                <div class="club-strategy">
-                    <div class="main-strategy" v-if="isEdit">
-                        {{ individualClubData.policy }}
-                    </div>
-                    
-                    <div class="club-strategy" v-else>
-                        <input class="main-strategy" v-model="individualClubData.policy">
-                    </div>
+                <div class="club-strategy" v-else>
+                    <input class="main-strategy" v-model="individualClubData.policy">
                 </div>
             </div>
+        </div>
+        
+        <div class="club-rules">
+            <button type="button" @click="toggleEdit" v-if="isEdit">Edit</button>
+            <button type="button" @click="onSubmit" v-else>Save</button>
+            <!--<div class="club-rules-container">-->
+                <!--<h3 class="club-rules-heading">チーム方針</h3>-->
+            <!--    <button type="button" @click="toggleEdit" v-if="isEdit">Edit</button>-->
+            <!--    <button type="button" @click="onSubmit" v-else>Save</button>-->
+                <!--<router-link :to="{ name: 'Club', params: { id: $route.params.id } }">Cancel</router-link>-->
+                
+                <!--<div class="club-strategy">-->
+                <!--    <div class="main-strategy" v-if="isEdit">-->
+                <!--        {{ individualClubData.policy }}-->
+                <!--    </div>-->
+                    
+                <!--    <div class="club-strategy" v-else>-->
+                <!--        <input class="main-strategy" v-model="individualClubData.policy">-->
+                <!--    </div>-->
+                <!--</div>-->
+            <!--</div>-->
             
             <div class="club-rules-container">
                 <h3 class="club-rules-heading">3ルール</h3>
@@ -135,7 +149,8 @@
                     </router-link>
                 </li>
                 <li>
-                    <router-link to="/journal">
+                    <!--<router-link to="/journal">-->
+                    <router-link :to="{ name: 'Journal', params: { id: $route.params.id } }">
                         <i class="fas fa-blog"></i>
                     </router-link>
                 </li>
