@@ -3,71 +3,50 @@
         <div class="sticky-header">
             <p>みんなの日誌</p>
         </div>
+    
         <div class="journal-container">
+            <router-link :to="{ name: 'JournalCreate', params: { id: $route.params.id } }">
+                日誌を書く
+            </router-link>
+            
+        
             <div class="heading">
-                2019.01.20
+                {{ date | moment }}
             </div>
+            
+            
             <div class="journals">
-                <router-link :to="{ name: 'OneJournal', params: { id: 1 } }" class="journal">
+                
+                <router-link 
+                  :to="{ name: 'OneJournal', params: { id: journal.id } }" 
+                  v-for="journal in ClubJournalData.journal" :key="journal.id"
+                  v-if=" journal.activity_date == '2019-02-01'"
+                  class="journal">
                     <p>
-                        <span>name</span><br />
-                        <span>title</span>
+                        <!--{{ journal.activity_date }}-->
+                        <span>{{ journal.user_id }}</span><br />
+                        <span>{{ journal.title }}</span>
                     </p>
                 </router-link>
-                <router-link :to="{ name: 'OneJournal', params: { id: 2 } }" class="journal">
-                    <p>
-                        <span>name</span><br />
-                        <span>title</span>
-                    </p>
-                </router-link>
-                <router-link :to="{ name: 'OneJournal', params: { id: 3 } }" class="journal">
-                    <p>
-                        <span>name</span><br />
-                        <span>title</span>
-                    </p>
-                </router-link>
-                <router-link :to="{ name: 'OneJournal', params: { id: 4 } }" class="journal">
-                    <p>
-                        <span>name</span><br />
-                        <span>title</span>
-                    </p>
-                </router-link>
-                <router-link :to="{ name: 'OneJournal', params: { id: 5 } }" class="journal">
-                    <p>
-                        <span>name</span><br />
-                        <span>title</span>
-                    </p>
-                </router-link>
-                <router-link :to="{ name: 'OneJournal', params: { id: 6 } }" class="journal">
-                    <p>
-                        <span>name</span><br />
-                        <span>title</span>
-                    </p>
-                </router-link>
-                <router-link :to="{ name: 'OneJournal', params: { id: 7 } }" class="journal">
-                    <p>
-                        <span>name</span><br />
-                        <span>title</span>
-                    </p>
-                </router-link>
-                <router-link :to="{ name: 'OneJournal', params: { id: 8 } }" class="journal">
-                    <p>
-                        <span>name</span><br />
-                        <span>title</span>
-                    </p>
-                </router-link>
-                <router-link :to="{ name: 'OneJournal', params: { id: 9 } }" class="journal">
-                    <p>
-                        <span>name</span><br />
-                        <span>title</span>
-                    </p>
-                </router-link>
-                <router-link :to="{ name: 'OneJournal', params: { id: 10 } }" class="journal">
-                    <p>
-                        <span>name</span><br />
-                        <span>title</span>
-                    </p>
-                </router-link>
+                
+                <!--<router-link :to="{ name: 'OneJournal', params: { id: 1 } }" class="journal">-->
+                <!--    <p>-->
+                <!--        <span>name</span><br />-->
+                <!--        <span>title</span>-->
+                <!--    </p>-->
+                <!--</router-link>-->
+                <!--<router-link :to="{ name: 'OneJournal', params: { id: 2 } }" class="journal">-->
+                <!--    <p>-->
+                <!--        <span>name</span><br />-->
+                <!--        <span>title</span>-->
+                <!--    </p>-->
+                <!--</router-link>-->
+                <!--<router-link :to="{ name: 'OneJournal', params: { id: 3 } }" class="journal">-->
+                <!--    <p>-->
+                <!--        <span>name</span><br />-->
+                <!--        <span>title</span>-->
+                <!--    </p>-->
+                <!--</router-link>-->
             </div>
         </div>
         <sticky-footer></sticky-footer>
@@ -76,6 +55,9 @@
 
 <script>
 import StickyFooter from '../../components/club/StickyFooter';
+import moment from 'moment';
+import { mapGetters } from 'vuex';
+// const today = moment();
 
 export default {
     components: {
@@ -84,6 +66,18 @@ export default {
     data () {
         return {
         }
+    },
+    filters: {
+        moment: function (date) {
+            moment.locale('ja', { weekdays: ["日","月","火","水","木","金","土"] });
+            // return moment(date).format('YYYY.MM.DD (dddd)');
+            return moment(date).format('YYYY-MM-DD');
+        },
+    },
+    computed: {
+        ...mapGetters({
+            ClubJournalData: 'club/fetchIndividualClubData',
+        }),
     }
 };
 </script>

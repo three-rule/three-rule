@@ -14,8 +14,15 @@
                         </div>
                     </div>
                     <div class="news-list-text">
+                        
+                        <div v-for="status in informationData.club_member" :key="status.id">
+                            <p>
+                                {{ status.join_status }}
+                            </p>
+                        </div>
+                        
                         <p>
-                            上のゆゆまさんから参加リクエストがあります。
+                            上野ゆうまさんから参加リクエストがあります。
                         </p>
                         <div class="news-list-btn">
                             <a>
@@ -27,18 +34,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="news-list">
-                    <div class="news-heading">
-                        <div class="news-list-title">
-                            2019.01.17
-                        </div>
-                    </div>
-                    <div class="news-list-text">
-                        <p>
-                            明日監督から重大発表があります。
-                        </p>
-                    </div>
-                </div>
+                <!--<div class="news-list">-->
+                <!--    <div class="news-heading">-->
+                <!--        <div class="news-list-title">-->
+                <!--            2019.01.17-->
+                <!--        </div>-->
+                <!--    </div>-->
+                <!--    <div class="news-list-text">-->
+                <!--        <p>-->
+                <!--            明日監督から重大発表があります。-->
+                <!--        </p>-->
+                <!--    </div>-->
+                <!--</div>-->
             </div>
         </div>
     </section>
@@ -48,6 +55,9 @@
 
 <script>
 import StickyFooter from '../../components/club/StickyFooter';
+import { mapActions, mapGetters } from 'vuex';
+import axios  from 'axios'
+
 
 export default {
     components: {
@@ -56,7 +66,12 @@ export default {
     data () {
         return {
         }
-    }
+    },
+    computed: {
+        ...mapGetters({
+            informationData: 'club/fetchIndividualClubData'
+        }),
+    },
 };
 </script>
 

@@ -11,6 +11,6 @@ class DiscussionCommentCountsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\DiscussionCommentCount::class, 10)->create();
+        factory(App\DiscussionCommentCount::class, 50)->create();
     }
 }

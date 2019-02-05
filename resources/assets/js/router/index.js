@@ -25,6 +25,7 @@ import Discussion from '../pages/club/Discussion';
 import OneDiscussion from '../pages/club/OneDiscussion';
 import Menu from '../pages/club/Menu';
 import Journal from '../pages/club/Journal';
+import JournalCreate from '../pages/club/JournalCreate';
 import OneJournal from '../pages/club/OneJournal';
 import Calendar from '../pages/club/Calendar';
 import Information from '../pages/club/Information';
@@ -96,11 +97,11 @@ const routes = [
             id: Number(route.params.id)
         })
     },
-    {
-        path:'/strategy',
-        component: Strategy,
+    // {
+    //     path:'/strategy',
+    //     component: Strategy,
 
-    },
+    // },
     {
         path:'/discussion/:discuss_id',
         name: 'OneDiscussion',
@@ -120,12 +121,24 @@ const routes = [
 
     },
     {
-        path:'/journal',
+        path:'/journal/:id',
+        name: 'Journal',
         component: Journal,
+        props: route => ({
+            id: Number(route.params.id)
+        })
 
     },
     {
-        path:'/journal/:id',
+        path:'/journal/create/:id',
+        name: 'JournalCreate',
+        component: JournalCreate,
+        props: route => ({
+            id: Number(route.params.id)
+        })
+    },
+    {
+        path:'/onejournal/:id',
         name: 'OneJournal',
         component: OneJournal,
         props: route => ({
@@ -138,14 +151,21 @@ const routes = [
 
     },
     {
-        path:'/info',
+        path:'/info/:id',
+        name: 'Information',
         component: Information,
+        props: route => ({
+            id: Number(route.params.id)
+        })
 
     },
     {
-        path:'/member',
+        path:'/member/:id',
+        name: 'ClubMember',
         component: ClubMember,
-
+        props: route => ({
+            id: Number(route.params.id)
+        })
     }
 ];
  

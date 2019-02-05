@@ -11,17 +11,23 @@
                         placeholder="http://placehold.jp/100x100.png"
                         :blur="30"
                     />
+                    <input type="file" class="form-control" @change="imageChanged">
+                    <button type="button" @click="uploadImage">upload</button>
                 </figure>
             </div>
             <div class="main-profile">
                 <div class="heading">
-                    {{ IndividualMypageData.name }}
+                <!--<div class="heading" v-if="isEdit">-->
+                    {{ individualMypageData.name }}
                 </div>
-                <div class="favorite-motto">
-                    {{ IndividualMypageData.mypage[0].oneword }}
-                    
-                    
-                    
+                <!--<div class="heading" v-else>-->
+                <!--    <input v-model="individualMypageData.name">-->
+                <!--</div>-->
+                <div class="favorite-motto" v-if="isEdit">
+                    {{ individualMypageData.mypage[0].oneword }}
+                </div>
+                <div class="favorite-motto" v-else>
+                    <input v-model="individualMypageData.mypage[0].oneword">
                 </div>
             </div>
             <div class="goal-container">
@@ -32,32 +38,44 @@
                     <div class="left-item">
                         長期目標
                     </div>
-                    <div class="right-item">
-                        {{ IndividualMypageData.mypage[0].commit_long }}:
-                        {{ IndividualMypageData.mypage[0].goal_long }}
+                    <div class="right-item" v-if="isEdit">
+                        {{ individualMypageData.mypage[0].commit_long }}:{{ individualMypageData.mypage[0].goal_long }}
+                    </div>
+                    <div class="right-item" v-else>
+                        <input v-model="individualMypageData.mypage[0].commit_long">:
+                        <input v-model="individualMypageData.mypage[0].goal_long">
                     </div>
                 </div>
                 <div class="medium-term-goal">
                     <div class="left-item">
                         中期目標
                     </div>
-                    <div class="right-item">
-                        {{ IndividualMypageData.mypage[0].commit_mid }}:
-                        {{ IndividualMypageData.mypage[0].goal_mid }}
+                    <div class="right-item" v-if="isEdit">
+                        {{ individualMypageData.mypage[0].commit_mid }}:{{ individualMypageData.mypage[0].goal_mid }}
+                    </div>
+                    <div class="right-item" v-else>
+                        <input v-model="individualMypageData.mypage[0].commit_mid">:
+                        <input v-model="individualMypageData.mypage[0].goal_mid">
                     </div>
                 </div>
                 <div class="short-term-goal">
                     <div class="left-item">
                         短期目標
                     </div>
-                    <div class="right-item">
-                        {{ IndividualMypageData.mypage[0].commit_short }}:
-                        {{ IndividualMypageData.mypage[0].goal_short }}
+                    <div class="right-item" v-if="isEdit">
+                        {{ individualMypageData.mypage[0].commit_short }}:{{ individualMypageData.mypage[0].goal_short }}
+                    </div>
+                    <div class="right-item" v-else>
+                        <input v-model="individualMypageData.mypage[0].commit_short">:
+                        <input v-model="individualMypageData.mypage[0].goal_short">
                     </div>
                 </div>
-                <router-link :to="{ name: 'EditMypage', params: { id: $route.params.id } }" class="is-block btn-edit-goal">
-                    <span>プロフィールを修正する</span>
-                </router-link>
+                <!--<router-link :to="{ name: 'EditMypage', params: { id: $route.params.id } }" class="is-block btn-edit-goal">-->
+                <div class="is-block btn-edit-goal">
+                    <span @click="toggleEdit" v-if="isEdit">Edit</span>
+                    <span @click="onSubmit" v-else>Update</span>
+                </div>
+                <!--</router-link>-->
             </div>
             
             <div class="journal-container">
@@ -66,12 +84,12 @@
                 </div>
                 <!--<div class="journals">-->
                 <div class="journals" 
-                     v-for="journal in IndividualMypageData.journal" :key="journal.id">
+                     v-for="journal in individualMypageData.journal" :key="journal.id">
                     <router-link :to="{ name: 'OneJournal', params: { id: journal.id } }" class="journal">
                         <p>
                             <!--<span>2019.01.20</span><br />-->
                             <span>{{ journal.activity_date }}</span><br />
-                            <span>title</span>
+                            <!--<span>{{ journal.title }}</span>-->
                         </p>
                     </router-link>
                     
@@ -111,6 +129,7 @@ export default {
     },
     data () {
         return {
+            isEdit: true
         }
     },
     created() {
@@ -119,13 +138,48 @@ export default {
     computed: {
         ...mapGetters({
             mypage: 'mypage/mypage',
-            IndividualMypageData: 'mypage/fetchIndividualMypageData'
+            individualMypageData: 'mypage/fetchIndividualMypageData'
         }),
     },
     methods: {
         ...mapActions({
             start: 'mypage/getMypage'
         }),
+        toggleEdit() {
+          this.isEdit = !this.isEdit
+        },
+        imageChanged(e) {
+            console.log(e.target.files[0])
+            let fileReader = new FileReader() 
+            fileReader.readAsDataURL(e.target.files[0])
+            fileReader.onload = (e) => {
+                this.individualMypageData.mypage[0].icon = e.target.result
+            }
+        },
+        onSubmit() {
+            const params = {
+                // name:         this.individualMypageData.name,
+                oneword:      this.individualMypageData.mypage[0].oneword,
+                commit_long:  this.individualMypageData.mypage[0].commit_long,
+                goal_long:    this.individualMypageData.mypage[0].goal_long,
+                commit_mid:   this.individualMypageData.mypage[0].commit_mid,
+                goal_mid:     this.individualMypageData.mypage[0].goal_mid,
+                commit_short: this.individualMypageData.mypage[0].commit_short,
+                goal_short:   this.individualMypageData.mypage[0].goal_short
+            };
+            
+            axios.post('/api/mypage/update/'+ this.individualMypageData.mypage[0].id, params)
+                .then(response => {
+                    swal("Updated!", "Your product has been opsated!", "success")
+                    this.isEdit = !this.isEdit
+                })
+        },
+        uploadImage() {
+            axios.post('/api/mypage/upload/'+ this.$route.params.id, this.individualMypageData.mypage[0])
+                .then(response => {
+                    swal("Updated!", "Your product has been opsated!", "success")
+                })
+        }
     }
 };
 </script>

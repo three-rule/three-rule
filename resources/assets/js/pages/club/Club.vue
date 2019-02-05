@@ -9,42 +9,73 @@
             <!--<img :src="storage/app/public/upload/{{ individualClubData.image }}">-->
         </figure>
         <div class="club-heading">
-            <!--<h1 class="club-name">県立黒澤高校野球部</h1>-->
-            <h1 class="club-name">{{ individualClubData.club_name }}</h1>
-            <router-link to="/member">
+            <h1 class="club-name">
+                {{ individualClubData.school_name }}
+                <span v-if="individualClubData.school_calling_id == 1">小学校</span>
+                <span v-else-if="individualClubData.school_calling_id == 2">中学校</span>
+                <span v-else-if="individualClubData.school_calling_id == 3">高校</span>
+                <span v-else-if="individualClubData.school_calling_id == 4">高専</span>
+                <span v-else-if="individualClubData.school_calling_id == 5">専門学校</span>
+                <span v-else-if="individualClubData.school_calling_id == 6">短期大学</span>
+                <span v-else-if="individualClubData.school_calling_id == 7">大学</span>
+
+                {{ individualClubData.club_name }}
+                <span v-if="individualClubData.club_calling_id == 1">部</span>
+                <span v-else-if="individualClubData.club_calling_id == 2">クラブ</span>
+                <span v-else-if="individualClubData.club_calling_id == 3">サークル</span>
+                <span v-else-if="individualClubData.club_calling_id == 4">同好会</span>
+            </h1>
+            <router-link :to="{ name: 'ClubMember', params: { id: $route.params.id } }">
                 <h2 class="club-member">
                     部員数
-                    <!--<span>10</span>-->
-                    <span>{{ individualClubData.club_member.length }}</span>
+                    <span>{{ individualClubData.user.length }}</span>
                     人
                 </h2>
             </router-link>
-            <span>
-                <router-link to="/info">
-                    <i class="fas fa-bell"></i>
-                </router-link>
-                <div class="info-tags">
-                    1
+            <!--<span>-->
+            <!--    <router-link :to="{ name: 'Information', params: { id: $route.params.id } }">-->
+            <!--        <i class="fas fa-bell"></i>-->
+            <!--    </router-link>-->
+            <!--    <div class="info-tags">-->
+            <!--        1-->
+            <!--    </div>-->
+            <!--</span>-->
+            
+            <div class="club-strategy">
+                <div class="main-strategy" v-if="isEdit">
+                    {{ individualClubData.policy }}
                 </div>
-            </span>
-        </div>
-        <div class="club-rules">
-            <div class="club-rules-container">
-                <h3 class="club-rules-heading">チーム方針</h3>
-                <div class="club-strategy">
-                    <div class="club-strategy">
-                        <div class="main-strategy">
-                            <!--誰かの真似をするな。あたりまえを疑え。0か100か振り切らないと、新しいものはつくれない。どうせやるなら、狂ったように振り切っていけ。-->
-                            {{ individualClubData.policy }}
-                            
-                            <!--データがあれば表示、なければデフォルト値設定-->
-                            
-                        </div>
-                    </div>
+                
+                <div class="club-strategy" v-else>
+                    <input class="main-strategy" v-model="individualClubData.policy">
                 </div>
             </div>
+        </div>
+        
+        <div class="club-rules">
+            <button type="button" @click="toggleEdit" v-if="isEdit">Edit</button>
+            <button type="button" @click="onSubmit" v-else>Save</button>
+            <!--<div class="club-rules-container">-->
+                <!--<h3 class="club-rules-heading">チーム方針</h3>-->
+            <!--    <button type="button" @click="toggleEdit" v-if="isEdit">Edit</button>-->
+            <!--    <button type="button" @click="onSubmit" v-else>Save</button>-->
+                <!--<router-link :to="{ name: 'Club', params: { id: $route.params.id } }">Cancel</router-link>-->
+                
+                <!--<div class="club-strategy">-->
+                <!--    <div class="main-strategy" v-if="isEdit">-->
+                <!--        {{ individualClubData.policy }}-->
+                <!--    </div>-->
+                    
+                <!--    <div class="club-strategy" v-else>-->
+                <!--        <input class="main-strategy" v-model="individualClubData.policy">-->
+                <!--    </div>-->
+                <!--</div>-->
+            <!--</div>-->
+            
             <div class="club-rules-container">
-                <h3 class="club-rules-heading">ルール</h3>
+                <h3 class="club-rules-heading">3ルール</h3>
+                <!--<button type="button" @click="toggleRuleEdit" v-if="ruleEdit">Edit</button>-->
+                <!--<button type="button" @click="ruleUpdate" v-else>Save</button>-->
                 <div class="club-3rule">
                     <div class="square-wrapper">
                         <div class="spacer"></div>
@@ -54,8 +85,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="rule-text">
+                    <div class="rule-text" v-if="isEdit">
                         {{ individualClubData.rule_one }}
+                    </div>
+                    <div class="rule-text" v-else>
+                        <input class="main-strategy" v-model="individualClubData.rule_one">
                     </div>
                 </div>
                 <div class="club-3rule">
@@ -67,8 +101,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="rule-text">
+                    <div class="rule-text" v-if="isEdit">
                         {{ individualClubData.rule_two }}
+                    </div>
+                    <div class="rule-text" v-else>
+                        <input class="main-strategy" v-model="individualClubData.rule_two">
                     </div>
                 </div>
                 <div class="club-3rule">
@@ -80,19 +117,22 @@
                             </div>
                         </div>
                     </div>
-                    <div class="rule-text">
+                    <div class="rule-text" v-if="isEdit">
                         {{ individualClubData.rule_three }}
+                    </div>
+                    <div class="rule-text" v-else>
+                        <input class="main-strategy" v-model="individualClubData.rule_three">
                     </div>
                 </div>
             </div>
         </div>
         <div class="sticky-side-bar">
             <ul>
-                <li>
-                    <router-link to="/strategy">
-                        <i class="fas fa-align-justify"></i>
-                    </router-link>
-                </li>
+                <!--<li>-->
+                <!--    <router-link to="/strategy">-->
+                <!--        <i class="fas fa-align-justify"></i>-->
+                <!--    </router-link>-->
+                <!--</li>-->
                 <li>
                     <router-link to="/discussion">
                         <i class="far fa-comments"></i>
@@ -109,7 +149,8 @@
                     </router-link>
                 </li>
                 <li>
-                    <router-link to="/journal">
+                    <!--<router-link to="/journal">-->
+                    <router-link :to="{ name: 'Journal', params: { id: $route.params.id } }">
                         <i class="fas fa-blog"></i>
                     </router-link>
                 </li>
@@ -123,6 +164,7 @@
 import StickyFooter from '../../components/club/StickyFooter';
 import { mapActions, mapGetters } from 'vuex';
 import axios  from 'axios'
+import swal from 'sweetalert';
 
 export default {
     components: {
@@ -130,7 +172,7 @@ export default {
     },
     data () {
         return {
-             id: 1
+            isEdit: true
         }
     },
     created() {
@@ -138,15 +180,53 @@ export default {
     },
     computed: {
         ...mapGetters({
-            clubkkk: 'club/clubData',
             individualClubData: 'club/fetchIndividualClubData',
-            // doneClubMemberCount: 'club/doneClubMemberCount'
         }),
+        
+        // policy: {
+        //     set(value) {
+        //         this.$store.commit('updatePolicy',value)
+        //         console.log('aaa')
+        //     }
+        // }
     },
     methods: {
         ...mapActions({
             start: 'club/getClub'
         }),
+        
+        toggleEdit() {
+          this.isEdit = !this.isEdit
+        },
+        
+        onSubmit() {
+            const params = {
+                policy: this.individualClubData.policy,
+                rule_one: this.individualClubData.rule_one,
+                rule_two: this.individualClubData.rule_two,
+                rule_three: this.individualClubData.rule_three
+            };
+            
+            axios.post('/api/club/update/'+ this.$route.params.id, params)
+                .then(response => {
+                    swal("Updated!", "Your product has been opsated!", "success")
+                    this.isEdit = !this.isEdit
+                })
+        },
+        // ruleUpdate() {
+        //     const paramRules = {
+        //         rule_one: this.individualClubData.rule_one,
+        //         rule_two: this.individualClubData.rule_two,
+        //         rule_three: this.individualClubData.rule_three
+        //     };
+        //     axios.post('/api/club/update/'+ this.$route.params.id, paramRules)
+        //         .then(response => {
+        //             swal("Updated!", "Your product has been opsated!", "success")
+        //             console.log(params)
+        //             this.ruleEdit = !this.ruleEdit
+        //         })
+            
+        // }
     }
 };
 </script>

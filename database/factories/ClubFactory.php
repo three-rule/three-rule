@@ -10,9 +10,9 @@ $factory->define(App\Club::class, function (Faker $faker) {
     return [
         'user_id'           => $faker->numberBetween(1, 10),
         'school_name'       => $faker->realText(10),
-        'school_calling_id' => $faker->numberBetween(1, 3),
+        'school_calling_id' => $faker->numberBetween(1, 7),
         'club_name'         => $faker->realText(10),
-        'club_calling_id'   => $faker->numberBetween(1, 3),
+        'club_calling_id'   => $faker->numberBetween(1, 4),
         'image'             => $fileRealPath,
         'policy'            => $faker->realText(10),
         'rule_one'          => $faker->realText(10),

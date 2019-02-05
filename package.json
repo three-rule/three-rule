@@ -24,6 +24,8 @@
     "bulma": "^0.7.2",
     "css-loader": "^2.1.0",
     "lodash-es": "^4.17.11",
+    "moment": "^2.24.0",
+    "sweetalert": "^2.1.2",
     "vue-axios": "^2.1.4",
     "vue-progressive-image": "^3.2.0",
     "vue-router": "^3.0.2",

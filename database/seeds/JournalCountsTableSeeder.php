@@ -11,6 +11,6 @@ class JournalCountsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\JournalCount::class, 10)->create();
+        factory(App\JournalCount::class, 50)->create();
     }
 }

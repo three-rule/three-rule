@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Club extends Model
 {
     public function user() {
-      return $this->belongsTo('App\User');
+      return $this->hasMany('App\User');
     }
     public function school_calling() {
       return $this->belongsTo('App\SchoolCalling');
@@ -27,7 +27,7 @@ class Club extends Model
     public function discussion(){
       return $this->hasMany('App\Discussion');
     }
-    public function discussion_comments(){
+    public function discussion_comment(){
       return $this->hasMany('App\DiscussionComment');
     }
     
