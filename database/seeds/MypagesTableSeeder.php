@@ -11,6 +11,6 @@ class MypagesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Mypage::class, 10)->create();
+        factory(App\Mypage::class, 50)->create();
     }
 }

@@ -5,6 +5,7 @@ use Faker\Generator as Faker;
 $factory->define(App\User::class, function (Faker $faker) {
     return [
         'name'           => $faker->name,
+        'club_id'        => $faker->numberBetween(1, 10),
         'user_type_id'   => $faker->numberBetween(1, 3),
         'birthday'       => $faker->date($format='Y-m-d',$max='now'),
         'email'          => $faker->unique()->safeEmail,

@@ -15,7 +15,7 @@
                 <h2 class="club-member">
                     部員数
                     <!--<span>10</span>-->
-                    <span>{{ individualClubData.club_member.length }}</span>
+                    <span>{{ individualClubData.user.length }}</span>
                     人
                 </h2>
             </router-link>
@@ -94,7 +94,7 @@
                     </router-link>
                 </li>
                 <li>
-                    <router-link to="/discussion">
+                    <router-link :to="{ name: 'Discussion', params: { id: $route.params.id } }">
                         <i class="far fa-comments"></i>
                     </router-link>
                 </li>

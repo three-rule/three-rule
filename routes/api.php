@@ -20,9 +20,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['middleware' => 'api'], function () {
     Route::get('club',  'ClubController@index');
+    Route::resource('/discussion', 'DiscussionController');
+    Route::post('/discussion/like', 'DiscussionController@like');
+    Route::post('/discussion/comment', 'DiscussionController@comment');
+    Route::post('/discussion/comment/edit', 'DiscussionController@commentEdit');
+    Route::post('/discussion/comment/delete', 'DiscussionController@commentDelete');
 });
 
 
 Route::group(['middleware' => 'api'], function () {
-    Route::get('mypage',  'MypageController@index');
+    Route::get('mypage',  'MypageController@getUsers');
 });

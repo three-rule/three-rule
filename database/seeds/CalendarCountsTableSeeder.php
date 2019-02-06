@@ -11,6 +11,6 @@ class CalendarCountsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\CalendarCount::class, 10)->create();
+        factory(App\CalendarCount::class, 50)->create();
     }
 }

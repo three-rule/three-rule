@@ -11,6 +11,6 @@ class MenuCountsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\MenuCount::class, 10)->create();
+        factory(App\MenuCount::class, 50)->create();
     }
 }

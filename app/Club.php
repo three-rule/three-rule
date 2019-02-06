@@ -27,7 +27,7 @@ class Club extends Model
     public function discussion(){
       return $this->hasMany('App\Discussion');
     }
-    public function discussion_comments(){
+    public function discussion_comment(){
       return $this->hasMany('App\DiscussionComment');
     }
     
