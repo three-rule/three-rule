@@ -30,9 +30,9 @@
                                 </div>
                                 <div class="post-image">
                                     <figure class="image">
-                                        <progressive-img
+                                        <progressive-img 
+                                             v-if="item.image"
                                             :src="'../images/' + item.image"
-                                            placeholder="http://placehold.jp/250x150.png"
                                         />
                                     </figure>
                                 </div>
@@ -42,12 +42,12 @@
                                         <i class="far fa-heart has-text-black" @click.prevent="handleGood(item.id)" v-else></i>
                                         <span class="discussion-count">{{ item.discussion_counts.length }}</span>
                                     </div>
-                                    <div class="discussion-btn-part comment-count-part">
-                                        <i class="far fa-comment has-text-black"></i>
-                                        <span class="discussion-count">{{ item.discussion_comments.length }}</span>
-                                    </div>
+                                    <!--<div class="discussion-btn-part comment-count-part">-->
+                                    <!--    <i class="far fa-comment has-text-black"></i>-->
+                                    <!--    <span class="discussion-count">{{ item.discussion_comments.length }}</span>-->
+                                    <!--</div>-->
                                 </div>
-                                <div class="comment-contributor">
+                                <div class="comment-contributor" v-if="item.discussion_comments.length != 0">
                                     <div class="comment-contributor-image">
                                         <figure class="image">
                                             <progressive-img
@@ -58,7 +58,7 @@
                                         </figure>
                                     </div>
                                     <div class="comment-count">
-                                        <span>1</span>
+                                        <span>{{ item.discussion_comments.length }}</span>
                                         <span>件の返信</span>
                                     </div>
                                 </div>
