@@ -15,7 +15,7 @@ class ClubCallingsTableSeeder extends Seeder
         $clubcallings = [
             ["club_calling_name"=>'部活'],
             ["club_calling_name"=>'クラブ'],
-            ["club_calling_name"=>'サークル']
+            ["club_calling_name"=>'サークル'],
             ["club_calling_name"=>'同好会']
         ];
       

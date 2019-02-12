@@ -73,7 +73,7 @@
                             </div>
                             <div class="post-contents">
                                 <p class="content">
-                                    おれは上のゆゆま。ギャルだーいすき
+                                    おれは上のゆゆま。
                                 </p>
                             </div>
                             <div class="post-image">
