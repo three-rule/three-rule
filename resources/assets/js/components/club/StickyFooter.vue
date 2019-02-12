@@ -1,6 +1,6 @@
 <template>
     <div class="sticky-footer">
-        <router-link :to="{ name: 'Club', params: { id: 1 } }" class="left-item">
+        <router-link :to="{ name: 'Club', params: { id: $route.params.id } }" class="left-item">
             <div>
                 <i class="fas fa-home"></i>
             </div>

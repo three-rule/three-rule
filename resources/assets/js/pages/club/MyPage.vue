@@ -11,8 +11,8 @@
                         placeholder="http://placehold.jp/100x100.png"
                         :blur="30"
                     />
-                    <input type="file" class="form-control" @change="imageChanged">
-                    <button type="button" @click="uploadImage">upload</button>
+                    <!--<input type="file" class="form-control" @change="imageChanged">-->
+                    <!--<button type="button" @click="uploadImage">upload</button>-->
                 </figure>
             </div>
             <div class="main-profile">
