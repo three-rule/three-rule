@@ -38,7 +38,7 @@
                             class="input"
                             type="email"
                             placeholder="半角英数"
-                            v-model="email"
+                            v-model="user.email"
                             required
                             autofocus>
                       
@@ -54,7 +54,7 @@
                             class="input"
                             type="password"
                             placeholder="6~16文字 半角英数"
-                            v-model="password"
+                            v-model="user.password"
                             required>
     
                         <span class="icon is-small is-left">
@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="btn-container">
-                    <button class="button is-block is-fullwidth">
+                    <button class="button is-block is-fullwidth" @click.prevent="handleLogin">
                         ログインする
                     </button>
                 </div>
@@ -77,14 +77,25 @@
 </template>
 
 <script>
-
+import { mapActions } from 'vuex'
 export default {
-  data() {
-    return {
-      email: '',
-      password: '',
+    data() {
+        return {
+            user: {
+                email: '',
+                password: ''
+            }
+        }
+    },
+    methods: {
+        ...mapActions({
+            login: 'user/login'
+        }),
+        async handleLogin() {
+            await this.login({ email: this.user.email, password: this.user.password })
+            this.$router.push('/mypage/1')
+        },
     }
-  }
 }
 </script>
 

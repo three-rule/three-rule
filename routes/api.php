@@ -27,6 +27,11 @@ Route::group(['middleware' => 'api'], function () {
     Route::post('/discussion/comment', 'DiscussionController@comment');
     Route::post('/discussion/comment/edit', 'DiscussionController@commentEdit');
     Route::post('/discussion/comment/delete', 'DiscussionController@commentDelete');
+    
+    
+    Route::post("/register", "AuthController@register"); 
+    Route::post("/login", "AuthController@authenticate"); 
+    Route::get("/logout", 'AuthController@logout')->middleware('jwt.refresh');
 });
 
 Route::group(['middleware' => 'api'], function () {
@@ -37,4 +42,9 @@ Route::group(['middleware' => 'api'], function () {
 
 Route::group(['middleware' => 'api'], function () {
     Route::post('journal/create',  'JournalController@create');
+});
+
+
+Route::group(["middleware" => "jwt.auth"], function() {
+    Route::get("/me", 'AuthController@getCurrentUser');
 });

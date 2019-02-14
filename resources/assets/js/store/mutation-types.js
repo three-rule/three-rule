@@ -1,0 +1,5 @@
+export default {
+    REGISTER_AUTH: 'REGISTER_AUTH',
+    LOGIN_AUTH: 'LOGIN_AUTH',
+    LOGOUT_AUTH: 'LOGOUT_AUTH',
+}

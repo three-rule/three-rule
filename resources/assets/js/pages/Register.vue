@@ -10,7 +10,7 @@
                             class="input"
                             type="email"
                             placeholder="半角英数"
-                            v-model="email"
+                            v-model="user.email"
                             required
                             autofocus>
                       
@@ -26,7 +26,7 @@
                             class="input"
                             type="password"
                             placeholder="6~16文字 半角英数"
-                            v-model="password"
+                            v-model="user.password"
                             required>
     
                         <span class="icon is-small is-left">
@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="btn-container">
-                    <button class="button is-block is-fullwidth">
+                    <button class="button is-block is-fullwidth" @click.prevent="handleRegister">
                         登録する
                     </button>
                 </div>
@@ -45,13 +45,31 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
-  data() {
-    return {
-      email: '',
-      password: '',
+    data() {
+        return {
+            user: {
+                email: '',
+                password: ''
+            }
+        }
+    },
+    methods: {
+        ...mapActions({
+            register: 'user/register',
+            login: 'user/login'
+        }),
+        async handleLogin() {
+            await this.login({ email: this.user.email, password: this.user.password })
+            this.$router.push('/mypage/1')
+        },
+        async handleRegister() {
+            console.log('btn on')
+            await this.register({ email: this.user.email, password: this.user.password })
+            this.handleLogin()
+        },
     }
-  }
 }
 </script>
 
