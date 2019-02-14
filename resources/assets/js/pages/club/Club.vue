@@ -134,7 +134,7 @@
                 <!--    </router-link>-->
                 <!--</li>-->
                 <li>
-                    <router-link to="/discussion">
+                    <router-link :to="{ name: 'Discussion', params: { id: $route.params.id } }">
                         <i class="far fa-comments"></i>
                     </router-link>
                 </li>

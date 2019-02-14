@@ -15,16 +15,20 @@ class CreateMypagesTable extends Migration
     {
         Schema::create('mypages', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
             $table->string('icon');
-            $table->string('oneword')->default('自分の好き/夢を入力');
+            $table->string('oneword')->default('好き/夢を入力');
             $table->string('goal_long');
-            $table->date('commit_long');
+            $table->date('commit_long_at');
             $table->string('goal_mid');
-            $table->date('commit_mid');
+            $table->date('commit_mid_at');
             $table->string('goal_short');
-            $table->date('commit_short');
+            $table->date('commit_short_at');
             $table->timestamps();
+            
+            $table->foreign('user_id')
+                  ->references('id')->on('users')
+                  ->onDelete('cascade');
         });
     }
 

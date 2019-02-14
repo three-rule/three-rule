@@ -16,7 +16,7 @@ class CalendarComment extends Model
       return $this->belongsTo('App\Calendar');
     }
     
-    public function calendar_comment_counts(){
+    public function calendar_comment_count(){
       return $this->hasMany('App\CalendarCommentCount');
     }
 }

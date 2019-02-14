@@ -15,11 +15,15 @@ class CreateDiscussionsTable extends Migration
     {
         Schema::create('discussions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('club_id');
+            $table->integer('user_id')->unsigned();  //ユーザーが消えても履歴を残す
+            $table->integer('club_id')->unsigned();  //クラブが消えたら履歴も消す
             $table->string('body');
             $table->string('image');
             $table->timestamps();
+            
+            $table->foreign('club_id')
+                  ->references('id')->on('clubs')
+                  ->onDelete('cascade');
         });
     }
 

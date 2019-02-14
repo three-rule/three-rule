@@ -15,13 +15,17 @@ class CreateDiscussionCommentsTable extends Migration
     {
         Schema::create('discussion_comments', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('club_id');
-            $table->integer('discussion_id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('club_id')->unsigned();
+            $table->integer('discussion_id')->unsigned();
             $table->integer('commentable_id')->nullable();
             $table->string('comment');
             $table->string('image_comment');
             $table->timestamps();
+            
+            $table->foreign('discussion_id')
+                  ->references('id')->on('discussions')
+                  ->onDelete('cascade');
         });
     }
 

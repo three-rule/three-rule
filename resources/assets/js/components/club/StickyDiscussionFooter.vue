@@ -6,9 +6,9 @@
             </div>
         </router-link>
         <div class="post-discussion">
-            <div class="btn-post">
+            <button class="btn-post" @click="createDiscussionModalToggle">
                 <i class="fas fa-plus"></i>
-            </div>
+            </button>
         </div>
         <router-link to="/mypage" class="right-item">
             <div>
@@ -23,6 +23,9 @@ export default {
     data () {
         return {
         }
+    },
+    props: {
+        createDiscussionModalToggle: Function
     }
 };
 </script>
@@ -70,6 +73,7 @@ export default {
     padding: 8px;
     border: 1px solid #08B6FF;
     border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 @media screen and (max-width: 767px) {

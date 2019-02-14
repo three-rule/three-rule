@@ -15,9 +15,13 @@ class CreateMenuCommentCountsTable extends Migration
     {
         Schema::create('menu_comment_counts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('menu_comment_id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('menu_comment_id')->unsigned();
             $table->timestamps();
+            
+            $table->foreign('menu_comment_id')
+                  ->references('id')->on('menu_comments')
+                  ->onDelete('cascade');
         });
     }
 

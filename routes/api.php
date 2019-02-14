@@ -22,6 +22,11 @@ Route::group(['middleware' => 'api'], function () {
     Route::get('club',  'ClubController@index');
     Route::post('club/update/{id}',  'ClubController@update');
     Route::post('club/role/{id}',  'ClubController@role');
+    Route::resource('/discussion', 'DiscussionController');
+    Route::post('/discussion/like', 'DiscussionController@like');
+    Route::post('/discussion/comment', 'DiscussionController@comment');
+    Route::post('/discussion/comment/edit', 'DiscussionController@commentEdit');
+    Route::post('/discussion/comment/delete', 'DiscussionController@commentDelete');
 });
 
 Route::group(['middleware' => 'api'], function () {

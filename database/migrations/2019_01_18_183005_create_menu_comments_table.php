@@ -15,13 +15,17 @@ class CreateMenuCommentsTable extends Migration
     {
         Schema::create('menu_comments', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('club_id');
-            $table->integer('menu_id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('club_id')->unsigned();
+            $table->integer('menu_id')->unsigned();
             $table->integer('commentable_id')->nullable();
             $table->string('comment');
             $table->string('image_comment');
             $table->timestamps();
+            
+            $table->foreign('menu_id')
+                  ->references('id')->on('menus')
+                  ->onDelete('cascade');
         });
     }
 
