@@ -6,6 +6,7 @@
 <script>
 import TheHeader from './components/TheHeader.vue';
 import TheFooter from './components/TheFooter.vue';
+import http from './services/http'
 
 // import RadiusMenu from './components/RadiusMenu.vue';
 // import { mapActions } from 'vuex';
@@ -15,6 +16,9 @@ export default {
     components: {
         TheHeader,
         TheFooter,
+    },
+    created() {
+        http.init()
     }
 }
 </script>
