@@ -15,9 +15,13 @@ class CreateDiscussionCommentCountsTable extends Migration
     {
         Schema::create('discussion_comment_counts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('discussion_comment_id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('discussion_comment_id')->unsigned();
             $table->timestamps();
+            
+            $table->foreign('discussion_comment_id')
+                  ->references('id')->on('discussion_comments')
+                  ->onDelete('cascade');
         });
     }
 

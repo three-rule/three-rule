@@ -12,10 +12,10 @@ class ClubController extends Controller
             'user',
             'user.club_member',
             'strategy',
-            'discussion','discussion.discussion_counts','discussion_comment','discussion_comment.discussion_comment_counts',
-            'menu',
-            'calendar',
-            'journal'
+            'discussion','discussion.discussion_counts','discussion.discussion_comments','discussion_comment.discussion_comment_counts',
+            'menu','menu.menu_counts','menu_comment','menu_comment.menu_comment_counts',
+            'calendar','calendar.calendar_count','calendar_comments','calendar_comments.calendar_comment_count',
+            'journal','journal.journal_count','journal_comments','journal_comments.journal_comment_counts'
             )->get();
             
         return $clubs;

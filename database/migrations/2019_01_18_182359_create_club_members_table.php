@@ -15,12 +15,20 @@ class CreateClubMembersTable extends Migration
     {
         Schema::create('club_members', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('club_id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('club_id')->unsigned();
             $table->boolean('join_status');
             $table->boolean('reject');
             $table->string('role');
             $table->timestamps();
+            
+            $table->foreign('user_id')
+                  ->references('id')->on('users')
+                  ->onDelete('cascade');
+            
+            $table->foreign('club_id')
+                  ->references('id')->on('clubs')
+                  ->onDelete('cascade');
         });
     }
 

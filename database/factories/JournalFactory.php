@@ -10,7 +10,7 @@ $factory->define(App\Journal::class, function (Faker $faker) {
     return [
         'user_id'       => $faker->numberBetween(1, 10),
         'club_id'       => $faker->numberBetween(1, 10),
-        'activity_date' => $faker->date($format='Y-m-d',$max='now'),
+        'activity_at'   => $faker->date($format='Y-m-d',$max='now'),
         'title'         => $faker->realText(50),
         'appeal'        => $faker->realText(50),
         'improvement'   => $faker->realText(50),

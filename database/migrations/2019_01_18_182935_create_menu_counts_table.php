@@ -15,9 +15,13 @@ class CreateMenuCountsTable extends Migration
     {
         Schema::create('menu_counts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('menu_id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('menu_id')->unsigned();
             $table->timestamps();
+            
+            $table->foreign('menu_id')
+                  ->references('id')->on('menus')
+                  ->onDelete('cascade');
         });
     }
 

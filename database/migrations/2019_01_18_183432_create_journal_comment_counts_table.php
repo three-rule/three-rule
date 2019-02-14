@@ -15,9 +15,13 @@ class CreateJournalCommentCountsTable extends Migration
     {
         Schema::create('journal_comment_counts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('journal_comment_id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('journal_comment_id')->unsigned();
             $table->timestamps();
+            
+            $table->foreign('journal_comment_id')
+                  ->references('id')->on('journal_comments')
+                  ->onDelete('cascade');
         });
     }
 

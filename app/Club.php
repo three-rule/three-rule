@@ -34,7 +34,7 @@ class Club extends Model
     public function menu(){
       return $this->hasMany('App\Menu');
     }
-    public function menu_comments(){
+    public function menu_comment(){
       return $this->hasMany('App\MenuComment');
     }
     

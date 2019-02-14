@@ -15,9 +15,9 @@ class CreateJournalsTable extends Migration
     {
         Schema::create('journals', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('club_id');
-            $table->date('activity_date');
+            $table->integer('user_id')->unsigned();
+            $table->integer('club_id')->unsigned();
+            $table->date('activity_at');
             $table->string('title');
             $table->string('appeal');
             $table->string('improvement');
@@ -25,6 +25,10 @@ class CreateJournalsTable extends Migration
             $table->string('free');
             $table->string('image');
             $table->timestamps();
+            
+            $table->foreign('club_id')
+                  ->references('id')->on('clubs')
+                  ->onDelete('cascade');
         });
     }
 

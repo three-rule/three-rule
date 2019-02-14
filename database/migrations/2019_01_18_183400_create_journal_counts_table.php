@@ -15,9 +15,13 @@ class CreateJournalCountsTable extends Migration
     {
         Schema::create('journal_counts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('journal_id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('journal_id')->unsigned();
             $table->timestamps();
+            
+            $table->foreign('journal_id')
+                  ->references('id')->on('journals')
+                  ->onDelete('cascade');
         });
     }
 
