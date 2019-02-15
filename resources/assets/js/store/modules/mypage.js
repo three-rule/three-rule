@@ -6,7 +6,7 @@ const state = {
 
 const actions = {
   async getMypage({ commit }, data) {
-    const res = await axios.get('/api/mypage', data)
+    const res = await axios.get('/mypage', data)
     commit('setMypage', res.data)
   }
 };

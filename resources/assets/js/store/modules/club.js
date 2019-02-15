@@ -6,30 +6,30 @@ const state = {
 
 const actions = {
   async getClub({ commit }, data) {
-    const res = await axios.get('/api/club', data)
+    const res = await axios.get('/club', data)
     commit('setClub', res.data)
   },
   async addDiscussion({ commit }, payload) {
-    const res = await axios.post('/api/discussion', payload)
+    const res = await axios.post('/discussion', payload)
     commit('addDiscussion', res.data)
   },
   
   async addDiscussionLike({ commit }, payload) {
-    const res = await axios.post('/api/discussion/like', payload)
+    const res = await axios.post('/discussion/like', payload)
     commit('addDiscussionLike', res.data)
   },
   
   async sendComment({ commit }, payload) {
-    const res = await axios.post('/api/discussion/comment', payload)
+    const res = await axios.post('/discussion/comment', payload)
     commit('sendComment', res.data)
   },
   
   async editSendComment({ commit }, payload) {
-    const res = await axios.post('/api/discussion/comment/edit', payload)
+    const res = await axios.post('/discussion/comment/edit', payload)
     commit('editSendComment', res.data)
   },
   async deleteSendComment({ commit }, payload) {
-    const res = await axios.post('/api/discussion/comment/delete', payload)
+    const res = await axios.post('/discussion/comment/delete', payload)
     commit('deleteSendComment', res.data)
   }
 };

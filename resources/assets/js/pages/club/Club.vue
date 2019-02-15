@@ -207,7 +207,7 @@ export default {
                 rule_three: this.individualClubData.rule_three
             };
             
-            axios.post('/api/club/update/'+ this.$route.params.id, params)
+            axios.post('/club/update/'+ this.$route.params.id, params)
                 .then(response => {
                     swal("Updated!", "Your product has been opsated!", "success")
                     this.isEdit = !this.isEdit
@@ -219,7 +219,7 @@ export default {
         //         rule_two: this.individualClubData.rule_two,
         //         rule_three: this.individualClubData.rule_three
         //     };
-        //     axios.post('/api/club/update/'+ this.$route.params.id, paramRules)
+        //     axios.post('/club/update/'+ this.$route.params.id, paramRules)
         //         .then(response => {
         //             swal("Updated!", "Your product has been opsated!", "success")
         //             console.log(params)

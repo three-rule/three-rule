@@ -168,14 +168,14 @@ export default {
                 goal_short:   this.individualMypageData.mypage[0].goal_short
             };
             
-            axios.post('/api/mypage/update/'+ this.individualMypageData.mypage[0].id, params)
+            axios.post('/mypage/update/'+ this.individualMypageData.mypage[0].id, params)
                 .then(response => {
                     swal("Updated!", "Your product has been opsated!", "success")
                     this.isEdit = !this.isEdit
                 })
         },
         uploadImage() {
-            axios.post('/api/mypage/upload/'+ this.$route.params.id, this.individualMypageData.mypage[0])
+            axios.post('/mypage/upload/'+ this.$route.params.id, this.individualMypageData.mypage[0])
                 .then(response => {
                     swal("Updated!", "Your product has been opsated!", "success")
                 })

@@ -98,7 +98,7 @@ export default {
                 free:          this.free
             };
             
-            axios.post('/api/journal/create', params)
+            axios.post('/journal/create', params)
                 .then(response => {
                     swal("Updated!", "Your product has been opsated!", "success")
                     this.$router.push('/club/1')

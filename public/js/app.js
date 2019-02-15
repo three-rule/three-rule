@@ -61571,7 +61571,7 @@ var actions = {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return axios.get('/api/club', data);
+              return axios.get('/club', data);
 
             case 2:
               res = _context.sent;
@@ -61601,7 +61601,7 @@ var actions = {
           switch (_context2.prev = _context2.next) {
             case 0:
               _context2.next = 2;
-              return axios.post('/api/discussion', payload);
+              return axios.post('/discussion', payload);
 
             case 2:
               res = _context2.sent;
@@ -61631,7 +61631,7 @@ var actions = {
           switch (_context3.prev = _context3.next) {
             case 0:
               _context3.next = 2;
-              return axios.post('/api/discussion/like', payload);
+              return axios.post('/discussion/like', payload);
 
             case 2:
               res = _context3.sent;
@@ -61661,7 +61661,7 @@ var actions = {
           switch (_context4.prev = _context4.next) {
             case 0:
               _context4.next = 2;
-              return axios.post('/api/discussion/comment', payload);
+              return axios.post('/discussion/comment', payload);
 
             case 2:
               res = _context4.sent;
@@ -61691,7 +61691,7 @@ var actions = {
           switch (_context5.prev = _context5.next) {
             case 0:
               _context5.next = 2;
-              return axios.post('/api/discussion/comment/edit', payload);
+              return axios.post('/discussion/comment/edit', payload);
 
             case 2:
               res = _context5.sent;
@@ -61721,7 +61721,7 @@ var actions = {
           switch (_context6.prev = _context6.next) {
             case 0:
               _context6.next = 2;
-              return axios.post('/api/discussion/comment/delete', payload);
+              return axios.post('/discussion/comment/delete', payload);
 
             case 2:
               res = _context6.sent;
@@ -61832,7 +61832,7 @@ var actions = {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return axios.get('/api/mypage', data);
+              return axios.get('/mypage', data);
 
             case 2:
               res = _context.sent;
@@ -67815,7 +67815,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
                 rule_three: this.individualClubData.rule_three
             };
 
-            __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post('/api/club/update/' + this.$route.params.id, params).then(function (response) {
+            __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post('/club/update/' + this.$route.params.id, params).then(function (response) {
                 __WEBPACK_IMPORTED_MODULE_3_sweetalert___default()("Updated!", "Your product has been opsated!", "success");
                 _this.isEdit = !_this.isEdit;
             });
@@ -68583,13 +68583,13 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
                 goal_short: this.individualMypageData.mypage[0].goal_short
             };
 
-            __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post('/api/mypage/update/' + this.individualMypageData.mypage[0].id, params).then(function (response) {
+            __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post('/mypage/update/' + this.individualMypageData.mypage[0].id, params).then(function (response) {
                 swal("Updated!", "Your product has been opsated!", "success");
                 _this2.isEdit = !_this2.isEdit;
             });
         },
         uploadImage: function uploadImage() {
-            __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post('/api/mypage/upload/' + this.$route.params.id, this.individualMypageData.mypage[0]).then(function (response) {
+            __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post('/mypage/upload/' + this.$route.params.id, this.individualMypageData.mypage[0]).then(function (response) {
                 swal("Updated!", "Your product has been opsated!", "success");
             });
         }
@@ -69147,7 +69147,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     })),
     methods: {
         update: function update() {
-            __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post('/api/mypage/update/' + this.$route.params.id, this.profile).then(function (response) {
+            __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post('/mypage/update/' + this.$route.params.id, this.profile).then(function (response) {
                 swal("Updated!", "Your peace has been opsated!", "success");
             });
         }
@@ -72438,7 +72438,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
                 free: this.free
             };
 
-            axios.post('/api/journal/create', params).then(function (response) {
+            axios.post('/journal/create', params).then(function (response) {
                 __WEBPACK_IMPORTED_MODULE_2_sweetalert___default()("Updated!", "Your product has been opsated!", "success");
                 _this.$router.push('/club/1');
             });
@@ -73662,7 +73662,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
             //     role:user.club_member[0].role
             // };
 
-            axios.post('/api/club/role/' + this.user.club_member[0].id, user.club_member[0].role).then(function (response) {
+            axios.post('/club/role/' + this.user.club_member[0].id, user.club_member[0].role).then(function (response) {
                 swal("Updated!", "Your product has been opsated!", "success");
                 _this.isEdit = !_this.isEdit;
             });

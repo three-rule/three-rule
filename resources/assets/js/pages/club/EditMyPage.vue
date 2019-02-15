@@ -90,7 +90,7 @@ export default {
     },
     methods: {
         update() {
-            axios.post('/api/mypage/update/'+ this.$route.params.id, this.profile)
+            axios.post('/mypage/update/'+ this.$route.params.id, this.profile)
                 .then(response => {
                     swal("Updated!", "Your peace has been opsated!", "success")
                 })

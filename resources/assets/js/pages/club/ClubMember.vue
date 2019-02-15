@@ -97,7 +97,7 @@ export default {
             //     role:user.club_member[0].role
             // };
             
-            axios.post('/api/club/role/'+ this.user.club_member[0].id, user.club_member[0].role)
+            axios.post('/club/role/'+ this.user.club_member[0].id, user.club_member[0].role)
                 .then(response => {
                     swal("Updated!", "Your product has been opsated!", "success")
                     this.isEdit = !this.isEdit
