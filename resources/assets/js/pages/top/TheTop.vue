@@ -13,11 +13,11 @@
 
 
 <script>
-import TheHeader from '../../components/TheHeader';
-import ThreeRuleBrand from '../../components/top/ThreeRuleBrand';
+import TheHeader from '../../components/presentations/common/header/top/TheHeader';
+import ThreeRuleBrand from '../../components/presentations/common/logo/ThreeRuleBrand';
 // import DownloadLogo from '../../components/top/DownloadLogo';
-import RegisterLoginLogo from '../../components/top/RegisterLoginLogo';
-import TheFooter from '../../components/TheFooter';
+import RegisterLoginLogo from '../../components/presentations/common/logo/RegisterLoginLogo';
+import TheFooter from '../../components/presentations/common/footer/top/TheFooter';
 export default {
     components: {
         TheHeader,

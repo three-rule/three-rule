@@ -139,9 +139,9 @@
 </template>
 
 <script>
-import StickyFooter from '../../components/club/StickyFooter';
-import EditDiscussionCommentModal from '../../components/discussion/EditDiscussionCommentModal';
-import DeleteDiscussionCommentModal from '../../components/discussion/DeleteDiscussionCommentModal';
+import StickyFooter from '../../../components/presentations/common/footer/club/StickyFooter';
+import EditDiscussionCommentModal from '../../../components/presentations/modules/modals/club-discussion-modal/EditDiscussionCommentModal';
+import DeleteDiscussionCommentModal from '../../../components/presentations/modules/modals/club-discussion-modal/DeleteDiscussionCommentModal';
 import { mapGetters, mapActions } from 'vuex'
 export default {
     name: 'OneDiscussion',

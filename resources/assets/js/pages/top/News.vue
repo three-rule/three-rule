@@ -42,8 +42,8 @@
 
 
 <script>
-import ThreeRuleBrand from '../../components/top/ThreeRuleBrand';
-import StickyFooter from '../../components/top/StickyFooter';
+import ThreeRuleBrand from '../../components/presentations/common/logo/ThreeRuleBrand';
+import StickyFooter from '../../components/presentations/common/footer/top/StickyFooter';
 export default {
     components: {
         ThreeRuleBrand,

@@ -6,8 +6,8 @@ import VueRouter from 'vue-router';
  * Top, Corporate
  */
 import Top from '../pages/top/TheTop';
-import Login from '../pages/Login';
-import Register from '../pages/Register';
+import Login from '../pages/auth/Login';
+import Register from '../pages/auth/Register';
 import About from '../pages/top/About';
 import News from '../pages/top/News';
 import Recruit from '../pages/top/Recruit';
@@ -17,19 +17,19 @@ import Contact from '../pages/top/Contact';
 /*
  * Service
  */
-import Club from '../pages/club/Club';
-import MyPage from '../pages/club/MyPage';
-import EditMyPage from '../pages/club/EditMyPage';
-import Strategy from '../pages/club/Strategy';
-import Discussion from '../pages/club/Discussion';
-import OneDiscussion from '../pages/club/OneDiscussion';
-import Menu from '../pages/club/Menu';
-import Journal from '../pages/club/Journal';
-import JournalCreate from '../pages/club/JournalCreate';
-import OneJournal from '../pages/club/OneJournal';
-import Calendar from '../pages/club/Calendar';
-import Information from '../pages/club/Information';
-import ClubMember from '../pages/club/ClubMember';
+import Club from '../pages/club/club/Club';
+import MyPage from '../pages/club/user/MyPage';
+import EditMyPage from '../pages/club/user/EditMyPage';
+import Strategy from '../pages/club/strategy/Strategy';
+import Discussion from '../pages/club/discussion/Discussion';
+import OneDiscussion from '../pages/club/discussion/OneDiscussion';
+import Menu from '../pages/club/menu/Menu';
+import Journal from '../pages/club/journal/Journal';
+import JournalCreate from '../pages/club/journal/JournalCreate';
+import OneJournal from '../pages/club/journal/OneJournal';
+import Calendar from '../pages/club/calendar/Calendar';
+import Information from '../pages/club/club/Information';
+import ClubMember from '../pages/club/club/ClubMember';
  
 Vue.use(VueRouter);
  

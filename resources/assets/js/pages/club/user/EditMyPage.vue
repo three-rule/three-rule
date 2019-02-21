@@ -70,7 +70,7 @@
 </template>
 
 <script>
-import StickyFooter from '../../components/club/StickyFooter';
+import StickyFooter from '../../../components/presentations/common/footer/club/StickyFooter';
 import { mapActions, mapGetters } from 'vuex';
 import axios  from 'axios'
 

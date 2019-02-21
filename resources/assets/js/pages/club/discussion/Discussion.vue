@@ -98,8 +98,8 @@
 </template>
 
 <script>
-import StickyDiscussionFooter from '../../components/club/StickyDiscussionFooter';
-import CreateDiscussionModal from '../../components/discussion/CreateDiscussionModal';
+import StickyDiscussionFooter from '../../../components/presentations/common/footer/club/StickyDiscussionFooter';
+import CreateDiscussionModal from '../../../components/presentations/modules/modals/club-discussion-modal/CreateDiscussionModal';
 import { mapActions, mapGetters } from 'vuex'
 export default {
     components: {

@@ -63,7 +63,7 @@
 </template>
 
 <script>
-import StickyFooter from '../../components/club/StickyFooter';
+import StickyFooter from '../../../components/presentations/common/footer/club/StickyFooter';
 import { mapGetters } from 'vuex';
 import swal from 'sweetalert';
 

@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import StickyFooter from '../../components/club/StickyFooter';
+import StickyFooter from '../../../components/presentations/common/footer/club/StickyFooter';
 import moment from 'moment';
 import { mapGetters } from 'vuex';
 // const today = moment();
