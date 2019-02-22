@@ -40,18 +40,18 @@
             <!--        1-->
             <!--    </div>-->
             <!--</span>-->
-            
+
             <div class="club-strategy">
                 <div class="main-strategy" v-if="isEdit">
                     {{ individualClubData.policy }}
                 </div>
-                
+
                 <div class="club-strategy" v-else>
                     <input class="main-strategy" v-model="individualClubData.policy">
                 </div>
             </div>
         </div>
-        
+
         <div class="club-rules">
             <button type="button" @click="toggleEdit" v-if="isEdit">Edit</button>
             <button type="button" @click="onSubmit" v-else>Save</button>
@@ -60,18 +60,18 @@
             <!--    <button type="button" @click="toggleEdit" v-if="isEdit">Edit</button>-->
             <!--    <button type="button" @click="onSubmit" v-else>Save</button>-->
                 <!--<router-link :to="{ name: 'Club', params: { id: $route.params.id } }">Cancel</router-link>-->
-                
+
                 <!--<div class="club-strategy">-->
                 <!--    <div class="main-strategy" v-if="isEdit">-->
                 <!--        {{ individualClubData.policy }}-->
                 <!--    </div>-->
-                    
+
                 <!--    <div class="club-strategy" v-else>-->
                 <!--        <input class="main-strategy" v-model="individualClubData.policy">-->
                 <!--    </div>-->
                 <!--</div>-->
             <!--</div>-->
-            
+
             <div class="club-rules-container">
                 <h3 class="club-rules-heading">3ルール</h3>
                 <!--<button type="button" @click="toggleRuleEdit" v-if="ruleEdit">Edit</button>-->
@@ -182,7 +182,7 @@ export default {
         ...mapGetters({
             individualClubData: 'club/fetchIndividualClubData',
         }),
-        
+
         // policy: {
         //     set(value) {
         //         this.$store.commit('updatePolicy',value)
@@ -194,11 +194,11 @@ export default {
         ...mapActions({
             start: 'club/getClub'
         }),
-        
+
         toggleEdit() {
           this.isEdit = !this.isEdit
         },
-        
+
         onSubmit() {
             const params = {
                 policy: this.individualClubData.policy,
@@ -206,7 +206,7 @@ export default {
                 rule_two: this.individualClubData.rule_two,
                 rule_three: this.individualClubData.rule_three
             };
-            
+
             axios.post('/club/update/'+ this.$route.params.id, params)
                 .then(response => {
                     swal("Updated!", "Your product has been opsated!", "success")
@@ -225,10 +225,9 @@ export default {
         //             console.log(params)
         //             this.ruleEdit = !this.ruleEdit
         //         })
-            
+
         // }
     }
-};
 </script>
 
 <style scoped>
@@ -265,7 +264,7 @@ export default {
     letter-spacing: 2px;
     font-weight: bold;
     font-size: 14px;
-    
+
 }
 .club-rules-heading::before,
 .club-rules-heading::after {
