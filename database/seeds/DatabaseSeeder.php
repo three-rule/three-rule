@@ -12,22 +12,35 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(UsersTableSeeder::class);
+        $this->call(FansTableSeeder::class);
         $this->call(ClubsTableSeeder::class);
+        
+        $this->call(ClubFansTableSeeder::class);
+        
         $this->call(SchoolCallingsTableSeeder::class);
         $this->call(ClubCallingsTableSeeder::class);
         $this->call(ClubMembersTableSeeder::class);
         $this->call(MypagesTableSeeder::class);
+        
+        $this->call(MyjournalsTableSeeder::class);
+        $this->call(MyjournalCountsTableSeeder::class);
+        $this->call(MyjournalCommentsTableSeeder::class);
+        $this->call(MyjournalCommentCountsTableSeeder::class);
+        
         $this->call(StrategiesTableSeeder::class);
         $this->call(DiscussionsTableSeeder::class);
         $this->call(DiscussionCountsTableSeeder::class);
         $this->call(DiscussionCommentsTableSeeder::class);
         $this->call(DiscussionCommentCountsTableSeeder::class);
+        
         $this->call(MenusTableSeeder::class);
+        // $this->call(MenuTagsTableSeeder::class);
         $this->call(MenuCountsTableSeeder::class);
         $this->call(MenuCommentsTableSeeder::class);
         $this->call(MenuCommentCountsTableSeeder::class);
         $this->call(TimezonesTableSeeder::class);
         $this->call(PositionsTableSeeder::class);
+        
         $this->call(CalendarsTableSeeder::class);
         $this->call(CalendarCountsTableSeeder::class);
         $this->call(CalendarCommentsTableSeeder::class);
@@ -38,5 +51,6 @@ class DatabaseSeeder extends Seeder
         $this->call(JournalCommentsTableSeeder::class);
         $this->call(JournalCommentCountsTableSeeder::class);
         $this->call(UserTypesTableSeeder::class);
+        $this->call(TopicsTableSeeder::class);
     }
 }

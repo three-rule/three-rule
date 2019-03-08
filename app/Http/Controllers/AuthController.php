@@ -6,20 +6,31 @@ use App\Http\Requests\RegisterFormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Exceptions\JWTException;
+
+use App\Fan;
 use App\User;
+use App\Mypage;
 use JWTAuth;
 
+use App\Http\Resources\SelectClub as Resource;
 
 class AuthController extends Controller
 {
     public function register(RegisterFormRequest $request)
     {
         $user = new User;
-        // $user -> name = $request -> name;
-        $user -> email = $request -> email;
-        $user -> password = bcrypt($request -> password);
-        $user -> save();
-        // return $user;
+        $user->name      = $request->name;
+        $user->user_type = $request->user_type;
+        $user->birthday  = "2019-2-23";
+        $user->email     = $request->email;
+        $user->password  = bcrypt($request->password);
+        $user->save();
+        
+        $mypage = new Mypage;
+        $mypage->user_id    = $user->id;
+        $mypage->save();
+        
+        return [ $user, $mypage ];
     }
     
     public function authenticate(Request $request)
@@ -62,5 +73,17 @@ class AuthController extends Controller
             'token_type' => 'bearer',
             'expires_in' => auth()->factory()->getTTL() * 60
         ]);
+    }
+    
+    public function store($id) {
+        
+        $follow = new Fan;
+        $follow->user_id        = auth()->user()->id;
+        $follow->follow_user_id = $id;
+        $follow->status         = 0;
+        $follow->reject         = 0;
+        $follow->save();
+        
+        return response()->json($follow);
     }
 }

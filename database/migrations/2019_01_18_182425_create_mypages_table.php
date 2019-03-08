@@ -16,14 +16,11 @@ class CreateMypagesTable extends Migration
         Schema::create('mypages', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('icon');
-            $table->string('oneword')->default('好き/夢を入力');
-            $table->string('goal_long');
-            $table->date('commit_long_at');
-            $table->string('goal_mid');
-            $table->date('commit_mid_at');
-            $table->string('goal_short');
-            $table->date('commit_short_at');
+            $table->string('icon')->default('http://placehold.jp/100x100.png');
+            $table->string('oneword')->default('一言を入力');
+            $table->string('rule_one')->default('常識を疑え');
+            $table->string('rule_two')->default('できない理由を探さない、できる方法を考える');
+            $table->string('rule_three')->default('脳がちぎれるほど考え、行動する');
             $table->timestamps();
             
             $table->foreign('user_id')

@@ -17,9 +17,10 @@ class CreateClubMembersTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('club_id')->unsigned();
-            $table->boolean('join_status');
-            $table->boolean('reject');
-            $table->string('role');
+            $table->boolean('join_status')->default(0);
+            $table->boolean('reject')->default(0);
+            $table->boolean('admin')->default(1);
+            $table->string('role')->nullable();
             $table->timestamps();
             
             $table->foreign('user_id')

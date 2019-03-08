@@ -5,7 +5,7 @@
     <!--<download-logo></download-logo>-->
     <register-login-logo></register-login-logo>
     <section class="top">
-        <router-link to="/club">Clubページへ</router-link>
+        <router-link to="/selectclub/3">Clubページへ</router-link>
     </section>
     <the-footer></the-footer>
 </main>

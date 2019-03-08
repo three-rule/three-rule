@@ -32,10 +32,16 @@ class User extends Authenticatable implements JWTSubject
     public function user_type() {
       return $this->belongsTo('App\UserType');
     }
-    
-    
     public function club(){
       return $this->belongsTo('App\Club');
+    }
+    
+    
+    public function fan(){
+      return $this->hasMany('App\Fan');
+    }
+    public function club_fan(){
+      return $this->hasMany('App\ClubFan');
     }
     public function club_member(){
       return $this->hasMany('App\ClubMember');
@@ -97,6 +103,22 @@ class User extends Authenticatable implements JWTSubject
     }
     public function journal_comment_counts(){
       return $this->hasMany('App\JournalCommentCount');
+    }
+    
+    public function my_journal(){
+      return $this->hasMany('App\MyJournal');
+    }
+    public function my_journal_count(){
+      return $this->hasMany('App\MyJournalCount');
+    }
+    public function my_journal_comment(){
+      return $this->hasMany('App\MyJournalComment');
+    }
+    public function my_journal_comment_count(){
+      return $this->hasMany('App\MyJournalCommentCount');
+    }
+    public function topic(){
+      return $this->hasMany('App\Topic');
     }
     
     

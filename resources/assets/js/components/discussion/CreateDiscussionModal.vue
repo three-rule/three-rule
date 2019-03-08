@@ -45,9 +45,16 @@ export default {
         
     },
     methods: {
-        ...mapActions({
-            addDiscussion: 'club/addDiscussion'
-        }),
+        // ...mapActions({
+        //     addDiscussion: 'discussion/addDiscussion'
+        // }),
+        addDiscussion(body, image, club_id) {
+          this.$store.dispatch('discussion/addDiscussion', {
+              body: body, 
+              image: image, 
+              club_id: this.$route.params.id
+          })
+        },
         onFileChange(e) {
             if (e.target.files.length === 0) {
               this.reset()
@@ -74,7 +81,7 @@ export default {
             this.$el.querySelector('input[type="file"]').value = null
         },
         submit() {
-            this.addDiscussion({ image: this.image, body: this.body, user_id: 1, club_id: 1 })
+            this.addDiscussion({ body: this.body, image: this.image })
             this.$emit('close')
         }
     }

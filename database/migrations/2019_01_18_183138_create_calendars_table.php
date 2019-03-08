@@ -17,10 +17,15 @@ class CreateCalendarsTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('club_id');
-            $table->date('date_at');
-            $table->string('activity_id');
+            $table->date('start');
+            $table->date('end');
+            $table->string('title');
+            $table->string('tag');
             $table->string('schedule');
-            $table->boolean('check');
+            $table->string('start_time');
+            $table->string('end_time');
+            $table->string('url');
+            $table->string('description');
             $table->timestamps();
         });
     }

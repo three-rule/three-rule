@@ -17,6 +17,9 @@ class Club extends Model
     }
     
     
+    public function club_fan(){
+      return $this->hasMany('App\ClubFan');
+    }
     public function club_member(){
       return $this->hasMany('App\ClubMember');
     }
@@ -34,6 +37,9 @@ class Club extends Model
     public function menu(){
       return $this->hasMany('App\Menu');
     }
+    public function menu_tag(){
+      return $this->hasMany('App\MenuTag');
+    }
     public function menu_comment(){
       return $this->hasMany('App\MenuComment');
     }
@@ -41,14 +47,14 @@ class Club extends Model
     public function calendar(){
       return $this->hasMany('App\Calendar');
     }
-    public function calendar_comments(){
+    public function calendar_comment(){
       return $this->hasMany('App\CalendarComment');
     }
     
     public function journal(){
       return $this->hasMany('App\Journal');
     }
-    public function journal_comments(){
+    public function journal_comment(){
       return $this->hasMany('App\JournalComment');
     }
 }
