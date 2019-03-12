@@ -3,6 +3,7 @@
         <div class="sticky-header">
             <p>マイページ</p>
         </div>
+        
         <div class="profile">
             <div class="image-container">
                 <figure class="image">
@@ -14,60 +15,58 @@
                     <!--<input type="file" class="form-control" @change="imageChanged">-->
                     <!--<button type="button" @click="uploadImage">upload</button>-->
                 </figure>
+                <!--{{ mypage[0].mypage[0].icon }}-->
             </div>
             <div class="main-profile">
                 <div class="heading">
                 <!--<div class="heading" v-if="isEdit">-->
-                    {{ individualMypageData.name }}
+                    {{ mypage[0].name }}
                 </div>
                 <!--<div class="heading" v-else>-->
                 <!--    <input v-model="individualMypageData.name">-->
                 <!--</div>-->
                 <div class="favorite-motto" v-if="isEdit">
-                    {{ individualMypageData.mypage[0].oneword }}
+                    {{ mypage[0].mypage[0].oneword }}
                 </div>
                 <div class="favorite-motto" v-else>
-                    <input v-model="individualMypageData.mypage[0].oneword">
+                    <input v-model="mypage[0].mypage[0].oneword">
                 </div>
             </div>
             <div class="goal-container">
                 <div class="heading">
-                    目標
+                    3rule
                 </div>
                 <div class="long-term-goal">
                     <div class="left-item">
-                        長期目標
+                        ルール①
                     </div>
                     <div class="right-item" v-if="isEdit">
-                        {{ individualMypageData.mypage[0].commit_long }}:{{ individualMypageData.mypage[0].goal_long }}
+                        {{ mypage[0].mypage[0].rule_one }}
                     </div>
                     <div class="right-item" v-else>
-                        <input v-model="individualMypageData.mypage[0].commit_long">:
-                        <input v-model="individualMypageData.mypage[0].goal_long">
+                        <input v-model="mypage[0].mypage[0].rule_one">
                     </div>
                 </div>
                 <div class="medium-term-goal">
                     <div class="left-item">
-                        中期目標
+                        ルール②
                     </div>
                     <div class="right-item" v-if="isEdit">
-                        {{ individualMypageData.mypage[0].commit_mid }}:{{ individualMypageData.mypage[0].goal_mid }}
+                        {{ mypage[0].mypage[0].rule_two }}
                     </div>
                     <div class="right-item" v-else>
-                        <input v-model="individualMypageData.mypage[0].commit_mid">:
-                        <input v-model="individualMypageData.mypage[0].goal_mid">
+                        <input v-model="mypage[0].mypage[0].rule_two">
                     </div>
                 </div>
                 <div class="short-term-goal">
                     <div class="left-item">
-                        短期目標
+                        ルール③
                     </div>
                     <div class="right-item" v-if="isEdit">
-                        {{ individualMypageData.mypage[0].commit_short }}:{{ individualMypageData.mypage[0].goal_short }}
+                        {{ mypage[0].mypage[0].rule_three }}
                     </div>
                     <div class="right-item" v-else>
-                        <input v-model="individualMypageData.mypage[0].commit_short">:
-                        <input v-model="individualMypageData.mypage[0].goal_short">
+                        <input v-model="mypage[0].mypage[0].rule_three">
                     </div>
                 </div>
                 <!--<router-link :to="{ name: 'EditMypage', params: { id: $route.params.id } }" class="is-block btn-edit-goal">-->
@@ -82,35 +81,18 @@
                 <div class="heading">
                     日誌
                 </div>
+                <router-link :to="{ name: 'MyJournalCreate', params: { id: $route.params.id } }">
+                +
+                </router-link>
                 <!--<div class="journals">-->
                 <div class="journals" 
-                     v-for="journal in individualMypageData.journal" :key="journal.id">
+                     v-for="journal in mypage[0].my_journal" :key="journal.id">
                     <router-link :to="{ name: 'OneJournal', params: { id: journal.id } }" class="journal">
                         <p>
-                            <!--<span>2019.01.20</span><br />-->
-                            <span>{{ journal.activity_date }}</span><br />
-                            <!--<span>{{ journal.title }}</span>-->
+                            <span>{{ journal.activity_at }}</span><br />
+                            <span>{{ journal.title }}</span>
                         </p>
                     </router-link>
-                    
-                    <!--<router-link :to="{ name: 'OneJournal', params: { id: 2 } }" class="journal">-->
-                    <!--    <p>-->
-                    <!--        <span>2019.01.20</span><br />-->
-                    <!--        <span>title</span>-->
-                    <!--    </p>-->
-                    <!--</router-link>-->
-                    <!--<router-link :to="{ name: 'OneJournal', params: { id: 3 } }" class="journal">-->
-                    <!--    <p>-->
-                    <!--        <span>2019.01.20</span><br />-->
-                    <!--        <span>title</span>-->
-                    <!--    </p>-->
-                    <!--</router-link>-->
-                    <!--<router-link :to="{ name: 'OneJournal', params: { id: 4 } }" class="journal">-->
-                    <!--    <p>-->
-                    <!--        <span>2019.01.20</span><br />-->
-                    <!--        <span>title</span>-->
-                    <!--    </p>-->
-                    <!--</router-link>-->
                 </div>
             </div>
         </div>
@@ -133,18 +115,20 @@ export default {
         }
     },
     created() {
-      this.start()
+      this.getMypage()
     },
     computed: {
         ...mapGetters({
-            mypage: 'mypage/mypage',
-            individualMypageData: 'mypage/fetchIndividualMypageData'
+            mypage: 'mypage/mypage'
         }),
     },
     methods: {
         ...mapActions({
-            start: 'mypage/getMypage'
+            getMypage: 'mypage/getMypage'
         }),
+        getMypage(club_id, user_id) {
+          this.$store.dispatch('mypage/getMypage', { club_id: this.$route.params.id, user_id: this.$route.params.user_id })
+        },
         toggleEdit() {
           this.isEdit = !this.isEdit
         },
@@ -153,29 +137,26 @@ export default {
             let fileReader = new FileReader() 
             fileReader.readAsDataURL(e.target.files[0])
             fileReader.onload = (e) => {
-                this.individualMypageData.mypage[0].icon = e.target.result
+                this.mypage[0].mypage[0].icon = e.target.result
             }
         },
         onSubmit() {
             const params = {
                 // name:         this.individualMypageData.name,
-                oneword:      this.individualMypageData.mypage[0].oneword,
-                commit_long:  this.individualMypageData.mypage[0].commit_long,
-                goal_long:    this.individualMypageData.mypage[0].goal_long,
-                commit_mid:   this.individualMypageData.mypage[0].commit_mid,
-                goal_mid:     this.individualMypageData.mypage[0].goal_mid,
-                commit_short: this.individualMypageData.mypage[0].commit_short,
-                goal_short:   this.individualMypageData.mypage[0].goal_short
+                oneword:    this.mypage[0].mypage[0].oneword,
+                rule_one:   this.mypage[0].mypage[0].rule_one,
+                rule_two:   this.mypage[0].mypage[0].rule_two,
+                rule_three: this.mypage[0].mypage[0].rule_three
             };
             
-            axios.post('/mypage/update/'+ this.individualMypageData.mypage[0].id, params)
+            axios.put('/club/'+ this.$route.params.id +'/mypage/'+ this.mypage[0].mypage[0].id, params)
                 .then(response => {
                     swal("Updated!", "Your product has been opsated!", "success")
                     this.isEdit = !this.isEdit
                 })
         },
         uploadImage() {
-            axios.post('/mypage/upload/'+ this.$route.params.id, this.individualMypageData.mypage[0])
+            axios.post('/mypage/'+ this.mypage[0].mypage[0].id +'/icon', this.mypage[0].mypage[0].icon)
                 .then(response => {
                     swal("Updated!", "Your product has been opsated!", "success")
                 })

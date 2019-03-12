@@ -2,6 +2,9 @@
     <div>
         <div class="sticky-header">
             <p>One Discussion: {{ $route.params.discuss_id }}</p>
+            
+            
+            
         </div>
         <div class="discussion-timeline">
             <div class="discussion-container">
@@ -18,7 +21,7 @@
                                 </figure>
                             </div>
                             <div class="contributor-name">
-                                {{ getDiscussionData.user_id }}
+                                {{ getDiscussionData.user.name }}
                             </div>
                         </div>
                         <div class="discussion-right-part">
@@ -27,7 +30,7 @@
                                     {{ getDiscussionData.body }}
                                 </p>
                             </div>
-                            <div class="post-image">
+                            <!--<div class="post-image">-->
                                 <!--<figure class="image">-->
                                 <!--    <progressive-img-->
                                 <!--        src="http://placehold.jp/250x150.png"-->
@@ -35,13 +38,14 @@
                                 <!--        :blur="30"-->
                                 <!--    />-->
                                 <!--</figure>-->
-                                <figure class="image">
-                                    <progressive-img
-                                        :src="'../images/' + getDiscussionData.image"
-                                        :blur="30"
-                                    />
-                                </figure>
-                            </div>
+                                <!--<figure class="image">-->
+                                <!--    <progressive-img-->
+                                <!--        :src="'../images/' + getDiscussionData.image"-->
+                                <!--        :blur="30"-->
+                                <!--    />-->
+                                <!--    {{ getDiscussionData.user.mypage[0].icon }}-->
+                                <!--</figure>-->
+                            <!--</div>-->
                         </div>
                     </div>
                 </div>
@@ -56,7 +60,7 @@
             </div>
             <div class="discussion-spaces">
                 <div class="discussion-spaces-wrapper">
-                    <div v-for="item in getDiscussionData.discussion_comments" :key="item.id" class="one-discussion">
+                    <div v-for="item in getDiscussionData.discussion_comment" :key="item.id" class="one-discussion">
                         <div class="one-discussion-wrapper">
                             <div class="one-discussion-left-part">
                                 <div class="contributor-image contributor-image__commenter">
@@ -66,12 +70,15 @@
                                             placeholder="http://placehold.jp/48x48.png"
                                             :blur="30"
                                         />
+                                        <!--{{ item.user.mypage[0].icon }}-->
                                     </figure>
                                 </div>
                             </div>
                             <div class="one-discussion-right-part">
                                 <div class="contributor-name contributor-name__commenter">
-                                    {{ item.user_id }}
+                                    <!--{{ item.user_id }}-->
+                                    
+                                    {{ item.user.name }}
                                 </div>
                                 <div class="post-contents">
                                     {{ item.comment }}
@@ -83,57 +90,35 @@
                             </div>
                         </div>
                     </div>
-                    <!--<div class="one-discussion">-->
-                    <!--    <div class="one-discussion-wrapper">-->
-                    <!--        <div class="one-discussion-left-part">-->
-                    <!--            <div class="contributor-image contributor-image__commenter">-->
-                    <!--                <figure class="image">-->
-                    <!--                    <progressive-img-->
-                    <!--                        src="http://placehold.jp/48x48.png"-->
-                    <!--                        placeholder="http://placehold.jp/48x48.png"-->
-                    <!--                        :blur="30"-->
-                    <!--                    />-->
-                    <!--                </figure>-->
-                    <!--            </div>-->
-                    <!--        </div>-->
-                    <!--        <div class="one-discussion-right-part">-->
-                    <!--            <div class="contributor-name contributor-name__commenter">-->
-                    <!--                上のゆゆま-->
-                    <!--            </div>-->
-                    <!--            <div class="post-contents">-->
-                    <!--                ギャルだーいすき-->
-                    <!--            </div>-->
-                    <!--        </div>-->
-                    <!--    </div>-->
-                    <!--</div>-->
                 </div>
             </div>
         </div>
         <div class="footer-comment">
             <div class="d-flex">
                 <input type="text" name="" v-model="comment" class="footer-input" placeholder="コメントを入力">
-                <button class="footer-btn" @click="handleSendComment(comment, getDiscussionData.id, 1, getDiscussionData.club_id)"><i class="fab fa-apple color"></i></button>
+                <button class="footer-btn" @click="handleSendComment(comment, selectClubData[0].id, getDiscussionData.id)"><i class="fab fa-apple color"></i></button>
             </div>
         </div>
         <edit-discussion-comment-modal
-        v-if="editDiscussionCommentModalShow"
-        @close="editDiscussionCommentModalToggle"
-        :comment="comment"
-        :discussion_id="getDiscussionData.id"
-        :user_id=1
-        :comment_id="comment_id"
-        :club_id="getDiscussionData.club_id"
-        :handleEditComment="handleEditComment">
+            v-if="editDiscussionCommentModalShow"
+            @close="editDiscussionCommentModalToggle"
+            :comment="comment"
+            :club_id="$route.params.id"
+            :discuss_id="getDiscussionData.id"
+            :user_id="selectClubData[0].id"
+            :comment_id="comment_id"
+            :handleEditComment="handleEditComment">
         </edit-discussion-comment-modal>
+        
         <delete-discussion-comment-modal
-        v-if="deleteDiscussionCommentModalShow"
-        @close="deleteDiscussionCommentModalToggle"
-        :comment="comment"
-        :discussion_id="getDiscussionData.id"
-        :user_id=1
-        :comment_id="comment_id"
-        :club_id="getDiscussionData.club_id"
-        :handleDeleteComment="handleDeleteComment">
+            v-if="deleteDiscussionCommentModalShow"
+            @close="deleteDiscussionCommentModalToggle"
+            :comment="comment"
+            :discuss_id="getDiscussionData.id"
+            :user_id="selectClubData[0].id"
+            :comment_id="comment_id"
+            :club_id="$route.params.id"
+            :handleDeleteComment="handleDeleteComment">
         </delete-discussion-comment-modal>
     </div>
 </template>
@@ -160,23 +145,39 @@ export default {
     },
     computed: {
         ...mapGetters({
-            clubData: 'club/clubData',
-            getDiscussionData: 'club/getDiscussionData' 
+            clubData: 'discussion/discussionData',
+            getDiscussionData: 'discussion/getDiscussionData',
+            selectClubData: 'club/selectClubData'
         })
     },
     methods: {
         ...mapActions({
-            sendComment: 'club/sendComment',
-            editSendComment: 'club/editSendComment',
-            deleteSendComment: 'club/deleteSendComment',
+            // sendComment: 'discussion/sendComment',
+            // editSendComment: 'discussion/editSendComment',
+            deleteSendComment: 'discussion/deleteSendComment',
         }),
-        handleSendComment(comment, discussion_id, user_id, club_id) {
-            this.sendComment({ comment: comment, discussion_id: discussion_id, user_id: user_id, club_id: club_id })
+        sendComment(comment, club_id, discuss_id) {
+          this.$store.dispatch('discussion/sendComment', {
+              comment: comment, 
+              club_id: this.$route.params.id,
+              discuss_id: this.$route.params.discuss_id
+          })
+        },
+        editSendComment(comment, club_id, discuss_id, discuss_comment_id) {
+          this.$store.dispatch('discussion/editSendComment', {
+              comment: comment, 
+              club_id: this.$route.params.id,
+              discuss_id: this.$route.params.discuss_id,
+              discuss_comment_id: this.comment_id
+          })
+        },
+        handleSendComment(comment) {
+            this.sendComment({ comment: comment })
             this.comment = ''
         },
         editDiscussionCommentModalToggle(comment, id) {
             this.comment_id = id
-            this.comment = comment
+            this.comment    = comment
             this.editDiscussionCommentModalShow = !this.editDiscussionCommentModalShow
         },
         deleteDiscussionCommentModalToggle(comment, id) {
@@ -185,7 +186,7 @@ export default {
             this.deleteDiscussionCommentModalShow = !this.deleteDiscussionCommentModalShow
         },
         handleEditComment(comment, id) {
-            this.editSendComment({ comment: comment, id: id })
+            this.editSendComment({ comment: comment })
             this.editDiscussionCommentModalShow = false
             this.comment = ''
             this.comment_id = ''

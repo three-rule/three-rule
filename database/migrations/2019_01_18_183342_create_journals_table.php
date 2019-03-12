@@ -23,7 +23,7 @@ class CreateJournalsTable extends Migration
             $table->string('improvement');
             $table->string('nextaction');
             $table->string('free');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
             
             $table->foreign('club_id')

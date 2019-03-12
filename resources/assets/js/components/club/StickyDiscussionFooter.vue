@@ -1,16 +1,19 @@
+
 <template>
     <div class="sticky-footer">
-        <router-link to="/club" class="left-item">
+        <router-link :to="{ name: 'Club', params: { id: $route.params.id } }" class="left-item">
             <div>
                 <i class="fas fa-home"></i>
             </div>
         </router-link>
+        
         <div class="post-discussion">
             <button class="btn-post" @click="createDiscussionModalToggle">
                 <i class="fas fa-plus"></i>
             </button>
         </div>
-        <router-link to="/mypage" class="right-item">
+        
+        <router-link :to="{ name: 'Mypage', params: { user_id: selectClubData[0].id  } }" class="right-item">
             <div>
                 <i class="fas fa-user"></i>
             </div>
@@ -19,6 +22,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
     data () {
         return {
@@ -26,6 +31,11 @@ export default {
     },
     props: {
         createDiscussionModalToggle: Function
+    },
+    computed: {
+        ...mapGetters({
+            selectClubData: 'club/selectClubData'
+        })
     }
 };
 </script>

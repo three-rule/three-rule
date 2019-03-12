@@ -17,7 +17,7 @@ class JournalComment extends Model
     }
     
     
-    public function journal_comment_counts()
+    public function journal_comment_count()
     {
       return $this->hasMany('App\JournalCommentCount');
     }

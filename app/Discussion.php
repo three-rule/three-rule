@@ -13,10 +13,10 @@ class Discussion extends Model
         return $this->belongsTo('App\Club');
     }
     
-    public function discussion_counts(){
+    public function discussion_count(){
       return $this->hasMany('App\DiscussionCount');
     }
-    public function discussion_comments(){
+    public function discussion_comment(){
       return $this->hasMany('App\DiscussionComment');
     }
 }

@@ -5,8 +5,10 @@ const state = {
 }
 
 const actions = {
-  async getMypage({ commit }, data) {
-    const res = await axios.get('/mypage', data)
+  async getMypage({ commit }, payload) {
+    // console.log(payload.club_id);
+    // console.log(payload.user_id);
+    const res = await axios.get('club/'+ payload.club_id +'/mypage/'+ payload.user_id, payload)
     commit('setMypage', res.data)
   }
 };
@@ -18,15 +20,8 @@ const mutations = {
 };
 
 const getters = {
-   mypage: (state, getters, rootState) => state.mypage,
-  
-   fetchIndividualMypageData: (state, getters, rootState) => {
-         const mypageId = Number(rootState.route.params.id);
-         return getters.mypage.find(mypage => mypage.id === mypageId);
-   }
+   mypage: (state, getters, rootState) => state.mypage.data,
 };
-
-
 
 export default {
     namespaced: true,

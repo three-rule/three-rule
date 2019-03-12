@@ -11,11 +11,8 @@ $factory->define(App\Mypage::class, function (Faker $faker) {
         'user_id'         => $faker->numberBetween(1, 10),
         'icon'            => $fileRealPath,
         'oneword'         => $faker->realText(10),
-        'goal_long'       => $faker->realText(30),
-        'commit_long_at'  => $faker->date($format='Y-m-d',$min='now'),
-        'goal_mid'        => $faker->realText(30),
-        'commit_mid_at'   => $faker->date($format='Y-m-d',$min='now'),
-        'goal_short'      => $faker->realText(30),
-        'commit_short_at' => $faker->date($format='Y-m-d',$min='now'),
+        'rule_one'       => $faker->realText(30),
+        'rule_two'        => $faker->realText(30),
+        'rule_three'      => $faker->realText(30)
     ];
 });

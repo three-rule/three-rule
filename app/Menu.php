@@ -19,6 +19,9 @@ class Menu extends Model
       return $this->belongsTo('App\Position');
     }
     
+    public function menu_tag(){
+      return $this->hasMany('App\MenuTag');
+    }
     public function menu_counts(){
       return $this->hasMany('App\MenuCount');
     }

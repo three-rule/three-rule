@@ -93,7 +93,7 @@ export default {
         }),
         async handleLogin() {
             await this.login({ email: this.user.email, password: this.user.password })
-            this.$router.push('/mypage/1')
+            this.$router.push('/selectclub/3')
         },
     }
 }

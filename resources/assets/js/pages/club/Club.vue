@@ -6,29 +6,31 @@
                 placeholder="http://placehold.jp/1280x320.png"
                 :blur="30"
             />
-            <!--<img :src="storage/app/public/upload/{{ individualClubData.image }}">-->
+            <!--<img :src="storage/app/public/upload/{{ clubData.image }}">-->
         </figure>
         <div class="club-heading">
             <h1 class="club-name">
-                {{ individualClubData.school_name }}
-                <span v-if="individualClubData.school_calling_id == 1">小学校</span>
-                <span v-else-if="individualClubData.school_calling_id == 2">中学校</span>
-                <span v-else-if="individualClubData.school_calling_id == 3">高校</span>
-                <span v-else-if="individualClubData.school_calling_id == 4">高専</span>
-                <span v-else-if="individualClubData.school_calling_id == 5">専門学校</span>
-                <span v-else-if="individualClubData.school_calling_id == 6">短期大学</span>
-                <span v-else-if="individualClubData.school_calling_id == 7">大学</span>
+                {{ clubData[0].school_name }}
+                {{ clubData[0].school_calling }}
+                <!--<span v-if="clubData.school_calling_id == 1">小学校</span>-->
+                <!--<span v-else-if="clubData.school_calling_id == 2">中学校</span>-->
+                <!--<span v-else-if="clubData.school_calling_id == 3">高校</span>-->
+                <!--<span v-else-if="clubData.school_calling_id == 4">高専</span>-->
+                <!--<span v-else-if="clubData.school_calling_id == 5">専門学校</span>-->
+                <!--<span v-else-if="clubData.school_calling_id == 6">短期大学</span>-->
+                <!--<span v-else-if="clubData.school_calling_id == 7">大学</span>-->
 
-                {{ individualClubData.club_name }}
-                <span v-if="individualClubData.club_calling_id == 1">部</span>
-                <span v-else-if="individualClubData.club_calling_id == 2">クラブ</span>
-                <span v-else-if="individualClubData.club_calling_id == 3">サークル</span>
-                <span v-else-if="individualClubData.club_calling_id == 4">同好会</span>
+                {{ clubData[0].club_name }}
+                {{ clubData[0].club_calling }}
+                <!--<span v-if="clubData.club_calling_id == 1">部</span>-->
+                <!--<span v-else-if="clubData.club_calling_id == 2">クラブ</span>-->
+                <!--<span v-else-if="clubData.club_calling_id == 3">サークル</span>-->
+                <!--<span v-else-if="clubData.club_calling_id == 4">同好会</span>-->
             </h1>
             <router-link :to="{ name: 'ClubMember', params: { id: $route.params.id } }">
                 <h2 class="club-member">
                     部員数
-                    <span>{{ individualClubData.user.length }}</span>
+                    <span>{{ clubData[0].club_member.length }}</span>
                     人
                 </h2>
             </router-link>
@@ -43,11 +45,11 @@
             
             <div class="club-strategy">
                 <div class="main-strategy" v-if="isEdit">
-                    {{ individualClubData.policy }}
+                    {{ clubData[0].policy }}
                 </div>
                 
                 <div class="club-strategy" v-else>
-                    <input class="main-strategy" v-model="individualClubData.policy">
+                    <input class="main-strategy" v-model="clubData[0].policy">
                 </div>
             </div>
         </div>
@@ -63,11 +65,11 @@
                 
                 <!--<div class="club-strategy">-->
                 <!--    <div class="main-strategy" v-if="isEdit">-->
-                <!--        {{ individualClubData.policy }}-->
+                <!--        {{ clubData[0].policy }}-->
                 <!--    </div>-->
                     
                 <!--    <div class="club-strategy" v-else>-->
-                <!--        <input class="main-strategy" v-model="individualClubData.policy">-->
+                <!--        <input class="main-strategy" v-model="clubData[0].policy">-->
                 <!--    </div>-->
                 <!--</div>-->
             <!--</div>-->
@@ -86,10 +88,10 @@
                         </div>
                     </div>
                     <div class="rule-text" v-if="isEdit">
-                        {{ individualClubData.rule_one }}
+                        {{ clubData[0].rule_one }}
                     </div>
                     <div class="rule-text" v-else>
-                        <input class="main-strategy" v-model="individualClubData.rule_one">
+                        <input class="main-strategy" v-model="clubData[0].rule_one">
                     </div>
                 </div>
                 <div class="club-3rule">
@@ -102,10 +104,10 @@
                         </div>
                     </div>
                     <div class="rule-text" v-if="isEdit">
-                        {{ individualClubData.rule_two }}
+                        {{ clubData[0].rule_two }}
                     </div>
                     <div class="rule-text" v-else>
-                        <input class="main-strategy" v-model="individualClubData.rule_two">
+                        <input class="main-strategy" v-model="clubData[0].rule_two">
                     </div>
                 </div>
                 <div class="club-3rule">
@@ -118,10 +120,10 @@
                         </div>
                     </div>
                     <div class="rule-text" v-if="isEdit">
-                        {{ individualClubData.rule_three }}
+                        {{ clubData[0].rule_three }}
                     </div>
                     <div class="rule-text" v-else>
-                        <input class="main-strategy" v-model="individualClubData.rule_three">
+                        <input class="main-strategy" v-model="clubData[0].rule_three">
                     </div>
                 </div>
             </div>
@@ -139,12 +141,12 @@
                     </router-link>
                 </li>
                 <li>
-                    <router-link to="/menu">
+                    <router-link :to="{ name: 'Menu', params: { id: $route.params.id } }">
                         <i class="fas fa-ellipsis-h"></i>
                     </router-link>
                 </li>
                 <li>
-                    <router-link to="/calendar">
+                    <router-link :to="{ name: 'Calendar', params: { id: $route.params.id } }">
                         <i class="fas fa-calendar-alt"></i>
                     </router-link>
                 </li>
@@ -176,57 +178,38 @@ export default {
         }
     },
     created() {
-      this.start()
+      this.getClub()
     },
     computed: {
         ...mapGetters({
-            individualClubData: 'club/fetchIndividualClubData',
-        }),
-        
-        // policy: {
-        //     set(value) {
-        //         this.$store.commit('updatePolicy',value)
-        //         console.log('aaa')
-        //     }
-        // }
+            clubData: 'club/clubData'
+        })
     },
     methods: {
-        ...mapActions({
-            start: 'club/getClub'
-        }),
-        
+        // ...mapActions({
+        //     getClub: 'club/getClub'
+        // }),
+        getClub(club_id) {
+          this.$store.dispatch('club/getClub', this.$route.params.id)
+        },
         toggleEdit() {
           this.isEdit = !this.isEdit
         },
         
         onSubmit() {
             const params = {
-                policy: this.individualClubData.policy,
-                rule_one: this.individualClubData.rule_one,
-                rule_two: this.individualClubData.rule_two,
-                rule_three: this.individualClubData.rule_three
+                policy: this.clubData[0].policy,
+                rule_one: this.clubData[0].rule_one,
+                rule_two: this.clubData[0].rule_two,
+                rule_three: this.clubData[0].rule_three
             };
             
-            axios.post('/club/update/'+ this.$route.params.id, params)
+            axios.put('/club/'+ this.$route.params.id +'/rules', params)
                 .then(response => {
                     swal("Updated!", "Your product has been opsated!", "success")
                     this.isEdit = !this.isEdit
                 })
-        },
-        // ruleUpdate() {
-        //     const paramRules = {
-        //         rule_one: this.individualClubData.rule_one,
-        //         rule_two: this.individualClubData.rule_two,
-        //         rule_three: this.individualClubData.rule_three
-        //     };
-        //     axios.post('/club/update/'+ this.$route.params.id, paramRules)
-        //         .then(response => {
-        //             swal("Updated!", "Your product has been opsated!", "success")
-        //             console.log(params)
-        //             this.ruleEdit = !this.ruleEdit
-        //         })
-            
-        // }
+        }
     }
 };
 </script>

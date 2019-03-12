@@ -17,11 +17,10 @@ class CreateMenusTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('club_id')->unsigned();
-            $table->string('goal_today');
-            $table->date('date');
+            $table->integer('tag');
             $table->string('title');
-            $table->integer('timezone_id');
-            $table->integer('position_id');
+            $table->string('url');
+            $table->string('description');
             $table->timestamps();
             
             $table->foreign('club_id')

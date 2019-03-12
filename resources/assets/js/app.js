@@ -15,6 +15,9 @@ import VueProgressiveImage from 'vue-progressive-image';
 import { sync } from 'vuex-router-sync';
 import store from './store/index';
 import router from './router/index';
+import fullCalendar from 'vue-fullcalendar';
+
+Vue.component('full-calendar', fullCalendar)
 
 Vue.use(VueAxios, axios); 
 sync(store, router);

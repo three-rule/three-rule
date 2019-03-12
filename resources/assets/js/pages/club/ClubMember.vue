@@ -1,62 +1,52 @@
 <template>
     <div>
+        <!--<div v-for="member in memberData[0].club_member" :key="member.id">-->
+        <!--    <div v-for="mypage in member.user.mypage" :key="mypage.id">-->
+        <!--        {{ mypage.icon }}-->
+        <!--    </div>-->
+        <!--    {{ member.user.name }} | -->
+        <!--    {{ member.role }}-->
+        <!--</div>-->
+        <!-------------------->
+        <!--{{ memberData[0].club_member[0].user.mypage[0].icon }}-->
+        <!--{{ memberData[0].club_member[0].user_id }}-->
+        <!------------------------------>
+        <!--{{ memberData[0].club_member }}-->
+        
         <div class="sticky-header">
             <p>メンバー</p>
         </div>
         <div class="member-container">
-            <!--<div class="member" v-for="user in memberData.user" :key="user.id">-->
-                <!--<router-link :to="{ name: 'Mypage', params: { id: user.id } }">-->
-                <!--    <figure class="image">-->
-                <!--        <progressive-img-->
-                <!--            src="https://placehold.jp/64x64.png"-->
-                <!--            placeholder="https://placehold.jp/64x64.png"-->
-                <!--            :blur="30"-->
-                <!--        />-->
-                <!--    </figure>-->
-                    
-                <!--    <div class="member-info">-->
-                <!--        <div class="member-heading">-->
-                <!--            <div class="member-title">-->
-                <!--                {{ user.name }}-->
-                <!--            </div>-->
-                <!--        </div>-->
-                <!--    </div>-->
-                <!--</router-link>-->
-                
-                
-            <!--    <div class="member-label" v-if="isEdit" @click="toggleEdit">-->
-            <!--        {{ user.club_member[0].role }}-->
-            <!--    </div>-->
-            <!--    <div class="member-label" v-else>-->
-            <!--       <input v-model="user.club_member[0].role">-->
-            <!--       <button type="button" @click="roleUpdate">完了</button>-->
-            <!--    </div>-->
-                
-            <!--    <div class="angle-right">-->
-            <!--        <i class="fa fa-angle-right"></i>-->
-            <!--    </div>-->
-            <!--</div>-->
             
-            <router-link class="member" :to="{ name: 'Mypage', params: { id: user.id } }" v-for="user in memberData.user" :key="user.id">
+            <button type="button" @click="toggleEdit" v-if="isEdit">Edit</button>
+            <button type="button" @click="roleUpdate" v-else>Save</button>
+            
+            <!--<router-link class="member" :to="{ name: 'Mypage', params: { id: user.id } }" v-for="user in memberData[0].user" :key="user.id">-->
+            <!--<router-link class="member" :to="{ name: 'Mypage', params: { id: member.user_id } }" v-for="member in memberData[0].club_member" :key="member.id">-->
+            <div v-for="member in memberData[0].club_member" :key="member.id">
                 <figure class="image">
                     <progressive-img
                         src="https://placehold.jp/64x64.png"
                         placeholder="https://placehold.jp/64x64.png"
                         :blur="30"
                     />
+                    <div v-for="mypage in member.user.mypage" :key="mypage.id">
+                        {{ mypage.icon }}
+                    </div>
                 </figure>
                 
                 <div class="member-info">
                     <div class="member-heading">
                         <div class="member-title">
-                            {{ user.name }}
+                            {{ member.user.name }}
+                            {{ member.user_id }}
                         </div>
                         
                         <div class="member-label" v-if="isEdit" @click="toggleEdit">
-                            {{ user.club_member[0].role }}
+                            {{ member.role }}
                         </div>
                         <div class="member-label" v-else>
-                           <input v-model="user[0].club_member[0].role">
+                           <input v-model="member.role">
                         </div>
                     </div>
                 </div>
@@ -64,7 +54,8 @@
                 <div class="angle-right">
                     <i class="fa fa-angle-right"></i>
                 </div>
-            </router-link>
+            </div>
+            <!--</router-link>-->
         </div>
         <sticky-footer></sticky-footer>
     </div>
@@ -80,12 +71,15 @@ export default {
     },
     data () {
         return {
-            isEdit: true
+            isEdit: true,
+            member: {
+                role: ''
+            }
         }
     },
     computed: {
         ...mapGetters({
-            memberData: 'club/fetchIndividualClubData'
+            memberData: 'club/clubData'
         }),
     },
     methods: {
@@ -93,11 +87,13 @@ export default {
           this.isEdit = !this.isEdit
         },
         roleUpdate() {
-            // const params = {
-            //     role:user.club_member[0].role
-            // };
+            const params = {
+                role: this.member.role
+            };
             
-            axios.post('/club/role/'+ this.user.club_member[0].id, user.club_member[0].role)
+            console.log(params)
+            axios.patch('/club/'+ this.$route.params.id +'/role', params)
+            // axios.post('/club/'+ this.$route.params.id +'/users/'+ this.member.user_id +'/role', member.role)
                 .then(response => {
                     swal("Updated!", "Your product has been opsated!", "success")
                     this.isEdit = !this.isEdit

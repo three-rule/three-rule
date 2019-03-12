@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class ClubMember extends Model
 {
+    // protected $fillable = [
+    //   'id',
+    //   'role'  
+    // ];
+  
     public function user() {
       return $this->belongsTo('App\User');
     }

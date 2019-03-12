@@ -5,9 +5,10 @@
         </div>
         <div class="discussion-timeline">
             <div class="discussion-container">
-                <div v-for="item in fetchIndividualClubData.discussion" :key="item.id" class="discussion-wrapper">
+                <div v-for="discuss in discussionData[0].discussion" :key="discuss.id" class="discussion-wrapper">
+
                     <div>
-                        <router-link :to="{ name: 'OneDiscussion', params: { discuss_id: item.id, club_id: item.club_id } }" class="discussion">
+                        <router-link :to="{ name: 'OneDiscussion', params: { id: $route.params.id, discuss_id: discuss.id } }" class="discussion">
                             <div class="discussion-left-part">
                                 <div class="contributor-image">
                                     <figure class="image">
@@ -21,35 +22,33 @@
                             </div>
                             <div class="discussion-right-part">
                                 <div class="contributor-name">
-                                    {{ item.user_id }}
+                                    {{ discuss.user.name }}
                                 </div>
                                 <div class="post-contents">
                                     <p class="content">
-                                        {{ item.body }}
+                                        {{ discuss.body }}
                                     </p>
                                 </div>
                                 <div class="post-image">
                                     <figure class="image">
-                                        <progressive-img 
-                                             v-if="item.image"
-                                            :src="'../images/' + item.image"
-                                        />
+                                        <!--<progressive-img -->
+                                        <!--     v-if="discuss.image"-->
+                                        <!--    :src="'../images/' + discuss.image"-->
+                                        <!--/>-->
+                                        <!--{{ discuss.user.mypage[0].icon }}-->
                                     </figure>
                                 </div>
                                 <div class="discussion-btn">
-                                    <div class="discussion-btn-part">
-                                        <i class="fas fa-heart has-text-danger" @click.prevent="handleGood(item.id)" v-if="item.discussion_counts.find(like => like.user_id == 1)"></i>
-                                        <i class="far fa-heart has-text-black" @click.prevent="handleGood(item.id)" v-else></i>
-                                        <span class="discussion-count">{{ item.discussion_counts.length }}</span>
-                                        <!--<span class="discussion-count">0</span>-->
+                                    <div class="discussion-btn-part">   
+                                            <i class="fas fa-heart has-text-danger" @click.prevent="handleGood(selectClubData[0].id, discuss.id)" v-if="discuss.discussion_count.find(like => like.user_id == selectClubData[0].id)"></i>
+                                            <i class="far fa-heart has-text-black" @click.prevent="handleGood(selectClubData[0].id, discuss.id)" v-else></i>
+                                        <span class="discussion-count">{{ discuss.discussion_count.length }}</span>
                                     </div>
-                                    <!--<div class="discussion-btn-part comment-count-part">-->
-                                    <!--    <i class="far fa-comment has-text-black"></i>-->
-                                    <!--    <span class="discussion-count">{{ item.discussion_comments.length }}</span>-->
-                                    <!--</div>-->
                                 </div>
-                                <div class="comment-contributor" v-if="item.discussion_comments.length != 0">
-                                    <div class="comment-contributor-image">
+                                <div class="comment-contributor" v-if="discuss.discussion_comment.length != 0">
+                                    <div class="comment-contributor-image"
+                                        v-for="comment in discuss.discussion_comment" :key="comment.id">
+                                        
                                         <figure class="image">
                                             <progressive-img
                                                 src="http://placehold.jp/24x24.png"
@@ -57,40 +56,27 @@
                                                 :blur="30"
                                             />
                                         </figure>
+                                        <!--{{ comment.user.mypage[0].icon }}-->
                                     </div>
                                     <div class="comment-count">
-                                        <span>{{ item.discussion_comments.length }}</span>
-                                        <!--<span>0</span>-->
+                                        <span>{{ discuss.discussion_comment.length }}</span>
                                         <span>件の返信</span>
                                     </div>
                                 </div>
                             </div>
                         </router-link>
                     </div>
-                        <!--<div class="discussion-btn">-->
-                        <!--    <div class="discussion-btn-part">-->
-                        <!--        <i class="fas fa-heart has-text-danger"-->
-                        <!--        @click="handleGood(item.id)"-->
-                        <!--        v-if="item.discussion_counts.find(like => like.user_id == 1)">-->
-                        <!--        </i>-->
-                        <!--        <i class="far fa-heart has-text-black" @click="handleGood(item.id)" v-else></i>-->
-                        <!--        <span class="discussion-count">{{ item.discussion_counts.length }}</span>-->
-                        <!--    </div>-->
-                        <!--    <div class="discussion-btn-part comment-count-part">-->
-                        <!--        <i class="far fa-comment has-text-black"></i>-->
-                        <!--        <span class="discussion-count">0</span>-->
-                        <!--    </div>-->
-                        <!--</div>-->
+                    <hr />
                 </div>
             </div>
             <sticky-discussion-footer
-            :createDiscussionModalToggle='createDiscussionModalToggle'>
+                :createDiscussionModalToggle='createDiscussionModalToggle'>
             </sticky-discussion-footer>
             
             <div>
                 <create-discussion-modal
-                v-if="createDiscussionModalShow"
-                @close="createDiscussionModalToggle">
+                    v-if="createDiscussionModalShow"
+                    @close="createDiscussionModalToggle">
                 </create-discussion-modal>
             </div>
         </div>
@@ -112,25 +98,30 @@ export default {
         }
     },
     created() {
-        this.getClub()
+        this.getDiscussion()
     },
     computed: {
         ...mapGetters({
-            clubData: 'club/clubData',
-            fetchIndividualClubData: 'club/fetchIndividualClubData',
+            discussionData: 'discussion/discussionData',
+            selectClubData: 'club/selectClubData'
         })
     },
     methods: {
-        ...mapActions({
-            getClub: 'club/getClub',
-            addDiscussionLike: 'club/addDiscussionLike',
-            getUsers: 'user/getUsers'
-        }),
+        // ...mapActions({
+        //     getDiscussion: 'discussion/getDiscussion',
+        //     addDiscussionLike: 'discussion/addDiscussionLike'
+        // }),
+        getDiscussion(club_id) {
+          this.$store.dispatch('discussion/getDiscussion', this.$route.params.id)
+        },
+        addDiscussionLike(club_id, discuss_id) {
+          this.$store.dispatch('discussion/addDiscussionLike', { club_id: this.$route.params.id, discuss_id: discuss_id.discuss_id })
+        },
         createDiscussionModalToggle() {
             this.createDiscussionModalShow = !this.createDiscussionModalShow
         },
-        handleGood(discussion_id) {
-            this.addDiscussionLike({ discussion_id: discussion_id, user_id: 1 })
+        handleGood(club_id, discuss_id) {
+            this.addDiscussionLike({club_id: club_id}, {discuss_id: discuss_id})
         }
     }
 };

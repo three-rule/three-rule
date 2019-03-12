@@ -6,7 +6,7 @@
             </div>
         </router-link>
         <!--<router-link to="/mypage" class="right-item">-->
-        <router-link :to="{ name: 'Mypage', params: { id: 3 } }" class="right-item">
+        <router-link :to="{ name: 'Mypage', params: { user_id: selectClubData[0].id  } }" class="right-item">
             <div>
                 <i class="fas fa-user"></i>
             </div>
@@ -15,10 +15,17 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
     data () {
         return {
         }
+    },
+    computed: {
+        ...mapGetters({
+            selectClubData: 'club/selectClubData'
+        })
     }
 };
 </script>
